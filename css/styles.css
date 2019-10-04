@@ -1,0 +1,180 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css?family=BioRhyme&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Nunito&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap');
+
+
+html,
+body {
+    height:100%;
+ min-height:100%; 
+    width: 100%;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+body {
+    /*background-image: linear-gradient(rgba(255, 0, 0, 0.3), rgba(0, 255, 0, 0.3), rgba(0, 0, 255, 0.3)), url("../img/bg.jpg");*/
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+}
+
+
+*:focus {
+    outline: none;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+.body-top {
+    padding-top: 70px;
+}
+
+.main {
+    /*height: 100%;*/
+    width: 100%;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-flow: row;
+    flex-flow: row;
+}
+
+.main>article,
+.main>aside {
+    margin: 4px;
+    padding: 1em;
+}
+
+.main>article {
+    /*background: #996;*/
+    -webkit-flex: 4 1 0;
+    flex: 4 1 0;
+    width: 80%;
+    -webkit-order: 2;
+    order: 2;
+}
+
+.main>aside {
+    /*background: #663;*/
+    -webkit-flex: 1 6 0;
+    flex: 1 6 0;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.68), rgba(0, 0, 0, 0.68));
+}
+
+
+.main>aside,
+.main>aside.rightaside {
+    -webkit-order: 3;
+    order: 3;
+}
+
+.main>aside.leftaside {
+    -webkit-order: 1;
+    order: 1;
+}
+
+
+/* Too narrow to support three columns */
+@media all and (max-width: 780px) {
+
+    .main,
+    #page {
+        -webkit-flex-flow: column;
+        flex-flow: column;
+    }
+
+    .main>article,
+    .main>aside {
+        margin: 10px;
+        /* Return them to document order */
+        -webkit-order: 0;
+        order: 0;
+        width: 100%;
+    }
+
+    .main>aside {
+        min-height: 50px;
+
+    }
+}
+
+.form-header-text {
+    text-align: center;
+    color: white;
+    /*font-size: 35px;*/
+    background: linear-gradient(330deg, #e05252 0%, #99e052 25%, #52e0e0 50%, #9952e0 75%, #e05252 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.signup-signin-text {
+    margin-block-start: 0em;
+    /*margin-block-end: 0.83em;*/
+    text-align: center;
+    color: white;
+    font-size: 35px;
+    background: linear-gradient(330deg, #e05252 0%, #99e052 25%, #52e0e0 50%, #9952e0 75%, #e05252 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
+.capital {
+    text-transform: uppercase;
+}
+
+.mt-5 {
+    margin-top: 5px;
+}
+
+.mb-5 {
+    margin-bottom: 5px;
+}
+
+.mb-10 {
+    margin-bottom: 10px;
+}
+
+.mb-20 {
+    margin-bottom: 20px;
+}
+
+
+
+.box {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.68), rgba(0, 0, 0, 0.68));
+    margin: auto auto;
+    width: 35vw;
+    padding: 40px 25px;
+    border-radius: 20px;
+
+}
+
+.group {
+    position: relative;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.box .row {
+    width: 100%;
+
+}
+
+.box .input-box {
+    width: 100%;
+}
+
+.box .row .group {
+    width: 49%;
+}

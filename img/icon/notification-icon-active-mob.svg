@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="40px" height="37px" viewBox="0 0 40 37" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.1 (72631) - https://sketchapp.com -->
+    <title>notification icon</title>
+    <desc>Created with Sketch.</desc>
+    <g id="website" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Mobile-320px-4cols-16px-gitter-16px-offset-Copy" transform="translate(-7.000000, -890.000000)">
+            <g id="news-box" transform="translate(0.000000, 704.000000)">
+                <g id="notification-btn" transform="translate(0.000000, 180.000000)">
+                    <g id="notification-icon" transform="translate(7.500000, 4.750000)">
+                        <path d="M11.3684211,9.95789474 L35.6210526,9.95789474 C37.2953475,9.95789474 38.6526316,11.3151789 38.6526316,12.9894737 L38.6526316,30.0427918 C38.6526316,31.5074206 37.4653153,32.6947368 36.0006865,32.6947368 L33.7276888,32.6947368 C33.518402,32.6947368 33.3487415,32.8643974 33.3487415,33.0736842 L33.3487415,37.8949339 L26.3904809,33.2113743 C25.8901675,32.8746167 25.3007815,32.6947368 24.6976902,32.6947368 L11.3684211,32.6947368 C9.69412623,32.6947368 8.33684211,31.3374527 8.33684211,29.6631579 L8.33684211,12.9894737 C8.33684211,11.3151789 9.69412623,9.95789474 11.3684211,9.95789474 Z" id="Rectangle" fill="#FFFFFF"></path>
+                        <circle id="Oval" fill="#01122F" cx="11.3684211" cy="13.3684211" r="11.3684211"></circle>
+                        <text id="…" font-family="Nunito-Black, Nunito" font-size="15.1578947" font-weight="700" line-spacing="20" fill="#FFFFFF">
+                            <tspan x="4.69815789" y="15.25">…</tspan>
+                        </text>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

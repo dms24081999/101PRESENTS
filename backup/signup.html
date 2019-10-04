@@ -1,0 +1,276 @@
+<html>
+
+<head>
+    <title>Sign-Up | 101PRESENTS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/navbar.css">
+    <link rel="stylesheet" type="text/css" href="css/footer.css">
+    <link rel="stylesheet" type="text/css" href="css/components.css">
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link rel="stylesheet" type="text/css" href="css/responsive.css">
+    <style type="text/css">
+    body {
+        background-image: linear-gradient(rgba(255, 0, 0, 0.3), rgba(0, 255, 0, 0.3), rgba(0, 0, 255, 0.3)), url("img/bg.jpg");
+    }
+
+    .input-text:valid~.label,
+    .select-text:valid~.label {
+        color: #2F80ED;
+        top: -12px;
+        transition: 0.2s ease all;
+        font-size: 14px;
+    }
+
+    .notempty~.label {
+        color: red;
+        top: -12px;
+        transition: 0.2s ease all;
+        font-size: 14px;
+    }
+
+    .notempty~.password-view-icon {
+        display: block;
+    }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="nav-container">
+            <nav>
+                <div class="menu-icons">
+                    <i class="fa fa-bars"></i>
+                    <i class="fa fa-close"></i>
+                </div>
+                <a href="home.html" class="logo">
+                    <img src="img/main-logo.png" width="140px" height="25px" style="display:block;float:left;margin-top: 0px;">
+                </a>
+                <ul class="nav-list">
+                    <li>
+                        <a href="home.html">Home</a>
+                    </li>
+                    <li>
+                        <a href="#">Products
+                            <i class="icon ion-md-arrow-dropdown"></i></a>
+                        <ul class="sub-menu">
+                            <li>
+                                <a href="products.html#goggles">Sun-glasses</a>
+                            </li>
+                            <li>
+                                <a href="products.html#flowers">Flowers</a>
+                            </li>
+                            <li>
+                                <a href="products.html#chocolates">Chocolates</a>
+                            </li>
+                            <li>
+                                <a href="products.html#cakes">Cakes</a>
+                            </li>
+                            <li>
+                                <a href="#">More...
+                                    <i class="icon ion-md-arrow-dropdown"></i></a>
+                                <ul class="sub-menu">
+                                    <li>
+                                        <a href="#">Watches
+                                            <i class="icon ion-md-arrow-dropdown"></i></a>
+                                        <ul class="sub-menu">
+                                            <li>
+                                                <a href="">Digital</a>
+                                            </li>
+                                            <li>
+                                                <a href="">Analog</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="">Clothes</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="about.html">About</a>
+                    </li>
+                    <!-- <ul class="move-right">
+                        <li class=" btn">
+                            <a href="">Sign-In</a>
+                        </li>
+                        <li class=" btn">
+                            <a href="">Sign-Up</a>
+                        </li>
+                    </ul> -->
+                    <ul class="move-right">
+                        <li class=" btn">
+                             <a class="ripplelink primary " style="" href="signin.html">Sign-In</a>
+                        </li>
+                        <li class=" btn">
+                            <a class="ripplelink primary " style="" href="signup.html">Sign-Up</a>
+                        </li>
+                    </ul>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="main body-top">
+        <article>
+            <div style="vertical-align: middle;text-align: center;color: white;">
+                <form name="signup" method="post" class="box">
+                    <h1 class="signup-signin-text">Sign-Up</h1>
+                    <div>
+                        <a href=''><img src="img/circle-image.png" id="signup-avatar" style="width: 125px;height: 125px;border-radius: 50%;margin-bottom: 25px;"><input accept='image/*' type='file' style='display:none;' name='avatar' id='profile-image-change-button' onchange="readImageURL(this);"></a>
+                    </div>
+                    <div class="row">
+                        <div class="group" style="display: inline-block;">
+                            <input class="input-text" type="text" pattern="[A-Za-z]{1,}" title="Enter a valid Name!" value="" autofocus required autocomplete>
+                            <span class="highlight"></span>
+                            <span class="bar"></span>
+                            <label class="label">First Name</label>
+                        </div>
+                        <div class="group" style="display: inline-block;">
+                            <input class="input-text" type="text" pattern="[A-Za-z]{1,}" title="Enter a valid Surame!" value="" autocomplete required>
+                            <span class="highlight"></span>
+                            <span class="bar"></span>
+                            <label class="label">Last Name</label>
+                        </div>
+                    </div>
+                    <div class="group">
+                        <input class="input-text" type="text" pattern=".{6,}" title="Must contain six or more characters!" value="" required autocomplete>
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label class="label">Username</label>
+                    </div>
+                    <div class="group">
+                        <input class="input-text" type="email" value="" required autocomplete>
+                        <!-- pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" -->
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label class="label">E-mail</label>
+                    </div>
+                    <div class="group">
+                        <input class="input-text passwd" type="password" id="passwd-input" value="" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters!" required aria-required="true">
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <span toggle1="#passwd-input" id="toggle-password1" class="fa fa-fw fa-eye password-view-icon toggle-password" style=""></span>
+                        <label class="label">Password</label>
+                    </div>
+                    <div class="row">
+                        <div class="group" style="width:18%;display: inline-block;">
+                            <input class="input-text" type="number" value="" min="13" max="100" required>
+                            <span class="highlight"></span>
+                            <span class="bar"></span>
+                            <label class="label">Age</label>
+                        </div>
+                        <div class="group" style="width:80%;display: inline-block;">
+                            <div class="select">
+                                <select class="select-text" value="" required>
+                                    <option value="" disabled selected></option>
+                                    <option value="1">Male</option>
+                                    <option value="2">Female</option>
+                                </select>
+                                <span class="highlight"></span>
+                                <span class="select-bar"></span>
+                                <label class="label">Gender</label>
+                            </div>
+                        </div>
+                        <!--   <div class="group" style="width:80%;display: inline-block;">
+                        <input list="Gender" id="Citylist" name="Genderlist" class="input-text" required="true" />
+                        <datalist id="Gender">
+                            <option value="Male">
+                            <option value="Female">
+                        </datalist>
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label class="label">Gender</label>
+                    </div> -->
+                    </div>
+                    <button class="ripplelink block primary" type="submit" onclick="document.forms['signup'].reportValidity() ? alert('Sign-Up Successful!') : alert('Plese enter correct information!');">Sign-Up</button>
+                    <!--  <div class="row">
+                    <input class="mb-5 " type="text" placeholder="First Name" autofocus required autocomplete>
+                    <input class="mb-5 " type="text" placeholder="Last Name" autocomplete>
+                </div>
+             
+                <input class="mb-5 " type="text" placeholder="Username" required autocomplete>
+                <br>
+                <input class="mb-5 " type="email" placeholder="Email" required autocomplete>
+                <br>
+                <input class="mb-5 " type="password" placeholder="Password" required aria-required="true">
+                <div class="row">
+                    <input class="mb-5 " type="number" placeholder="Age" min="13" max="100" style="width:80px">
+                    <select name="Gender" style="width:200px">
+                        <option value="" selected="selected" disabled="disabled">Select your Gender</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <br>
+                 -->
+                </form>
+            </div>
+        </article>
+    </div>
+    <footer class="flex-rw">
+        <ul class="footer-list-top">
+            <li>
+                <h4 class="footer-list-header">About 101PRESENTS</h4>
+            </li>
+            <li><a href='about.html' class="generic-anchor footer-list-anchor">GET TO KNOW US</a></li>
+            <li><a href='' class="generic-anchor footer-list-anchor" itemprop="significantLink">PROMOS</a></li>
+            <!-- <li><a href='' class="generic-anchor footer-list-anchor" itemprop="significantLink">BECOME A RETAILER</a></li> -->
+            <li><a href='' itemprop="significantLink" class="generic-anchor footer-list-anchor">JOB OPENINGS</a></li>
+        </ul>
+        <ul class="footer-list-top">
+            <li>
+                <h4 class="footer-list-header">The Gift Selection</h4>
+            </li>
+            <li><a href='' class="generic-anchor footer-list-anchor">ANGEL FIGURINES</a></li>
+            <li><a href='' class="generic-anchor footer-list-anchor">HOME DECOR</a></li>
+            <li><a href='' class="generic-anchor footer-list-anchor">MUGS</a></li>
+            <li><a href='' class="generic-anchor footer-list-anchor">PET LOVER</a></li>
+            <li><a href='' class="generic-anchor footer-list-anchor" target="_blank">HANDBAGS & JEWELRY</a></li>
+        </ul>
+        <ul class="footer-list-top">
+            <li id='help'>
+                <h4 class="footer-list-header">Please Help Me</h4>
+            </li>
+            <li><a href='about.html' class="generic-anchor footer-list-anchor" itemprop="significantLink">CONTACT</a></li>
+            <li><a href='' class="generic-anchor footer-list-anchor" itemprop="significantLink">FAQ</a></li>
+            <li id='find-a-store'><a href='about.html' class="generic-anchor footer-list-anchor" itemprop="significantLink">STORE LOCATOR</a></li>
+            <li id='user-registration'><a href='signup.html' class="generic-anchor footer-list-anchor" itemprop="significantLink">NEW USERS</a></li>
+            <!-- <li id='user-registration'><a href='signup.html' class="generic-anchor footer-list-anchor" itemprop="significantLink">ORDER STATUS</a></li> -->
+        </ul>
+        <section class="footer-social-section flex-rw">
+            <span class="footer-social-overlap footer-social-connect">
+                CONNECT <span class="footer-social-small">with</span> US
+            </span>
+            <span class="footer-social-overlap footer-social-icons-wrapper">
+                <a href="" class="generic-anchor" target="_blank" title="Pinterest" itemprop="significantLink"><i class="fa fa-pinterest"></i></a>
+                <a href="" class="generic-anchor" target="_blank" title="Facebook" itemprop="significantLink"><i class="fa fa-facebook"></i></a>
+                <a href="" class="generic-anchor" target="_blank" title="Twitter" itemprop="significantLink"><i class="fa fa-twitter"></i></a>
+                <a href="" class="generic-anchor" target="_blank" title="Instagram" itemprop="significantLink"><i class="fa fa-instagram"></i></a>
+                <a href="" class="generic-anchor" target="_blank" title="Youtube" itemprop="significantLink"><i class="fa fa-youtube"></i></a>
+                <a href="" class="generic-anchor" target="_blank" title="Google Plus" itemprop="significantLink"><i class="fa fa-google-plus"></i></a>
+            </span>
+        </section>
+        <section class="footer-bottom-section flex-rw">
+            <div class="footer-bottom-wrapper">
+                <i class="fa fa-copyright" role="copyright">
+                </i> 2019 SmileBrite in <address class="footer-address" role="company address">Mumbai, IN</address><span class="footer-bottom-rights"> - All Rights Reserved - </span>
+            </div>
+            <div class="footer-bottom-wrapper">
+                <a href="" class="generic-anchor" rel="nofollow">Terms</a> | <a href="" class="generic-anchor" rel="nofollow">Privacy</a>
+            </div>
+        </section>
+    </footer>
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/script.js"> </script>
+    <script src="js/navbar.js"> </script>
+    <script src="js/forms.js"> </script>
+    <script type="text/javascript">
+    
+    </script>
+</body>
+
+</html>

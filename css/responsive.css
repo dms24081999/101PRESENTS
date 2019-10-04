@@ -1,0 +1,39 @@
+@media only screen and (max-width: 1200px) {
+    .box {
+        width: 45vw;
+    }
+
+}
+
+@media only screen and (max-width: 1200px) {
+    .box {
+        width: 55vw;
+    }
+
+}
+
+@media only screen and (max-width: 768px) {
+
+    .box {
+        width: 70vw;
+    }
+
+    .box .row .group,
+    .box .row .group {
+        width: 100%;
+    }
+}
+
+
+@media only screen and (max-width: 568px) {
+    .box {
+        width: 80vw;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .box {
+        width: 90vw;
+    }
+
+}

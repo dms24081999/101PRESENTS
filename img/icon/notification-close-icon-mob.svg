@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="13px" height="16px" viewBox="0 0 13 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
+    <title>Triangle</title>
+    <desc>Created with Sketch.</desc>
+    <g id="website" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Mobile-320px-4cols-16px-gitter-16px-offset-Copy" transform="translate(-295.000000, -537.000000)" fill="#01122F">
+            <g id="news-box" transform="translate(0.000000, 445.000000)">
+                <g id="close-btn" transform="translate(284.000000, 80.000000)">
+                    <polygon id="Triangle" transform="translate(17.250000, 20.000000) rotate(-90.000000) translate(-17.250000, -20.000000) " points="17.25 14 24.9423077 26 9.55769231 26"></polygon>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

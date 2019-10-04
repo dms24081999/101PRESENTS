@@ -1,0 +1,19 @@
+{
+	"short_name": "Gift shop",
+	"name": "101PRESENTS",
+	"description": "Online shopping",
+	"icons": [
+		{
+			"src":"/101PRESENTS/img/logo/logo192x192.png",
+			"type": "image/png",
+			"sizes": "192x192"
+		},
+		{
+			"src":"/101PRESENTS/img/logo/logo512x512.png",
+			"type": "image/png",
+			"sizes": "512x512"
+		}
+	],
+	"start_url":"/101PRESENTS/",
+	"display": "standalone"
+}

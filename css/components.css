@@ -1,0 +1,557 @@
+:root {
+    --main-about-card-size: 250px;
+    /*Variable for about card size*/
+    --main-products-card-size: 300px;
+    /*Variable for product card size*/
+
+}
+
+/*column in a row of about*/
+.about .column {
+    width: var(--main-about-card-size);
+    position: relative;
+    padding: 10px auto;
+    height: calc(var(--main-about-card-size) + 50px);
+
+}
+
+/*Row of multiple cards with flex-wrap and space around*/
+.about .row {
+    align-items: center;
+    justify-content: space-around;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    height: auto;
+}
+
+/*card within a single column*/
+.about .card {
+    position: absolute;
+    border-radius: 50%;
+    margin: 125px;
+    transform: translate(-50%, -50%);
+    width: var(--main-about-card-size);
+    height: var(--main-about-card-size);
+    transform-style: preserve-3d;
+    perspective: 600px;
+    transition: 0.5s;
+}
+
+/*Image in front div of the card*/
+.about .card .front img {
+    border-radius: 50%;
+}
+
+/*front div of the card*/
+.about .card .front {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    backface-visibility: hidden;
+    transform: rotateX(0deg);
+    transition: 0.5s;
+    border-radius: 50%;
+}
+
+
+.about .card:hover .front {
+    transform: rotateX(-180deg);
+}
+
+.about .card .back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    backface-visibility: hidden;
+    transform: rotateX(180deg);
+    transition: 0.5s;
+    border-radius: 50%;
+}
+
+.about .card .back:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    height: calc((var(--main-about-card-size)/2) * 2);
+    width: calc(var(--main-about-card-size)/2);
+    background: rgba(255, 255, 255, .1);
+    border-bottom-left-radius: calc((var(--main-about-card-size)/2) * 2);
+    border-top-left-radius: calc((var(--main-about-card-size)/2) * 2);
+}
+
+.about .card:hover .back {
+    transform: rotateX(0deg);
+}
+
+.about .card .back .details {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.about .card .back .details h2 {
+    margin: 0;
+    padding: 0;
+    font-size: 24px;
+    color: #fff;
+}
+
+.about .card .back .details h2 span {
+    color: #a7a7a7;
+    font-size: 16px;
+}
+
+.about .social-icons {
+    padding: 10px 0;
+}
+
+.about .social-icons a {
+    display: inline-block;
+    width: 36px;
+    height: 36px;
+    text-align: center;
+    background: #262626;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 50%;
+    transition: 0.5s;
+}
+
+.about .social-icons a .fa {
+    line-height: 36px;
+}
+
+.about .social-icons a:hover {
+    background: #e91e63;
+}
+
+
+.products .row {
+    align-items: center;
+    justify-content: space-around;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    height: auto;
+}
+
+
+
+.products .card {
+    width: var(--main-products-card-size);
+    background: #f1f1f1;
+    margin: 5px;
+    height: 500px;
+    position: relative;
+}
+
+.products .add {
+    position: absolute;
+    bottom: 25px;
+    width: 250px;
+    left: 50%;
+    transform: translate(-50%, 0);
+
+}
+
+
+.products .card a,
+.products .card a:hover,
+.products .card a:visited,
+.products .card a:link {
+    text-decoration: none
+}
+
+.products .card .top-section {
+    height: 310px;
+    overflow: hidden;
+    background: #fff;
+    position: relative;
+}
+
+.products .card .image-container {
+    width: var(--main-products-card-size);
+    height: 240px;
+}
+
+.products .card .nav {
+    text-align: center;
+}
+
+.products .card .nav img {
+    width: 80px;
+    height: 50px;
+    border: 1px solid #ddd;
+    margin: 8px 2px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.products .card .nav img:hover {
+    border-color: #6ab04c;
+}
+
+.products .card .price {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: black;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.products .card .product-info {
+    padding: 24px;
+}
+
+.products .card .name {
+    text-transform: uppercase;
+    font-size: 24px;
+    color: #333;
+}
+
+.products .card .dis {
+    font-size: 16px;
+    opacity: 0.7;
+}
+
+.products .card .btn {
+    display: block;
+    background: #6ab04c;
+    text-align: center;
+    color: #fff;
+    padding: 10px;
+    margin-top: 10px;
+    transition: 0.3s;
+}
+
+.products .card .btn:hover {
+    background: #333;
+}
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    /* Compensate for excess margin on outer gallery flex items */
+    margin: -1rem -1rem;
+}
+
+.gallery-item {
+    /* Minimum width of 24rem and grow to fit available space */
+    flex: 1 0 24rem;
+    /* Margin value should be half of grid-gap value as margins on flex items don't collapse */
+    margin: 1rem;
+    box-shadow: 0.3rem 0.4rem 0.4rem rgba(0, 0, 0, 0.4);
+    overflow: hidden;
+    position: relative;
+}
+
+.gallery-image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 400ms ease-out;
+}
+
+.gallery-image:hover {
+    transform: scale(1.15);
+}
+
+.gallery .bottom-text {
+    position: absolute;
+    bottom: 8px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    font-size: 2em
+}
+
+.gallery a,
+.gallery a:hover,
+.gallery a:visited,
+.gallery a:link {
+    color: grey;
+    text-decoration: none;
+}
+
+/*
+The following rule will only run if your browser supports CSS grid.
+Remove or comment-out the code block below to see how the browser will fall-back to flexbox styling. 
+*/
+@supports (display: grid) {
+    .gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+        /*grid-gap: 2rem;*/
+    }
+
+    .gallery,
+    .gallery-item {
+        margin: 0;
+    }
+}
+
+
+/*Ripple Effect button*/
+.ripplelink {
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+    border: 0;
+    background-color: #EEEEEE;
+    padding: 8px 20px;
+    border: none;
+    font-size: 100%;
+    font-weight: bold;
+    border-radius: 10px;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+    z-index: 0;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.ripplelink:hover {
+    z-index: 1000;
+    cursor: pointer;
+    box-shadow: rgba(100, 100, 100, 0.3) 0px 16px 20px 0px;
+    /*h-offset, v-offset, blur, spread
+    */
+    -webkit-box-shadow: rgba(100, 100, 100, 0.3) 0 16px 16px 0;
+    -moz-box-shadow: rgba(100, 100, 100, 0.3) 0 16px 16px 0;
+}
+
+.inkripple {
+    display: block;
+    position: absolute;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 100%;
+    -webkit-transform: scale(0);
+    -moz-transform: scale(0);
+    -o-transform: scale(0);
+    transform: scale(0);
+}
+
+.animateripple {
+    -webkit-animation: ripplebutton 0.65s linear;
+    -moz-animation: ripplebutton 0.65s linear;
+    -ms-animation: ripplebutton 0.65s linear;
+    -o-animation: ripplebutton 0.65s linear;
+    animation: ripplebutton 0.65s linear;
+}
+
+@keyframes ripplebutton {
+    100% {
+        opacity: 0;
+        color: green;
+        -webkit-transform: scale(2.5);
+        -moz-transform: scale(2.5);
+        -o-transform: scale(2.5);
+        transform: scale(2.5);
+    }
+}
+
+
+.input-text,
+.select-text {
+    font-size: 18px;
+    content: '';
+    padding: 10px 10px 10px 5px;
+    display: block;
+    width: 100%;
+    border: none;
+    background: transparent;
+    border-bottom: 1px solid grey;
+    color: white;
+}
+
+.select-text {
+    position: relative;
+    font-family: inherit;
+    padding: 10px 10px 10px 0;
+    border-radius: 0;
+    appearance: none;
+    /*make the arrow disappear in dropdown*/
+    -webkit-appearance: none
+}
+
+select option {
+    background-color: rgba(0, 0, 255, .5);
+}
+
+.label {
+    color: grey;
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    font-weight: normal;
+    position: absolute;
+    pointer-events: none;
+    left: 5px;
+    top: 10px;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+}
+
+
+
+.password-view-icon {
+    float: right;
+    margin-right: 15px;
+    margin-left: -25px;
+    margin-top: -28px;
+    position: relative;
+    z-index: 2;
+    display: none;
+}
+
+.select:after {
+    position: absolute;
+    top: 18px;
+    right: 10px;
+    width: 0;
+    height: 0;
+    padding: 0;
+    content: '';
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid rgba(0, 0, 0, 0.12);
+    pointer-events: none;
+}
+
+.input-text:focus,
+.select-text:focus {
+    outline: none;
+}
+
+.input-text:focus~.password-view-icon,
+.select-text:focus~.password-view-icon {
+    display: block;
+}
+
+.input-text:focus~.label,
+.select-text:focus~.label {
+    color: #2F80ED;
+    top: -12px;
+    transition: 0.2s ease all;
+    font-size: 14px;
+}
+
+.bar {
+    position: relative;
+    display: block;
+    width: 100%;
+}
+
+.bar:before,
+.bar:after {
+    content: '';
+    height: 2px;
+    width: 0;
+    bottom: 1px;
+    position: absolute;
+    background: #5264AE;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+}
+
+.bar:before {
+    left: 50%;
+}
+
+.bar:after {
+    right: 50%;
+}
+
+/* active state */
+.input-text:focus~.bar:before,
+.input-text:focus~.bar:after,
+.select-text:focus~.select-bar:before,
+.select-text:focus~.select-bar:after {
+    width: 50%;
+}
+
+.highlight {
+    position: absolute;
+    height: 60%;
+    width: 100px;
+    top: 25%;
+    left: 0;
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+.input-text:focus~.highlight,
+.select-text:focus~.highlight {
+    -webkit-animation: inputHighlighter 0.3s ease;
+    -moz-animation: inputHighlighter 0.3s ease;
+    animation: inputHighlighter 0.3s ease;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/*position the password show and hide toggle button*/
+
+
+
+/*changing default styling of button*/
+.button {
+    border: 0;
+    background-color: #EEEEEE;
+    padding: 8px 20px;
+    text-decoration: none;
+    font-size: 100%;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+/*changing button effect on move hover*/
+.button:hover {
+    color: white;
+    cursor: pointer;
+}
+
+
+/*define an element to occupy full width block*/
+.block {
+    display: block;
+    width: 100%;
+
+}
+
+
+/*defining colors for buttons*/
+.primary {
+    background-color: #2196F3;
+    color: white;
+}
+
+.danger {
+    background-color: #F44336;
+    color: white;
+}
+
+.yellow {
+    background-color: yellow;
+    color: white;
+}

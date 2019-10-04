@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="48px" height="48px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
+    <title>Artboard</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Artboard" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="notification-icon" transform="translate(2.000000, 2.000000)">
+            <path d="M12.8259109,11.1451524 L40.1878543,11.1451524 C42.0768023,11.1451524 43.6080972,12.6764473 43.6080972,14.5653953 L43.6080972,33.9814692 C43.6080972,35.6338709 42.2685609,36.9734072 40.6161592,36.9734072 L38.0517515,36.9734072 C37.815633,36.9734072 37.6242212,37.1648191 37.6242212,37.4009376 L37.6242212,42.8806486 L29.7769407,37.5623663 C29.2106278,37.178563 28.542231,36.9734072 27.8581146,36.9734072 L12.8259109,36.9734072 C10.9369629,36.9734072 9.40566802,35.4421123 9.40566802,33.5531643 L9.40566802,14.5653953 C9.40566802,12.6764473 10.9369629,11.1451524 12.8259109,11.1451524 Z" id="Rectangle" fill="#FFFFFF"></path>
+            <ellipse id="Oval" fill="#01122F" cx="12.8259109" cy="15.0193906" rx="12.8259109" ry="12.9141274"></ellipse>
+            <text id="…" font-family="Nunito-Black, Nunito" font-size="17.1012146" font-weight="700" fill="#FFFFFF">
+                <tspan x="5.83489879" y="17.5897427">…</tspan>
+            </text>
+        </g>
+    </g>
+</svg>

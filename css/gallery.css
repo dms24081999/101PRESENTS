@@ -1,0 +1,97 @@
+.wrapper {
+  width: 800px;
+  max-width: 100%;
+  margin: auto;
+  overflow: hidden;
+
+}
+
+.carousel {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-top: 56.25%;
+  background: #ddd;
+}
+
+/* Images */
+
+.carousel-img {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  max-width: 100%;
+  -webkit-transition: opacity ease-out 0.5s;
+  transition: opacity ease-out 0.5s;
+}
+
+.carousel-img-displayed {
+  display: block;
+  opacity: 1;
+  z-index: 2;
+}
+
+.carousel-img-hidden {
+  display: block;
+  opacity: 0;
+  z-index: 1;
+}
+
+.carousel-img-noDisplay {
+  display: none;
+}
+
+/* Flèches de défilement */
+
+.carousel-arrow {
+  z-index: 3;
+  display: block;
+  position: absolute;
+  width: 36px;
+  height: 36px;
+  top: 50%;
+  margin-top: -18px;
+  border-radius: 50%;
+  border: 0;
+  background-color: #fff;
+  background-image: url("http://res.cloudinary.com/dnqehhgmu/image/upload/v1509720334/blue-arrow_jk1ydw.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 16px 16px;
+  cursor: pointer;
+  -webkit-transition: background-size 0.15s ease-out;
+  transition: background-size 0.15s ease-out;
+}
+
+.carousel-arrow:hover,
+.carousel-arrow:focus {
+  background-size: 22px 22px;
+}
+
+.carousel-arrow-next {
+  right: 20px;
+}
+
+.carousel-arrow-prev {
+  left: 20px;
+  -webkit-transform: rotateZ(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotateZ(180deg);
+}
+
+/*
+<section id="home-gallery" style="background: white;padding: 20px">
+        <div class="wrapper">
+            <div class="carousel">
+                <button type="button" id="carousel-arrow-prev" class="carousel-arrow carousel-arrow-prev" arial-label="Image précédente"></button>
+                <button type="button" id="carousel-arrow-next" class="carousel-arrow carousel-arrow-next" arial-label="Image suivante"></button>
+                <img id="carousel-0" class="carousel-img carousel-img-displayed" src="http://res.cloudinary.com/dnqehhgmu/image/upload/v1509718497/winter_cttfdr.jpg" alt="Winter" />
+                <img id="carousel-1" class="carousel-img carousel-img-noDisplay" src="http://res.cloudinary.com/dnqehhgmu/image/upload/v1509718497/sea_ej0zoc.jpg" alt="Sea" />
+                <img id="carousel-2" class="carousel-img carousel-img-noDisplay" src="http://res.cloudinary.com/dnqehhgmu/image/upload/v1509718497/night_pw1bpm.jpg" alt="Night" />
+                <img id="carousel-3" class="carousel-img carousel-img-noDisplay" src="http://res.cloudinary.com/dnqehhgmu/image/upload/v1509718497/mountain_dekhfd.jpg" alt="Moutain" />
+                <img id="carousel-4" class="carousel-img carousel-img-noDisplay" src="http://res.cloudinary.com/dnqehhgmu/image/upload/v1509718497/desert_zy3uth.jpg" alt="Desert" />
+            </div>
+        </div>
+    </section>*/
