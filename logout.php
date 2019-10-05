@@ -2,11 +2,12 @@
 session_start();// initialize session
 session_unset(); #removes all the variables in session
 session_destroy(); #destroys the session
-if (!isset($_SESSION['userName'])){
+unset($_SESSION['user_id']);
+if (!isset($_SESSION['user_id'])){
    	echo "Successfully logged out!<br />";
 	echo "<br /><a href='signupform.php'>SignUp</a>";
     echo "<br /><a href='signinform.php'>SignIn</a>";
-}else
+}else 
    	echo "Error Occured!!<br />";
 $_SESSION = array();
 if (ini_get("session.use_cookies")) {

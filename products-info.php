@@ -329,11 +329,11 @@ table th{
     <?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/include/footer.php'); ?>
     <?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/include/notificationbox.php'); ?>
     <?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/include/loading.php'); ?>
-    <script src="assets/js/jquery-3.4.1.min.js"></script>
-    <script src="assets/js/script.js"></script>
-    <script src="assets/js/navbar.js"></script>
-    <script src="assets/js/products.js"></script>
-    <script src="assets/js/notificationbox.js"></script>
+    <script src="/101PRESENTS/assets/js/jquery-3.4.1.min.js"></script>
+    <script src="/101PRESENTS/assets/js/script.js"></script>
+    <script src="/101PRESENTS/assets/js/navbar.js"></script>
+    <script src="/101PRESENTS/assets/js/products.js"></script>
+    <script src="/101PRESENTS/assets/js/notificationbox.js"></script>
     <script type="text/javascript">
         <?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/include/jscode.php'); ?> 
     $(document).ready(function() {
