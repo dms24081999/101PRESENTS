@@ -12,7 +12,7 @@ echo "Favorite color is " . $_SESSION["user_id"] . ".<br>";
     <title>101PRESENTS</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
-    <?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/php/head.php'); ?>
+    <?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/include/head.php'); ?>
     <link rel="stylesheet" type="text/css" href="css/testimonial.css">
     <style type="text/css">
     .typewritter {
@@ -180,7 +180,7 @@ echo "Favorite color is " . $_SESSION["user_id"] . ".<br>";
 <body>
     
     <audio id="my_audio" src="audio/welcome.mp3"  autoplay="autoplay"></audio>
-    <?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/php/headernav.php'); ?>
+    <?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/include/headernav.php'); ?>
     <section id="home">
         <div class="bgimg-1">
             <div class="caption">
@@ -259,42 +259,7 @@ echo "Favorite color is " . $_SESSION["user_id"] . ".<br>";
     <section id="about" class="bgimg-2" style="">
         <div class="" style="">
             <h2 style="text-align: center;padding-top: 20px;color: white;font-size: 35px">About Us</h2>
-            <div class="about">
-                <div class="row">
-                    <div class="column">
-                        <div class="card">
-                            <div class="front"><img width="100%" height="100%" src="img/team/dominic.jpg"></div>
-                            <div class="back">
-                                <div class="details">
-                                    <h2>Dominic Silveira<br><span>Web master</span></h2>
-                                    <div class="social-icons">
-                                        <a href=""><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                                        <a href=""><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                                        <a href=""><i class="fa fa-linkedin" aria-hidden="true"></i></a>
-                                        <a href=""><i class="fa fa-instagram" aria-hidden="true"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="column">
-                        <div class="card">
-                            <div class="front"><img width="100%" height="100%" src="img/team/CollegeLogo.jpg"></div>
-                            <div class="back">
-                                <div class="details">
-                                    <h2>SFIT<br><span>Web master</span></h2>
-                                    <div class="social-icons">
-                                        <a href=""><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                                        <a href=""><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                                        <a href=""><i class="fa fa-linkedin" aria-hidden="true"></i></a>
-                                        <a href=""><i class="fa fa-instagram" aria-hidden="true"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/include/aboutowner.php'); ?> 
         </div>
         <a href="about.php">
             <div style="text-align: center;position:absolute;bottom: -25px;left: 50%;margin-left: -25px;">
@@ -331,15 +296,15 @@ echo "Favorite color is " . $_SESSION["user_id"] . ".<br>";
             </div>
         </div>
     </div>
-    <?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/php/footer.php'); ?>
-    <?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/php/notificationbox.php'); ?>
-    <?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/php/loading.php'); ?>
+    <?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/include/footer.php'); ?>
+    <?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/include/notificationbox.php'); ?>
+    <?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/include/loading.php'); ?>
     <script src="js/jquery-3.4.1.min.js"></script>
     <script src="js/script.js"></script>
     <script src="js/navbar.js"></script>
     <script src="js/notificationbox.js"></script>
     <script type="text/javascript">
-    <?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/php/jscode.php'); ?>  
+    <?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/include/jscode.php'); ?>  
     if('serviceWorker' in navigator) {
         navigator.serviceWorker
            .register('/101PRESENTS/sw.js')

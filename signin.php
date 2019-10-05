@@ -33,8 +33,10 @@ if ( isset( $_POST['signinbtn'] ) ) {
             //}
             $_SESSION['user_id'] = $user->username;
             echo "<script>console.log(".$_SESSION['user_id'].");</script>";
-    	}
+        }
+        
     }
+    mysqli_close($con);
 }
 
 ?>
@@ -46,7 +48,7 @@ if ( isset( $_POST['signinbtn'] ) ) {
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://apis.google.com/js/platform.js" async defer></script>
     <meta name="google-signin-client_id" content="128459317850-pfkmug4o9e0u4ms5pc6566ajr1d5rf09.apps.googleusercontent.com">
-    <?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/php/head.php'); ?>
+    <?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/include/head.php'); ?>
     <style type="text/css">
     body {
         background-image: linear-gradient(rgba(255, 0, 0, 0.3), rgba(0, 255, 0, 0.3), rgba(0, 0, 255, 0.3)), url("img/bg.jpg");
@@ -74,7 +76,7 @@ if ( isset( $_POST['signinbtn'] ) ) {
 </head>
 
 <body>
-    <?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/php/headernav.php'); ?>
+    <?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/include/headernav.php'); ?>
     <div class="main body-top">
         <article>
             <div style="vertical-align: middle;text-align: center;color: white;">
@@ -97,24 +99,25 @@ if ( isset( $_POST['signinbtn'] ) ) {
                 <br>
                 <input class="mb-5 " type="password" placeholder="Password" required aria-required="true">
                 <br> -->
-                    <button class="ripplelink block primary" type="submit" name="signinbtn">Sign-In</button>
+                    <button class="ripplelink block primary" type="submit" name="signinbtn" onclick="return deleteAllCookies()">Sign-In</button>
                     <!-- onclick="return validateSingInForm()" -->
-                    <a href="<?= $login_url ?>">Login with Google</a>
+                    <!-- <button class="ripplelink block primary" onclick="return SocialGoogleLogin()">Sign-In with Google</button> -->
+                    <a href="<?= $login_url ?>" class="ripplelink block primary">Login with Google</a>
                     <div class="g-signin2" data-onsuccess="onSignIn"></div>
                 </form>
             </div>
         </article>
     </div>
-    <?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/php/footer.php'); ?>
-    <?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/php/notificationbox.php'); ?>
-    <?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/php/loading.php'); ?>
+    <?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/include/footer.php'); ?>
+    <?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/include/notificationbox.php'); ?>
+    <?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/include/loading.php'); ?>
     <script src="js/jquery-3.4.1.min.js"></script>
     <script src="js/script.js"></script>
      <script src="js/navbar.js"> </script>
     <script src="js/forms.js"> </script>
     <script src="js/notificationbox.js"></script>
     <script type="text/javascript">
-        <?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/php/jscode.php'); ?> 
+        <?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/include/jscode.php'); ?> 
     
 function onSignIn(googleUser) {
   var profile = googleUser.getBasicProfile();
@@ -189,6 +192,14 @@ function onSignIn(googleUser) {
             console.log("invalid")
             return false;
         }
+    }
+
+
+    function deleteAllCookies() {
+        var cookies = document.cookie.split(";");
+        for (var i = 0; i < cookies.length; i++)
+        eraseCookie(cookies[i].split("=")[0]);
+        return true;
     }
     </script>
 </body>

@@ -1,9 +1,22 @@
 <?php
 require_once('settings.php');
 require_once('google-login-api.php');
-include("../../db.php");
+include($_SERVER['DOCUMENT_ROOT']."/101PRESENTS/db.php");
+session_start();
+//if(!isset($_SESSION['user_id']) && empty($_SESSION['user_id'])) {
+//	$_SESSION = array();
+//	if (ini_get("session.use_cookies")) {
+//		$params = session_get_cookie_params();
+//		setcookie(session_name(), '', time() - 60*60,
+//			$params["path"], $params["domain"],
+//			$params["secure"], $params["httponly"]
+//		);	
+//	}
+//}
+
 // Google passes a parameter 'code' in the Redirect Url
 if(isset($_GET['code'])) {
+	
 	try {
 		$gapi = new GoogleLoginApi();
 		
@@ -12,7 +25,7 @@ if(isset($_GET['code'])) {
 		
 		// Get user information
 		$user_info = $gapi->GetUserProfileInfo($data['access_token']);
-		session_start();
+		
 		$usernameex=explode('@',$user_info['email']);
 		$username=$usernameex[0];
 		//$passwd=$_POST['passwd'];

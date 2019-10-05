@@ -33,7 +33,7 @@ $con->close();
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
 
-    <?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/php/head.php'); ?>
+    <?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/include/head.php'); ?>
     <style type="text/css">
     body {
         background-image: linear-gradient(rgba(255, 0, 0, 0.3), rgba(0, 255, 0, 0.3), rgba(0, 0, 255, 0.3)), url("img/bg.jpg");
@@ -67,7 +67,7 @@ $con->close();
 </head>
 
 <body>
-    <?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/php/headernav.php'); ?>
+    <?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/include/headernav.php'); ?>
     <div class="main body-top">
         <article>
             <div style="vertical-align: middle;text-align: center;color: white;">
@@ -91,13 +91,13 @@ $con->close();
                         </div>
                     </div>
                     <div class="group">
-                        <input class="input-text" type="text" pattern=".{6,}" title="Must contain six or more characters!" name="username" value="" required autocomplete>
+                        <input class="input-text" type="text" pattern=".{6,}" title="Must contain six or more characters!" name="username" id="signup-username" value="" required autocomplete>
                         <span class="highlight"></span>
                         <span class="bar"></span>
                         <label class="label">Username</label>
                     </div>
                     <div class="group">
-                        <input class="input-text" type="email" value="" name="email" required autocomplete>
+                        <input class="input-text" type="email" value="" name="email" id="signup-email" required autocomplete>
                         <!-- pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" -->
                         <span class="highlight"></span>
                         <span class="bar"></span>
@@ -167,16 +167,65 @@ $con->close();
             </div>
         </article>
     </div>
-    <?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/php/footer.php'); ?>
-    <?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/php/notificationbox.php'); ?>
-    <?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/php/loading.php'); ?>
+    <?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/include/footer.php'); ?>
+    <?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/include/notificationbox.php'); ?>
+    <?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/include/loading.php'); ?>
     <script src="js/jquery-3.4.1.min.js"></script>
     <script src="js/script.js"> </script>
     <script src="js/navbar.js"> </script>
     <script src="js/forms.js"> </script>
     <script src="js/notificationbox.js"></script>
     <script type="text/javascript">
-    <?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/php/jscode.php'); ?> 
+    <?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/include/jscode.php'); ?> 
+    $(document).ready(function(){
+        $("input[name=username]").keyup(function(){
+            var uname = $("input[name=username]").val().trim();
+            console.log(uname)
+            if(uname != ''){
+                //$("#uname_response").show();
+                $.ajax({
+                    url: 'ajax/username.php',
+                    type: 'post',
+                    data: {uname:uname},
+                    success: function(response){
+                    //console.log(response)
+                        if(response>0){
+                            console.log("Username Already in use.");
+                        }else{
+                            console.log("Available.");
+                        }
+                    }
+                });
+            }else{
+                //$("#uname_response").hide();
+            }
+        });            
+    });
+
+    $(document).ready(function(){
+        $("input[name=email]").keyup(function(){
+            var mail = $("input[name=email]").val().trim();
+            console.log(mail)
+            if(mail != ''){
+                //$("#uname_response").show();
+                $.ajax({
+                    url: 'ajax/email.php',
+                    type: 'post',
+                    data: {mail:mail},
+                    success: function(response){
+                    //console.log(response)
+                        if(response>0){
+                            console.log("Email Already in use.");
+                        }else{
+                            console.log("Available.");
+                        }
+                    }
+                });
+            }else{
+                //$("#uname_response").hide();
+            }
+        });            
+    });
     </script>
 </body>
 

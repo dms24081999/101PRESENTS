@@ -1,7 +1,7 @@
 <head>
     <title>Product-Info | 101PRESENTS</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/php/head.php'); ?>
+    <?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/include/head.php'); ?>
     <style type="text/css">
     /*html,
     body {
@@ -225,7 +225,7 @@ table th{
 </head>
 
 <body>
-    <?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/php/headernav.php'); ?>
+    <?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/include/headernav.php'); ?>
     <div class="main  body-top">
         <article>
             <main class="product-container">
@@ -326,16 +326,16 @@ table th{
         <aside class="rightaside">
         </aside>
     </div>
-    <?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/php/footer.php'); ?>
-    <?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/php/notificationbox.php'); ?>
-    <?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/php/loading.php'); ?>
+    <?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/include/footer.php'); ?>
+    <?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/include/notificationbox.php'); ?>
+    <?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/include/loading.php'); ?>
     <script src="js/jquery-3.4.1.min.js"></script>
     <script src="js/script.js"></script>
     <script src="js/navbar.js"></script>
     <script src="js/products.js"></script>
     <script src="js/notificationbox.js"></script>
     <script type="text/javascript">
-        <?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/php/jscode.php'); ?> 
+        <?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/include/jscode.php'); ?> 
     $(document).ready(function() {
 
         $('.color-choose input').on('click', function() {
