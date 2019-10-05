@@ -120,6 +120,11 @@ if ( isset( $_SESSION['user_id'] ) ) {
     <script src="/101PRESENTS/assets/js/notificationbox.js"></script>
     <script type="text/javascript">
         <?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/include/jscode.php'); ?> 
+        if('serviceWorker' in navigator) {
+        navigator.serviceWorker
+           .register('/101PRESENTS/sw.js')
+           .then(function() { console.log("Service Worker Registered"); });
+    }  
     </script>
 </body>
 

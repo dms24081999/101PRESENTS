@@ -1,11 +1,10 @@
 <!DOCTYPE html>
+
 <?php
+
 // Always start this first
 session_start();
-//unset($_SESSION['user_id']);
-echo "Favorite color is " . $_SESSION["user_id"] . ".<br>";
 ?>
-
 <html>
 
 <head>
@@ -178,6 +177,11 @@ echo "Favorite color is " . $_SESSION["user_id"] . ".<br>";
 </head>
 
 <body>
+
+<?php
+//unset($_SESSION['user_id']);
+echo "Favorite color is " . $_SESSION["user_id"] . ".<br>";
+?>
     
     <audio id="my_audio" src="assets/audios/welcome.mp3"  autoplay="autoplay"></audio>
     <?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/include/headernav.php'); ?>

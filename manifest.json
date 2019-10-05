@@ -4,12 +4,12 @@
 	"description": "Online shopping",
 	"icons": [
 		{
-			"src":"/101PRESENTS/img/logo/logo192x192.png",
+			"src":"/101PRESENTS/assets/images/logo/logo192x192.png",
 			"type": "image/png",
 			"sizes": "192x192"
 		},
 		{
-			"src":"/101PRESENTS/img/logo/logo512x512.png",
+			"src":"/101PRESENTS/assets/images/logo/logo512x512.png",
 			"type": "image/png",
 			"sizes": "512x512"
 		}

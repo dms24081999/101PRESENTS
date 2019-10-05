@@ -1,30 +1,5 @@
 <?php
-// Always start this first
-include("db.php");
 session_start();
-echo "Favorite color is " . $_SESSION["user_id"] . ".<br>";
-if ( isset( $_POST['signupbtn'] ) ) {
-    if ( isset( $_POST['username'] ) && isset( $_POST['passwd'] )  && isset( $_POST['fname'] )  && isset( $_POST['lname'] )  && isset( $_POST['email'] )  && isset( $_POST['age'] )  && isset( $_POST['gender'] ) ) {
-        // Getting submitted user data from database   
-        $username=$_POST['username'];
-        $passwd=$_POST['passwd'];
-        $fname=$_POST['fname'];
-        $lname=$_POST['lname'];
-        $email=$_POST['email'];
-        $age=$_POST['age'];
-        $gender=$_POST['gender'];
-//INSERT INTO shippers(fname,lname,username,email,passwd,age,gender) VALUES ('Alliance  Shippers','1-800-222-0451');
-        $sql = "INSERT INTO users (fname,lname,username,email,passwd,age,gender) VALUES ('".$fname."','".$lname."','".$username."','".$email."','".$passwd."',".$age.",'".$gender."');";     
-        
-    }
-}
-if ($con->query($sql) === TRUE) {
-    echo "New record created successfully";
-} else {
-    echo "Error: " . $sql . "<br>" . $con->error;
-}
-
-$con->close();
 ?>
 <html>
 
@@ -67,6 +42,33 @@ $con->close();
 </head>
 
 <body>
+<?php
+// Always start this first
+include("db.php");
+session_start();
+echo "Favorite color is " . $_SESSION["user_id"] . ".<br>";
+if ( isset( $_POST['signupbtn'] ) ) {
+    if ( isset( $_POST['username'] ) && isset( $_POST['passwd'] )  && isset( $_POST['fname'] )  && isset( $_POST['lname'] )  && isset( $_POST['email'] )  && isset( $_POST['age'] )  && isset( $_POST['gender'] ) ) {
+        // Getting submitted user data from database   
+        $username=$_POST['username'];
+        $passwd=$_POST['passwd'];
+        $fname=$_POST['fname'];
+        $lname=$_POST['lname'];
+        $email=$_POST['email'];
+        $age=$_POST['age'];
+        $gender=$_POST['gender'];
+//INSERT INTO shippers(fname,lname,username,email,passwd,age,gender) VALUES ('Alliance  Shippers','1-800-222-0451');
+        $sql = "INSERT INTO users (fname,lname,username,email,passwd,age,gender) VALUES ('".$fname."','".$lname."','".$username."','".$email."','".$passwd."',".$age.",'".$gender."');";         
+    }
+}
+if ($con->query($sql) === TRUE) {
+    echo "New record created successfully";
+} else {
+    echo "Error: " . $sql . "<br>" . $con->error;
+}
+$con->close();
+?>
+
     <?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/include/headernav.php'); ?>
     <div class="main body-top">
         <article>
@@ -177,6 +179,13 @@ $con->close();
     <script src="/101PRESENTS/assets/js/notificationbox.js"></script>
     <script type="text/javascript">
     <?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/include/jscode.php'); ?> 
+    if('serviceWorker' in navigator) {
+        navigator.serviceWorker
+           .register('/101PRESENTS/sw.js')
+           .then(function() { console.log("Service Worker Registered"); });
+    }  
+
+
     $(document).ready(function(){
         $("input[name=username]").keyup(function(){
             var uname = $("input[name=username]").val().trim();

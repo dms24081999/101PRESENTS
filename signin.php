@@ -1,51 +1,17 @@
 <?php
+session_start();
 require_once('api/GoogleAPI/settings.php');
 $login_url = 'https://accounts.google.com/o/oauth2/v2/auth?scope=' . urlencode('https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email') . '&redirect_uri=' . urlencode(CLIENT_REDIRECT_URL) . '&response_type=code&client_id=' . CLIENT_ID . '&access_type=online';
 ?>
 
-<?php
-// Always start this first
-include("db.php");
-session_start();
-echo "Favorite color is " . $_SESSION["user_id"] . ".<br>";
 
-if ( isset( $_POST['signinbtn'] ) ) {
-    if ( isset( $_POST['username'] ) && isset( $_POST['passwd'] ) ) {
-        
-        // Getting submitted user data from database   
-        $username=$_POST['username'];
-        $stmt = $con->prepare("SELECT * FROM users WHERE username = '".$username."';");     
-        $stmt->execute();
-        $result = $stmt->get_result();
-        $user = $result->fetch_object();
-        // Verify user password and set $_SESSION
-    	if ( $_POST['passwd'] == $user->passwd ) {
-            //if(! isset($_SESSION['user_id'])){
-              //  if (isset($_SERVER['HTTP_COOKIE'])) {
-                //    $cookies = explode(';', $_SERVER['HTTP_COOKIE']);
-                  //  foreach($cookies as $cookie) {
-                    //    $parts = explode('=', $cookie);
-                      //  $name = trim($parts[0]);
-                        //setcookie($name, '', time()-1000);
-                        //setcookie($name, '', time()-1000, '/');
-                   // }
-                //}
-            //}
-            $_SESSION['user_id'] = $user->username;
-            echo "<script>console.log(".$_SESSION['user_id'].");</script>";
-        }
-        
-    }
-    mysqli_close($con);
-}
-
-?>
 
 <html>
 
 <head>
     <title>Sign-In | 101PRESENTS</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    
     <?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/include/head.php'); ?>
     <style type="text/css">
     body {
@@ -74,6 +40,38 @@ if ( isset( $_POST['signinbtn'] ) ) {
 </head>
 
 <body>
+<?php
+// Always start this first
+include("db.php");
+echo "Favorite color is " . $_SESSION["user_id"] . ".<br>";
+if ( isset( $_POST['signinbtn'] ) ) {
+    if ( isset( $_POST['username'] ) && isset( $_POST['passwd'] ) ) {
+        // Getting submitted user data from database   
+        $username=$_POST['username'];
+        $stmt = $con->prepare("SELECT * FROM users WHERE username = '".$username."';");     
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $user = $result->fetch_object();
+        // Verify user password and set $_SESSION
+    	if ( $_POST['passwd'] == $user->passwd ) {
+            //if(! isset($_SESSION['user_id'])){
+              //  if (isset($_SERVER['HTTP_COOKIE'])) {
+                //    $cookies = explode(';', $_SERVER['HTTP_COOKIE']);
+                  //  foreach($cookies as $cookie) {
+                    //    $parts = explode('=', $cookie);
+                      //  $name = trim($parts[0]);
+                        //setcookie($name, '', time()-1000);
+                        //setcookie($name, '', time()-1000, '/');
+                   // }
+                //}
+            //}
+            $_SESSION['user_id'] = $user->username;
+            echo "<script>console.log(".$_SESSION['user_id'].");</script>";
+        }
+    }
+    mysqli_close($con);
+}
+?>
     <?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/include/headernav.php'); ?>
     <div class="main body-top">
         <article>
@@ -124,6 +122,13 @@ if ( isset( $_POST['signinbtn'] ) ) {
 //   console.log('Image URL: ' + profile.getImageUrl());
 //   console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
 // }
+
+navigator.serviceWorker.getRegistrations().then(
+function(registrations) {
+    for(let registration of registrations) {  
+        registration.unregister();
+    }
+});
 
 
     window.onload = function() {
