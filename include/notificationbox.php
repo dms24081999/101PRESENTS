@@ -20,7 +20,7 @@
                     <div class="bottom-section-notification-row">
                         <a href="/101PRESENTS/products-info.html">
                             <span>more info..</span>
-                            <img src="/101PRESENTS/img/icon/external-link-blue.png">
+                            <img src="/101PRESENTS/assets/images/icon/external-link-blue.png">
                         </a>
                     </div>
                 </div>

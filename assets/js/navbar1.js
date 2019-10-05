@@ -59,7 +59,7 @@ $(document).ready(function() { // $divs includes all of the container divs that 
 //For Home with Parallax
 // <header>
 //         <nav id="topNavID" class="topnav">
-//             <a href="#home" id="logo" class="a capital nav-item-cont logo"><img src="img/main-logo.png" width="140px" height="25px" style="display:block;float:left;margin-top: 0px;"></a>
+//             <a href="#home" id="logo" class="a capital nav-item-cont logo"><img src="assets/images/main-logo.png" width="140px" height="25px" style="display:block;float:left;margin-top: 0px;"></a>
 //             <div class="dropdown mt-5 nav-item-cont">
 //                 <a href="#products">
 //                     <button class="dropbtn capital nav-item " style="cursor: pointer;">Products
@@ -99,7 +99,7 @@ $(document).ready(function() { // $divs includes all of the container divs that 
 //For other
 // <header>
 //         <nav id="topNavID" class="topnav">
-//             <a href="home.html" id="logo" class="a capital nav-item-cont logo"><img src="img/main-logo.png" width="140px" height="25px" style="display:block;float:left;margin-top: 0px;"></a>
+//             <a href="home.html" id="logo" class="a capital nav-item-cont logo"><img src="assets/images/main-logo.png" width="140px" height="25px" style="display:block;float:left;margin-top: 0px;"></a>
 //             <div class="dropdown mt-5 nav-item-cont">
 //                 <a href="products.html">
 //                     <button class="dropbtn capital nav-item " style="cursor: pointer;">Products

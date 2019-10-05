@@ -2,7 +2,7 @@
                     <div class="row">
                         <div class="column">
                             <div class="card">
-                                <div class="front"><img width="100%" height="100%" src="img/team/dominic.jpg"></div>
+                                <div class="front"><img width="100%" height="100%" src="assets/images/team/dominic.jpg"></div>
                                 <div class="back">
                                     <div class="details">
                                         <h2>Dominic Silveira<br><span>Web master</span></h2>
@@ -18,7 +18,7 @@
                         </div>
                         <div class="column">
                             <div class="card">
-                                <div class="front"><img width="100%" height="100%" src="img/team/CollegeLogo.jpg"></div>
+                                <div class="front"><img width="100%" height="100%" src="assets/images/team/CollegeLogo.jpg"></div>
                                 <div class="back">
                                     <div class="details">
                                         <h2>SFIT<br><span>Web master</span></h2>

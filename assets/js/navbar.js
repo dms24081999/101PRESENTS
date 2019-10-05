@@ -12,7 +12,7 @@ selectElement('.menu-icons').addEventListener('click',()=>{
 //                     <i class="fa fa-close"></i>
 //                 </div>
 //                 <a href="home.html" class="logo">
-//                     <img src="img/main-logo.png" width="140px" height="25px" style="display:block;float:left;margin-top: 0px;">
+//                     <img src="assets/images/main-logo.png" width="140px" height="25px" style="display:block;float:left;margin-top: 0px;">
 //                 </a>
 //                 <ul class="nav-list">
 //                     <li>

@@ -46,12 +46,10 @@ if ( isset( $_POST['signinbtn'] ) ) {
 <head>
     <title>Sign-In | 101PRESENTS</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
-    <meta name="google-signin-client_id" content="128459317850-pfkmug4o9e0u4ms5pc6566ajr1d5rf09.apps.googleusercontent.com">
     <?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/include/head.php'); ?>
     <style type="text/css">
     body {
-        background-image: linear-gradient(rgba(255, 0, 0, 0.3), rgba(0, 255, 0, 0.3), rgba(0, 0, 255, 0.3)), url("img/bg.jpg");
+        background-image: linear-gradient(rgba(255, 0, 0, 0.3), rgba(0, 255, 0, 0.3), rgba(0, 0, 255, 0.3)), url("assets/images/bg.jpg");
     }
 
     .valid~.label {
@@ -103,7 +101,7 @@ if ( isset( $_POST['signinbtn'] ) ) {
                     <!-- onclick="return validateSingInForm()" -->
                     <!-- <button class="ripplelink block primary" onclick="return SocialGoogleLogin()">Sign-In with Google</button> -->
                     <a href="<?= $login_url ?>" class="ripplelink block primary">Login with Google</a>
-                    <div class="g-signin2" data-onsuccess="onSignIn"></div>
+                    <!-- <div class="g-signin2" data-onsuccess="onSignIn"></div> -->
                 </form>
             </div>
         </article>
@@ -111,21 +109,21 @@ if ( isset( $_POST['signinbtn'] ) ) {
     <?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/include/footer.php'); ?>
     <?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/include/notificationbox.php'); ?>
     <?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/include/loading.php'); ?>
-    <script src="js/jquery-3.4.1.min.js"></script>
-    <script src="js/script.js"></script>
-     <script src="js/navbar.js"> </script>
-    <script src="js/forms.js"> </script>
-    <script src="js/notificationbox.js"></script>
+    <script src="assets/js/jquery-3.4.1.min.js"></script>
+    <script src="assets/js/script.js"></script>
+     <script src="assets/js/navbar.js"> </script>
+    <script src="assets/js/forms.js"> </script>
+    <script src="assets/js/notificationbox.js"></script>
     <script type="text/javascript">
         <?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/include/jscode.php'); ?> 
     
-function onSignIn(googleUser) {
-  var profile = googleUser.getBasicProfile();
-  console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-  console.log('Name: ' + profile.getName());
-  console.log('Image URL: ' + profile.getImageUrl());
-  console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
-}
+// function onSignIn(googleUser) {
+//   var profile = googleUser.getBasicProfile();
+//   console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+//   console.log('Name: ' + profile.getName());
+//   console.log('Image URL: ' + profile.getImageUrl());
+//   console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+// }
 
 
     window.onload = function() {

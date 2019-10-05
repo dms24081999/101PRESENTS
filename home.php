@@ -13,7 +13,7 @@ echo "Favorite color is " . $_SESSION["user_id"] . ".<br>";
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
     <?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/include/head.php'); ?>
-    <link rel="stylesheet" type="text/css" href="css/testimonial.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/testimonial.css">
     <style type="text/css">
     .typewritter {
         text-align: center;
@@ -103,12 +103,12 @@ echo "Favorite color is " . $_SESSION["user_id"] . ".<br>";
     }
 
     .bgimg-1 {
-        background-image: linear-gradient(rgba(255, 0, 0, 0.3), rgba(0, 255, 0, 0.3), rgba(0, 0, 255, 0.3)), url("img/bg.jpg");
+        background-image: linear-gradient(rgba(255, 0, 0, 0.3), rgba(0, 255, 0, 0.3), rgba(0, 0, 255, 0.3)), url("assets/images/bg.jpg");
         height: 100vh;
     }
 
     .bgimg-2 {
-        background-image: linear-gradient(rgba(255, 0, 0, 0.3), rgba(0, 255, 0, 0.3), rgba(0, 0, 255, 0.3)), url("img/bg1.jpg");
+        background-image: linear-gradient(rgba(255, 0, 0, 0.3), rgba(0, 255, 0, 0.3), rgba(0, 0, 255, 0.3)), url("assets/images/bg1.jpg");
         height: 50vh;
     }
 
@@ -179,7 +179,7 @@ echo "Favorite color is " . $_SESSION["user_id"] . ".<br>";
 
 <body>
     
-    <audio id="my_audio" src="audio/welcome.mp3"  autoplay="autoplay"></audio>
+    <audio id="my_audio" src="assets/audios/welcome.mp3"  autoplay="autoplay"></audio>
     <?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/include/headernav.php'); ?>
     <section id="home">
         <div class="bgimg-1">
@@ -202,25 +202,25 @@ echo "Favorite color is " . $_SESSION["user_id"] . ".<br>";
                 <div class="gallery">
                     <a href="products.html#goggles">
                         <div class="gallery-item">
-                            <img class="gallery-image" src="img/products/goggles/cat-eye-women-sunglasses-green/1.webp" alt="">
+                            <img class="gallery-image" src="assets/images/products/goggles/cat-eye-women-sunglasses-green/1.webp" alt="">
                             <div class="bottom-text">Sun-glasses</div>
                         </div>
                     </a>
                     <a href="products.html#flowers">
                         <div class="gallery-item">
-                            <img class="gallery-image" src="img/products/flowers/special-birthday-vase-arrangement/1.webp" alt="">
+                            <img class="gallery-image" src="assets/images/products/flowers/special-birthday-vase-arrangement/1.webp" alt="">
                             <div class="bottom-text">Flowers</div>
                         </div>
                     </a>
                     <a href="products.html#chocolates">
                         <div class="gallery-item">
-                            <img class="gallery-image" src="img/products/chocolates/personalised-mug-ferrero-rocher-combo/1.webp" alt="">
+                            <img class="gallery-image" src="assets/images/products/chocolates/personalised-mug-ferrero-rocher-combo/1.webp" alt="">
                             <div class="bottom-text">Chocolates</div>
                         </div>
                     </a>
                     <a href="products.html#cakes">
                         <div class="gallery-item">
-                            <img class="gallery-image" src="img/products/cakes/black-forest-cake/2.webp" alt="">
+                            <img class="gallery-image" src="assets/images/products/cakes/black-forest-cake/2.webp" alt="">
                             <div class="bottom-text">Cakes</div>
                         </div>
                     </a>
@@ -271,10 +271,10 @@ echo "Favorite color is " . $_SESSION["user_id"] . ".<br>";
         <div class="inner-width">
             <h1>What Our Customers Say</h1>
             <div class="testimonial-pics">
-                <img src="img/testimonial/sanket.jpg" alt="test-1" class="active">
-                <img src="img/testimonial/komal.jpg" alt="test-2">
-                <img src="img/testimonial/arbaz.jpg" alt="test-3">
-                <img src="img/testimonial/manas.jpg" alt="test-4">
+                <img src="assets/images/testimonial/sanket.jpg" alt="test-1" class="active">
+                <img src="assets/images/testimonial/komal.jpg" alt="test-2">
+                <img src="assets/images/testimonial/arbaz.jpg" alt="test-3">
+                <img src="assets/images/testimonial/manas.jpg" alt="test-4">
             </div>
             <div class="testimonial-contents">
                 <div class="testimonial active" id="test-1">
@@ -299,10 +299,10 @@ echo "Favorite color is " . $_SESSION["user_id"] . ".<br>";
     <?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/include/footer.php'); ?>
     <?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/include/notificationbox.php'); ?>
     <?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/include/loading.php'); ?>
-    <script src="js/jquery-3.4.1.min.js"></script>
-    <script src="js/script.js"></script>
-    <script src="js/navbar.js"></script>
-    <script src="js/notificationbox.js"></script>
+    <script src="assets/js/jquery-3.4.1.min.js"></script>
+    <script src="assets/js/script.js"></script>
+    <script src="assets/js/navbar.js"></script>
+    <script src="assets/js/notificationbox.js"></script>
     <script type="text/javascript">
     <?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/include/jscode.php'); ?>  
     if('serviceWorker' in navigator) {

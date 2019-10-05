@@ -61,7 +61,7 @@
     margin-top: 180px;
     height: 56px;
     transition: all 0.5s ease;
-    background-image: url(/101PRESENTS/img/icon/notification-icon-active.svg);
+    background-image: url(/101PRESENTS/assets/images/icon/notification-icon-active.svg);
     background-position: center;
     background-repeat: no-repeat;
 }
@@ -69,7 +69,7 @@
 /*---- 2nd button ----*/
 .button-notification-box:last-child button {
     height: 56px;
-    background-image: url(/101PRESENTS/img/icon/notification-close-icon.svg);
+    background-image: url(/101PRESENTS/assets/images/icon/notification-close-icon.svg);
     background-position: center;
     background-repeat: no-repeat;
 }
@@ -261,7 +261,7 @@
     .button-notification-box:first-child button {
         height: 48px;
         margin-top: 128px;
-        background-image: url(/101PRESENTS/img/icon/notification-icon-active-mob.svg);
+        background-image: url(/101PRESENTS/assets/images/icon/notification-icon-active-mob.svg);
         background-position: center;
     }
 
@@ -273,7 +273,7 @@
     /*---- 2nd button ----*/
     .button-notification-box:last-child button {
         height: 40px;
-        background-image: url(/101PRESENTS/img/icon/notification-close-icon-mob.svg);
+        background-image: url(/101PRESENTS/assets/images/icon/notification-close-icon-mob.svg);
         background-position: center;
     }
 

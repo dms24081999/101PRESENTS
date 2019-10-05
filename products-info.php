@@ -234,11 +234,11 @@ table th{
                     <div class="products">
                         <div class="card">
                             <div class="top-section">
-                                <img id="image-container1" class="image-container" src="img/products/goggles/awesome-men-sunglasses/1.png" alt="">
+                                <img id="image-container1" class="image-container" src="assets/images/products/goggles/awesome-men-sunglasses/1.png" alt="">
                                 <div class="nav">
-                                    <img onclick="change_img(this)" img="image-container1" src="img/products/goggles/awesome-men-sunglasses/1.png" alt="">
-                                    <img onclick="change_img(this)" img="image-container1" src="img/products/goggles/awesome-men-sunglasses/2.png" alt="">
-                                    <img onclick="change_img(this)" img="image-container1" src="img/products/goggles/awesome-men-sunglasses/3.png" alt="">
+                                    <img onclick="change_img(this)" img="image-container1" src="assets/images/products/goggles/awesome-men-sunglasses/1.png" alt="">
+                                    <img onclick="change_img(this)" img="image-container1" src="assets/images/products/goggles/awesome-men-sunglasses/2.png" alt="">
+                                    <img onclick="change_img(this)" img="image-container1" src="assets/images/products/goggles/awesome-men-sunglasses/3.png" alt="">
                                 </div>
                             </div>
                         </div>
@@ -329,11 +329,11 @@ table th{
     <?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/include/footer.php'); ?>
     <?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/include/notificationbox.php'); ?>
     <?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/include/loading.php'); ?>
-    <script src="js/jquery-3.4.1.min.js"></script>
-    <script src="js/script.js"></script>
-    <script src="js/navbar.js"></script>
-    <script src="js/products.js"></script>
-    <script src="js/notificationbox.js"></script>
+    <script src="assets/js/jquery-3.4.1.min.js"></script>
+    <script src="assets/js/script.js"></script>
+    <script src="assets/js/navbar.js"></script>
+    <script src="assets/js/products.js"></script>
+    <script src="assets/js/notificationbox.js"></script>
     <script type="text/javascript">
         <?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/include/jscode.php'); ?> 
     $(document).ready(function() {

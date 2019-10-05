@@ -36,7 +36,7 @@ $con->close();
     <?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/include/head.php'); ?>
     <style type="text/css">
     body {
-        background-image: linear-gradient(rgba(255, 0, 0, 0.3), rgba(0, 255, 0, 0.3), rgba(0, 0, 255, 0.3)), url("img/bg.jpg");
+        background-image: linear-gradient(rgba(255, 0, 0, 0.3), rgba(0, 255, 0, 0.3), rgba(0, 0, 255, 0.3)), url("assets/images/bg.jpg");
     }
 
     input[type=number]::-webkit-inner-spin-button,
@@ -74,7 +74,7 @@ $con->close();
                 <form name="signup" method="post" class="box">
                     <h1 class="signup-signin-text">Sign-Up</h1>
                     <div>
-                        <a href=''><img src="/101PRESENTS/img/icon/circle-image.png" id="signup-avatar" style="width: 125px;height: 125px;border-radius: 50%;margin-bottom: 25px;"><input accept='image/*' type='file' style='display:none;' name='avatar' id='profile-image-change-button' onchange="readImageURL(this);"></a>
+                        <a href=''><img src="/101PRESENTS/assets/images/icon/circle-image.png" id="signup-avatar" style="width: 125px;height: 125px;border-radius: 50%;margin-bottom: 25px;"><input accept='image/*' type='file' style='display:none;' name='avatar' id='profile-image-change-button' onchange="readImageURL(this);"></a>
                     </div>
                     <div class="row">
                         <div class="group" style="display: inline-block;">
@@ -170,11 +170,11 @@ $con->close();
     <?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/include/footer.php'); ?>
     <?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/include/notificationbox.php'); ?>
     <?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/include/loading.php'); ?>
-    <script src="js/jquery-3.4.1.min.js"></script>
-    <script src="js/script.js"> </script>
-    <script src="js/navbar.js"> </script>
-    <script src="js/forms.js"> </script>
-    <script src="js/notificationbox.js"></script>
+    <script src="assets/js/jquery-3.4.1.min.js"></script>
+    <script src="assets/js/script.js"> </script>
+    <script src="assets/js/navbar.js"> </script>
+    <script src="assets/js/forms.js"> </script>
+    <script src="assets/js/notificationbox.js"></script>
     <script type="text/javascript">
     <?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/include/jscode.php'); ?> 
     $(document).ready(function(){

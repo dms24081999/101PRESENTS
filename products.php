@@ -6,7 +6,7 @@
     <?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/include/head.php'); ?>
     <style type="text/css">
     body {
-        background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("img/bg.jpg");
+        background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("assets/images/bg.jpg");
     }
 
     section.products {
@@ -75,11 +75,11 @@
                             <div class="column">
                                 <div class="card">
                                     <div class="top-section">
-                                        <img id="image-container1" class="image-container" src="img/products/goggles/awesome-men-sunglasses/1.png" alt="">
+                                        <img id="image-container1" class="image-container" src="assets/images/products/goggles/awesome-men-sunglasses/1.png" alt="">
                                         <div class="nav">
-                                            <img onclick="change_img(this)" img="image-container1" src="img/products/goggles/awesome-men-sunglasses/1.png" alt="">
-                                            <img onclick="change_img(this)" img="image-container1" src="img/products/goggles/awesome-men-sunglasses/2.png" alt="">
-                                            <img onclick="change_img(this)" img="image-container1" src="img/products/goggles/awesome-men-sunglasses/3.png" alt="">
+                                            <img onclick="change_img(this)" img="image-container1" src="assets/images/products/goggles/awesome-men-sunglasses/1.png" alt="">
+                                            <img onclick="change_img(this)" img="image-container1" src="assets/images/products/goggles/awesome-men-sunglasses/2.png" alt="">
+                                            <img onclick="change_img(this)" img="image-container1" src="assets/images/products/goggles/awesome-men-sunglasses/3.png" alt="">
                                         </div>
                                         <div class="price">₹999</div>
                                     </div>
@@ -93,11 +93,11 @@
                             <div class="column">
                                 <div class="card">
                                     <div class="top-section">
-                                        <img id="image-container2" class="image-container" src="img/products/goggles/cat-eye-women-sunglasses-green/1.webp" alt="">
+                                        <img id="image-container2" class="image-container" src="assets/images/products/goggles/cat-eye-women-sunglasses-green/1.webp" alt="">
                                         <div class="nav">
-                                            <img onclick="change_img(this)" img="image-container2" src="img/products/goggles/cat-eye-women-sunglasses-green/1.webp" alt="">
-                                            <img onclick="change_img(this)" img="image-container2" src="img/products/goggles/cat-eye-women-sunglasses-green/2.webp" alt="">
-                                            <img onclick="change_img(this)" img="image-container2" src="img/products/goggles/cat-eye-women-sunglasses-green/3.webp" alt="">
+                                            <img onclick="change_img(this)" img="image-container2" src="assets/images/products/goggles/cat-eye-women-sunglasses-green/1.webp" alt="">
+                                            <img onclick="change_img(this)" img="image-container2" src="assets/images/products/goggles/cat-eye-women-sunglasses-green/2.webp" alt="">
+                                            <img onclick="change_img(this)" img="image-container2" src="assets/images/products/goggles/cat-eye-women-sunglasses-green/3.webp" alt="">
                                         </div>
                                         <div class="price">₹999</div>
                                     </div>
@@ -111,11 +111,11 @@
                             <div class="column">
                                 <div class="card">
                                     <div class="top-section">
-                                        <img id="image-container3" class="image-container" src="img/products/goggles/mirrored-women-wayfarer-sunglasses/1.webp" alt="">
+                                        <img id="image-container3" class="image-container" src="assets/images/products/goggles/mirrored-women-wayfarer-sunglasses/1.webp" alt="">
                                         <div class="nav">
-                                            <img onclick="change_img(this)" img="image-container3" src="img/products/goggles/mirrored-women-wayfarer-sunglasses/1.webp" alt="">
-                                            <img onclick="change_img(this)" img="image-container3" src="img/products/goggles/mirrored-women-wayfarer-sunglasses/2.webp" alt="">
-                                            <img onclick="change_img(this)" img="image-container3" src="img/products/goggles/mirrored-women-wayfarer-sunglasses/3.webp" alt="">
+                                            <img onclick="change_img(this)" img="image-container3" src="assets/images/products/goggles/mirrored-women-wayfarer-sunglasses/1.webp" alt="">
+                                            <img onclick="change_img(this)" img="image-container3" src="assets/images/products/goggles/mirrored-women-wayfarer-sunglasses/2.webp" alt="">
+                                            <img onclick="change_img(this)" img="image-container3" src="assets/images/products/goggles/mirrored-women-wayfarer-sunglasses/3.webp" alt="">
                                         </div>
                                         <div class="price">₹999</div>
                                     </div>
@@ -129,11 +129,11 @@
                             <div class="column">
                                 <div class="card">
                                     <div class="top-section">
-                                        <img id="image-container4" class="image-container" src="img/products/goggles/brown-wayfarer-unisex-sunglasses/1.webp" alt="">
+                                        <img id="image-container4" class="image-container" src="assets/images/products/goggles/brown-wayfarer-unisex-sunglasses/1.webp" alt="">
                                         <div class="nav">
-                                            <img onclick="change_img(this)" img="image-container4" src="img/products/goggles/brown-wayfarer-unisex-sunglasses/1.webp" alt="">
-                                            <img onclick="change_img(this)" img="image-container4" src="img/products/goggles/brown-wayfarer-unisex-sunglasses/2.webp" alt="">
-                                            <img onclick="change_img(this)" img="image-container4" src="img/products/goggles/brown-wayfarer-unisex-sunglasses/3.webp" alt="">
+                                            <img onclick="change_img(this)" img="image-container4" src="assets/images/products/goggles/brown-wayfarer-unisex-sunglasses/1.webp" alt="">
+                                            <img onclick="change_img(this)" img="image-container4" src="assets/images/products/goggles/brown-wayfarer-unisex-sunglasses/2.webp" alt="">
+                                            <img onclick="change_img(this)" img="image-container4" src="assets/images/products/goggles/brown-wayfarer-unisex-sunglasses/3.webp" alt="">
                                         </div>
                                         <div class="price">₹999</div>
                                     </div>
@@ -147,11 +147,11 @@
                             <div class="column">
                                 <div class="card">
                                     <div class="top-section">
-                                        <img id="image-container5" class="image-container" src="img/products/goggles/black-round-unisex-sunglasses/1.webp" alt="">
+                                        <img id="image-container5" class="image-container" src="assets/images/products/goggles/black-round-unisex-sunglasses/1.webp" alt="">
                                         <div class="nav">
-                                            <img onclick="change_img(this)" img="image-container5" src="img/products/goggles/black-round-unisex-sunglasses/1.webp" alt="">
-                                            <img onclick="change_img(this)" img="image-container5" src="img/products/goggles/black-round-unisex-sunglasses/2.webp" alt="">
-                                            <img onclick="change_img(this)" img="image-container5" src="img/products/goggles/black-round-unisex-sunglasses/3.webp" alt="">
+                                            <img onclick="change_img(this)" img="image-container5" src="assets/images/products/goggles/black-round-unisex-sunglasses/1.webp" alt="">
+                                            <img onclick="change_img(this)" img="image-container5" src="assets/images/products/goggles/black-round-unisex-sunglasses/2.webp" alt="">
+                                            <img onclick="change_img(this)" img="image-container5" src="assets/images/products/goggles/black-round-unisex-sunglasses/3.webp" alt="">
                                         </div>
                                         <div class="price">₹999</div>
                                     </div>
@@ -165,11 +165,11 @@
                             <div class="column">
                                 <div class="card">
                                     <div class="top-section">
-                                        <img id="image-container6" class="image-container" src="img/products/goggles/mirrored-rectangle-unisex-sunglasses/1.webp" alt="">
+                                        <img id="image-container6" class="image-container" src="assets/images/products/goggles/mirrored-rectangle-unisex-sunglasses/1.webp" alt="">
                                         <div class="nav">
-                                            <img onclick="change_img(this)" img="image-container6" src="img/products/goggles/mirrored-rectangle-unisex-sunglasses/1.webp" alt="">
-                                            <img onclick="change_img(this)" img="image-container6" src="img/products/goggles/mirrored-rectangle-unisex-sunglasses/2.webp" alt="">
-                                            <img onclick="change_img(this)" img="image-container6" src="img/products/goggles/mirrored-rectangle-unisex-sunglasses/3.webp" alt="">
+                                            <img onclick="change_img(this)" img="image-container6" src="assets/images/products/goggles/mirrored-rectangle-unisex-sunglasses/1.webp" alt="">
+                                            <img onclick="change_img(this)" img="image-container6" src="assets/images/products/goggles/mirrored-rectangle-unisex-sunglasses/2.webp" alt="">
+                                            <img onclick="change_img(this)" img="image-container6" src="assets/images/products/goggles/mirrored-rectangle-unisex-sunglasses/3.webp" alt="">
                                         </div>
                                         <div class="price">₹999</div>
                                     </div>
@@ -192,11 +192,11 @@
                             <div class="column">
                                 <div class="card">
                                     <div class="top-section">
-                                        <img id="image-container51" class="image-container" src="img/products/flowers/fantastic-jade-terrarium/1.webp" alt="">
+                                        <img id="image-container51" class="image-container" src="assets/images/products/flowers/fantastic-jade-terrarium/1.webp" alt="">
                                         <div class="nav">
-                                            <img onclick="change_img(this)" img="image-container51" src="img/products/flowers/fantastic-jade-terrarium/1.webp" alt="">
-                                            <img onclick="change_img(this)" img="image-container51" src="img/products/flowers/fantastic-jade-terrarium/2.webp" alt="">
-                                            <img onclick="change_img(this)" img="image-container51" src="img/products/flowers/fantastic-jade-terrarium/3.webp" alt="">
+                                            <img onclick="change_img(this)" img="image-container51" src="assets/images/products/flowers/fantastic-jade-terrarium/1.webp" alt="">
+                                            <img onclick="change_img(this)" img="image-container51" src="assets/images/products/flowers/fantastic-jade-terrarium/2.webp" alt="">
+                                            <img onclick="change_img(this)" img="image-container51" src="assets/images/products/flowers/fantastic-jade-terrarium/3.webp" alt="">
                                         </div>
                                         <div class="price">₹599</div>
                                     </div>
@@ -210,10 +210,10 @@
                             <div class="column">
                                 <div class="card">
                                     <div class="top-section">
-                                        <img id="image-container52" class="image-container" src="img/products/flowers/special-birthday-vase-arrangement/1.webp" alt="">
+                                        <img id="image-container52" class="image-container" src="assets/images/products/flowers/special-birthday-vase-arrangement/1.webp" alt="">
                                         <div class="nav">
-                                            <img onclick="change_img(this)" img="image-container52" src="img/products/flowers/special-birthday-vase-arrangement/1.webp" alt="">
-                                            <img onclick="change_img(this)" img="image-container52" src="img/products/flowers/special-birthday-vase-arrangement/2.webp" alt="">
+                                            <img onclick="change_img(this)" img="image-container52" src="assets/images/products/flowers/special-birthday-vase-arrangement/1.webp" alt="">
+                                            <img onclick="change_img(this)" img="image-container52" src="assets/images/products/flowers/special-birthday-vase-arrangement/2.webp" alt="">
                                         </div>
                                         <div class="price">₹949</div>
                                     </div>
@@ -227,11 +227,11 @@
                             <div class="column">
                                 <div class="card">
                                     <div class="top-section">
-                                        <img id="image-container53" class="image-container" src="img/products/flowers/romancing-roses-n-daisies/1.webp" alt="">
+                                        <img id="image-container53" class="image-container" src="assets/images/products/flowers/romancing-roses-n-daisies/1.webp" alt="">
                                         <div class="nav">
-                                            <img onclick="change_img(this)" img="image-container53" src="img/products/flowers/romancing-roses-n-daisies/1.webp" alt="">
-                                            <img onclick="change_img(this)" img="image-container53" src="img/products/flowers/romancing-roses-n-daisies/2.webp" alt="">
-                                            <img onclick="change_img(this)" img="image-container53" src="img/products/flowers/romancing-roses-n-daisies/3.webp" alt="">
+                                            <img onclick="change_img(this)" img="image-container53" src="assets/images/products/flowers/romancing-roses-n-daisies/1.webp" alt="">
+                                            <img onclick="change_img(this)" img="image-container53" src="assets/images/products/flowers/romancing-roses-n-daisies/2.webp" alt="">
+                                            <img onclick="change_img(this)" img="image-container53" src="assets/images/products/flowers/romancing-roses-n-daisies/3.webp" alt="">
                                         </div>
                                         <div class="price">₹1,149</div>
                                     </div>
@@ -245,11 +245,11 @@
                             <div class="column">
                                 <div class="card">
                                     <div class="top-section">
-                                        <img id="image-container54" class="image-container" src="img/products/flowers/red-roses-love-arrangement/1.webp" alt="">
+                                        <img id="image-container54" class="image-container" src="assets/images/products/flowers/red-roses-love-arrangement/1.webp" alt="">
                                         <div class="nav">
-                                            <img onclick="change_img(this)" img="image-container54" src="img/products/flowers/red-roses-love-arrangement/1.webp" alt="">
-                                            <img onclick="change_img(this)" img="image-container54" src="img/products/flowers/red-roses-love-arrangement/2.webp" alt="">
-                                            <img onclick="change_img(this)" img="image-container54" src="img/products/flowers/red-roses-love-arrangement/3.webp" alt="">
+                                            <img onclick="change_img(this)" img="image-container54" src="assets/images/products/flowers/red-roses-love-arrangement/1.webp" alt="">
+                                            <img onclick="change_img(this)" img="image-container54" src="assets/images/products/flowers/red-roses-love-arrangement/2.webp" alt="">
+                                            <img onclick="change_img(this)" img="image-container54" src="assets/images/products/flowers/red-roses-love-arrangement/3.webp" alt="">
                                         </div>
                                         <div class="price">₹949</div>
                                     </div>
@@ -263,10 +263,10 @@
                             <div class="column">
                                 <div class="card">
                                     <div class="top-section">
-                                        <img id="image-container55" class="image-container" src="img/products/flowers/basket-of-roses-tulips-with-ferrero-rocher/1.webp" alt="">
+                                        <img id="image-container55" class="image-container" src="assets/images/products/flowers/basket-of-roses-tulips-with-ferrero-rocher/1.webp" alt="">
                                         <div class="nav">
-                                            <img onclick="change_img(this)" img="image-container55" src="img/products/flowers/basket-of-roses-tulips-with-ferrero-rocher/1.webp" alt="">
-                                            <img onclick="change_img(this)" img="image-container55" src="img/products/flowers/basket-of-roses-tulips-with-ferrero-rocher/2.webp" alt="">
+                                            <img onclick="change_img(this)" img="image-container55" src="assets/images/products/flowers/basket-of-roses-tulips-with-ferrero-rocher/1.webp" alt="">
+                                            <img onclick="change_img(this)" img="image-container55" src="assets/images/products/flowers/basket-of-roses-tulips-with-ferrero-rocher/2.webp" alt="">
                                         </div>
                                         <div class="price">₹6,549</div>
                                     </div>
@@ -280,11 +280,11 @@
                             <div class="column">
                                 <div class="card">
                                     <div class="top-section">
-                                        <img id="image-container56" class="image-container" src="img/products/flowers/mesmerizing-roses-lilies-posy/1.webp" alt="">
+                                        <img id="image-container56" class="image-container" src="assets/images/products/flowers/mesmerizing-roses-lilies-posy/1.webp" alt="">
                                         <div class="nav">
-                                            <img onclick="change_img(this)" img="image-container56" src="img/products/flowers/mesmerizing-roses-lilies-posy/1.webp" alt="">
-                                            <img onclick="change_img(this)" img="image-container56" src="img/products/flowers/mesmerizing-roses-lilies-posy/2.webp" alt="">
-                                            <img onclick="change_img(this)" img="image-container56" src="img/products/flowers/mesmerizing-roses-lilies-posy/3.webp" alt="">
+                                            <img onclick="change_img(this)" img="image-container56" src="assets/images/products/flowers/mesmerizing-roses-lilies-posy/1.webp" alt="">
+                                            <img onclick="change_img(this)" img="image-container56" src="assets/images/products/flowers/mesmerizing-roses-lilies-posy/2.webp" alt="">
+                                            <img onclick="change_img(this)" img="image-container56" src="assets/images/products/flowers/mesmerizing-roses-lilies-posy/3.webp" alt="">
                                         </div>
                                         <div class="price">₹3,549</div>
                                     </div>
@@ -307,11 +307,11 @@
                             <div class="column">
                                 <div class="card">
                                     <div class="top-section">
-                                        <img id="image-container101" class="image-container" src="img/products/chocolates/meri-pyari-maa-chocolate-box/1.webp" alt="">
+                                        <img id="image-container101" class="image-container" src="assets/images/products/chocolates/meri-pyari-maa-chocolate-box/1.webp" alt="">
                                         <div class="nav">
-                                            <img onclick="change_img(this)" img="image-container101" src="img/products/chocolates/meri-pyari-maa-chocolate-box/1.webp" alt="">
-                                            <img onclick="change_img(this)" img="image-container101" src="img/products/chocolates/meri-pyari-maa-chocolate-box/2.webp" alt="">
-                                            <img onclick="change_img(this)" img="image-container101" src="img/products/chocolates/meri-pyari-maa-chocolate-box/3.webp" alt="">
+                                            <img onclick="change_img(this)" img="image-container101" src="assets/images/products/chocolates/meri-pyari-maa-chocolate-box/1.webp" alt="">
+                                            <img onclick="change_img(this)" img="image-container101" src="assets/images/products/chocolates/meri-pyari-maa-chocolate-box/2.webp" alt="">
+                                            <img onclick="change_img(this)" img="image-container101" src="assets/images/products/chocolates/meri-pyari-maa-chocolate-box/3.webp" alt="">
                                         </div>
                                         <div class="price">₹749</div>
                                     </div>
@@ -325,11 +325,11 @@
                             <div class="column">
                                 <div class="card">
                                     <div class="top-section">
-                                        <img id="image-container102" class="image-container" src="img/products/chocolates/personalised-mug-ferrero-rocher-combo/1.webp" alt="">
+                                        <img id="image-container102" class="image-container" src="assets/images/products/chocolates/personalised-mug-ferrero-rocher-combo/1.webp" alt="">
                                         <div class="nav">
-                                            <img onclick="change_img(this)" img="image-container102" src="img/products/chocolates/personalised-mug-ferrero-rocher-combo/1.webp" alt="">
-                                            <img onclick="change_img(this)" img="image-container102" src="img/products/chocolates/personalised-mug-ferrero-rocher-combo/2.webp" alt="">
-                                            <img onclick="change_img(this)" img="image-container102" src="img/products/chocolates/personalised-mug-ferrero-rocher-combo/3.webp" alt="">
+                                            <img onclick="change_img(this)" img="image-container102" src="assets/images/products/chocolates/personalised-mug-ferrero-rocher-combo/1.webp" alt="">
+                                            <img onclick="change_img(this)" img="image-container102" src="assets/images/products/chocolates/personalised-mug-ferrero-rocher-combo/2.webp" alt="">
+                                            <img onclick="change_img(this)" img="image-container102" src="assets/images/products/chocolates/personalised-mug-ferrero-rocher-combo/3.webp" alt="">
                                         </div>
                                         <div class="price">₹1,099</div>
                                     </div>
@@ -343,11 +343,11 @@
                             <div class="column">
                                 <div class="card">
                                     <div class="top-section">
-                                        <img id="image-container103" class="image-container" src="img/products/chocolates/my-mom-my-love-chocolate-box/1.webp" alt="">
+                                        <img id="image-container103" class="image-container" src="assets/images/products/chocolates/my-mom-my-love-chocolate-box/1.webp" alt="">
                                         <div class="nav">
-                                            <img onclick="change_img(this)" img="image-container103" src="img/products/chocolates/my-mom-my-love-chocolate-box/1.webp" alt="">
-                                            <img onclick="change_img(this)" img="image-container103" src="img/products/chocolates/my-mom-my-love-chocolate-box/2.webp" alt="">
-                                            <img onclick="change_img(this)" img="image-container103" src="img/products/chocolates/my-mom-my-love-chocolate-box/3.webp" alt="">
+                                            <img onclick="change_img(this)" img="image-container103" src="assets/images/products/chocolates/my-mom-my-love-chocolate-box/1.webp" alt="">
+                                            <img onclick="change_img(this)" img="image-container103" src="assets/images/products/chocolates/my-mom-my-love-chocolate-box/2.webp" alt="">
+                                            <img onclick="change_img(this)" img="image-container103" src="assets/images/products/chocolates/my-mom-my-love-chocolate-box/3.webp" alt="">
                                         </div>
                                         <div class="price">₹799</div>
                                     </div>
@@ -370,11 +370,11 @@
                             <div class="column">
                                 <div class="card">
                                     <div class="top-section">
-                                        <img id="image-container151" class="image-container" src="img/products/cakes/black-forest-cake/1.webp" alt="">
+                                        <img id="image-container151" class="image-container" src="assets/images/products/cakes/black-forest-cake/1.webp" alt="">
                                         <div class="nav">
-                                            <img onclick="change_img(this)" img="image-container151" src="img/products/cakes/black-forest-cake/1.webp" alt="">
-                                            <img onclick="change_img(this)" img="image-container151" src="img/products/cakes/black-forest-cake/2.webp" alt="">
-                                            <img onclick="change_img(this)" img="image-container151" src="img/products/cakes/black-forest-cake/3.webp" alt="">
+                                            <img onclick="change_img(this)" img="image-container151" src="assets/images/products/cakes/black-forest-cake/1.webp" alt="">
+                                            <img onclick="change_img(this)" img="image-container151" src="assets/images/products/cakes/black-forest-cake/2.webp" alt="">
+                                            <img onclick="change_img(this)" img="image-container151" src="assets/images/products/cakes/black-forest-cake/3.webp" alt="">
                                         </div>
                                         <div class="price">₹549</div>
                                     </div>
@@ -388,11 +388,11 @@
                             <div class="column">
                                 <div class="card">
                                     <div class="top-section">
-                                        <img id="image-container152" class="image-container" src="img/products/cakes/creamy-vanilla-fruit-cake/1.webp" alt="">
+                                        <img id="image-container152" class="image-container" src="assets/images/products/cakes/creamy-vanilla-fruit-cake/1.webp" alt="">
                                         <div class="nav">
-                                            <img onclick="change_img(this)" img="image-container152" src="img/products/cakes/creamy-vanilla-fruit-cake/1.webp" alt="">
-                                            <img onclick="change_img(this)" img="image-container152" src="img/products/cakes/creamy-vanilla-fruit-cake/2.webp" alt="">
-                                            <img onclick="change_img(this)" img="image-container152" src="img/products/cakes/creamy-vanilla-fruit-cake/3.webp" alt="">
+                                            <img onclick="change_img(this)" img="image-container152" src="assets/images/products/cakes/creamy-vanilla-fruit-cake/1.webp" alt="">
+                                            <img onclick="change_img(this)" img="image-container152" src="assets/images/products/cakes/creamy-vanilla-fruit-cake/2.webp" alt="">
+                                            <img onclick="change_img(this)" img="image-container152" src="assets/images/products/cakes/creamy-vanilla-fruit-cake/3.webp" alt="">
                                         </div>
                                         <div class="price">₹849</div>
                                     </div>
@@ -406,11 +406,11 @@
                             <div class="column">
                                 <div class="card">
                                     <div class="top-section">
-                                        <img id="image-container153" class="image-container" src="img/products/cakes/chocolaty-rose-cake/1.webp" alt="">
+                                        <img id="image-container153" class="image-container" src="assets/images/products/cakes/chocolaty-rose-cake/1.webp" alt="">
                                         <div class="nav">
-                                            <img onclick="change_img(this)" img="image-container153" src="img/products/cakes/chocolaty-rose-cake/1.webp" alt="">
-                                            <img onclick="change_img(this)" img="image-container153" src="img/products/cakes/chocolaty-rose-cake/2.webp" alt="">
-                                            <img onclick="change_img(this)" img="image-container153" src="img/products/cakes/chocolaty-rose-cake/3.webp" alt="">
+                                            <img onclick="change_img(this)" img="image-container153" src="assets/images/products/cakes/chocolaty-rose-cake/1.webp" alt="">
+                                            <img onclick="change_img(this)" img="image-container153" src="assets/images/products/cakes/chocolaty-rose-cake/2.webp" alt="">
+                                            <img onclick="change_img(this)" img="image-container153" src="assets/images/products/cakes/chocolaty-rose-cake/3.webp" alt="">
                                         </div>
                                         <div class="price">₹849</div>
                                     </div>
@@ -424,11 +424,11 @@
                             <div class="column">
                                 <div class="card">
                                     <div class="top-section">
-                                        <img id="image-container154" class="image-container" src="img/products/cakes/flakey-hearts-black-forest-cake/1.webp" alt="">
+                                        <img id="image-container154" class="image-container" src="assets/images/products/cakes/flakey-hearts-black-forest-cake/1.webp" alt="">
                                         <div class="nav">
-                                            <img onclick="change_img(this)" img="image-container154" src="img/products/cakes/flakey-hearts-black-forest-cake/1.webp" alt="">
-                                            <img onclick="change_img(this)" img="image-container154" src="img/products/cakes/flakey-hearts-black-forest-cake/2.webp" alt="">
-                                            <img onclick="change_img(this)" img="image-container154" src="img/products/cakes/flakey-hearts-black-forest-cake/3.webp" alt="">
+                                            <img onclick="change_img(this)" img="image-container154" src="assets/images/products/cakes/flakey-hearts-black-forest-cake/1.webp" alt="">
+                                            <img onclick="change_img(this)" img="image-container154" src="assets/images/products/cakes/flakey-hearts-black-forest-cake/2.webp" alt="">
+                                            <img onclick="change_img(this)" img="image-container154" src="assets/images/products/cakes/flakey-hearts-black-forest-cake/3.webp" alt="">
                                         </div>
                                         <div class="price">₹699</div>
                                     </div>
@@ -450,11 +450,11 @@
     <?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/include/footer.php'); ?>
     <?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/include/notificationbox.php'); ?>
     <?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/include/loading.php'); ?>
-    <script src="js/jquery-3.4.1.min.js"></script>
-    <script src="js/script.js"></script>
-    <script src="js/navbar.js"></script>
-    <script src="js/products.js"></script>
-    <script src="js/notificationbox.js"></script>
+    <script src="assets/js/jquery-3.4.1.min.js"></script>
+    <script src="assets/js/script.js"></script>
+    <script src="assets/js/navbar.js"></script>
+    <script src="assets/js/products.js"></script>
+    <script src="assets/js/notificationbox.js"></script>
     <script type="text/javascript">
         <?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/include/jscode.php'); ?> 
     //----------------------------------------Call Scroll products div with mouse scroll from main scripts file------------------------------------------
