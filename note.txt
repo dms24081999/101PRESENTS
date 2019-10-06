@@ -6,3 +6,17 @@ require_once('api/GoogleAPI/settings.php');
 $login_url = 'https://accounts.google.com/o/oauth2/v2/auth?scope=' . urlencode('https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email') . '&redirect_uri=' . urlencode(CLIENT_REDIRECT_URL) . '&response_type=code&client_id=' . CLIENT_ID . '&access_type=online';
 
 ?>
+
+CREATE TABLE `users` (
+ `fname` varchar(15) DEFAULT NULL,
+ `lname` varchar(15) DEFAULT NULL,
+ `username` varchar(15) NOT NULL,
+ `email` varchar(30) NOT NULL,
+ `passwd` varchar(30) DEFAULT NULL,
+ `age` int(11) DEFAULT NULL,
+ `gender` varchar(10) DEFAULT NULL,
+ `userid` int(11) NOT NULL AUTO_INCREMENT,
+ PRIMARY KEY (`userid`),
+ UNIQUE KEY `username` (`username`),
+ UNIQUE KEY `email` (`email`)
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=latin1

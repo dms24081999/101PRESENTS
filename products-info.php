@@ -286,35 +286,26 @@ table th{
                     </div>
                     <details>
                         <summary>More Info...</summary>
-                        <table cellpadding="10">
-                            <tr>
-                                <th>Frame Material</th>
-                                <th>:</th>
-                                <td>Metal</td>
-                            </tr>
-                            <tr>
-                                <th>Lens Color</th>
-                                <th>:</th>
-                                <td>Brown</td>
-                            </tr>
-                            <tr>
-                                <th>Gender</th>
-                                <th>:</th>
-                                <td>Men, Women</td>
-                            </tr>
-                            <tr>
-                                <th>Dimensions</th>
-                                <th>:</th>
-                                <td>58-14-135</td>
-                            </tr>
-                            <tr>
-                                <th>Product Type</th>
-                                <th>:</th>
-                                <td>Sunglasses</td>
-                            </tr>
-                        </table>
+                        <?php
+                        // Load XML file
+                            $xml = new DOMDocument;
+                            $xml->load($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/xml/123.xml');
+
+                            // Load XSL file
+                            $xsl = new DOMDocument;
+                            $xsl->load($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/productdetailstable.xsl');
+
+                            // Configure the transformer
+                            $proc = new XSLTProcessor;
+
+                            // Attach the xsl rules
+                            $proc->importStyleSheet($xsl);
+
+                            echo $proc->transformToXML($xml);
+                        ?>
                     </details>
                     <br>
+                   
                     <!-- Product Pricing -->
                     <div class="product-price">
                         <span>₹999</span>
@@ -336,11 +327,13 @@ table th{
     <script src="/101PRESENTS/assets/js/notificationbox.js"></script>
     <script type="text/javascript">
         <?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/include/jscode.php'); ?>
-        if('serviceWorker' in navigator) {
-        navigator.serviceWorker
-           .register('/101PRESENTS/sw.js')
-           .then(function() { console.log("Service Worker Registered"); });
-    }  
+        
+        navigator.serviceWorker.getRegistrations().then(
+function(registrations) {
+    for(let registration of registrations) {  
+        registration.unregister();
+    }
+});
      
     $(document).ready(function() {
 
