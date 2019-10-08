@@ -459,10 +459,10 @@
         <?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/include/jscode.php'); ?> 
 
         if('serviceWorker' in navigator) {
-        navigator.serviceWorker
-           .register('/101PRESENTS/sw.js')
-           .then(function() { console.log("Service Worker Registered"); });
-    }  
+            navigator.serviceWorker
+            .register('/101PRESENTS/sw.js')
+            .then(function() { console.log("Service Worker Registered"); });
+        }  
     
     //----------------------------------------Call Scroll products div with mouse scroll from main scripts file------------------------------------------
     $(document).ready(function() {

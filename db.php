@@ -9,4 +9,8 @@ if($con){
 }else{
     //echo "<script>console.log('Database failed');</script>";
 }
+$con->query('set character_set_client=utf8');
+$con->query('set character_set_connection=utf8');
+$con->query('set character_set_results=utf8');
+$con->query('set character_set_server=utf8');
 ?>
