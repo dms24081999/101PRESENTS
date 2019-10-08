@@ -1,3 +1,7 @@
+<?php
+session_start();
+    echo $_GET['id'];
+?>
 <head>
     <title>Product-Info | 101PRESENTS</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
