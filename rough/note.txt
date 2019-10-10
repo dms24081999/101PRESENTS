@@ -35,6 +35,11 @@ Create table products(
     img3 blob DEFAULT NULL
 )
 
+CREATE table cart(
+ 	cartid int primary key AUTO_INCREMENT,
+    productid int not null,
+    userid int not null
+)
 INSERT INTO `products` (`productid`, `name`, `price`, `tag`, `bdi`, `description`, `detailsxml`) VALUES ('', 'Brown Sunglasses', '999', 'Sunglasses ', 'चश्मा', 'Take your fashion endeavors to a whole new level with the S12B6302 sunglasses from JRS by Coolwinks. Packing an illustrious punch with its verve, these shades come with pilot shaped frames whose electrifying stance is hard to match. Equipped with black tinted lenses, these sunnies make for a perfect gear for those with square-shaped faces & are a flawless addition to the numerous attires present in your wardrobe. Actual product colors may vary slightly from colors shown on your Computer/Mobile Screen.', 'awesome-men-sunglasses.xml');
 
 

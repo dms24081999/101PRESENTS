@@ -59,13 +59,14 @@ if ( isset( $_POST['signupbtn'] ) ) {
         $gender=$_POST['gender'];
 //INSERT INTO shippers(fname,lname,username,email,passwd,age,gender) VALUES ('Alliance  Shippers','1-800-222-0451');
         $sql = "INSERT INTO users (fname,lname,username,email,passwd,age,gender) VALUES ('".$fname."','".$lname."','".$username."','".$email."','".$passwd."',".$age.",'".$gender."');";         
+        if ($con->query($sql) === TRUE) {
+            // echo "New record created successfully";
+        } else {
+            // echo "Error: " . $sql . "<br>" . $con->error;
+        }
     }
 }
-if ($con->query($sql) === TRUE) {
-    echo "New record created successfully";
-} else {
-    echo "Error: " . $sql . "<br>" . $con->error;
-}
+
 $con->close();
 ?>
 
