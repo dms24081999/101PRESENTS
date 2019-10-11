@@ -10,7 +10,26 @@ $('.product-quantity input').change( function() {
 });
 
 $('.product-removal button').click( function() {
-  removeItem(this);
+  del_id=$(this).attr("data-id");
+  thisid=$(this)
+  // console.log("hello")
+  console.log($(this).attr("data-id"))
+  $.ajax({
+    type:'POST',
+    url:'ajax/deletecart.php',
+    data:{del_id:del_id},
+    success: function(data){
+      console.log(data)
+         if(data=="YES"){
+           console.log("del")
+            removeItem(thisid);
+         }else{
+             alert("can't delete the row")
+         }
+    }
+
+  })
+  
 });
 
 
@@ -68,6 +87,7 @@ function updateQuantity(quantityInput)
 /* Remove item from cart */
 function removeItem(removeButton)
 {
+  
   /* Remove row from DOM and recalc cart total */
   var productRow = $(removeButton).parent().parent();
   productRow.slideUp(fadeTime, function() {

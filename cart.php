@@ -73,11 +73,11 @@ while($row1 = mysqli_fetch_array($result2,MYSQLI_ASSOC)){
       <input type='number' value='2' min='1'>
     </div>
     <div class='product-removal'>
-      <button class='remove-product'>
+      <button class='remove-product' data-id='".$row1['cartid']."'>
         Remove
       </button>
     </div>
-    <div class='product-line-price'>25.98</div>
+    <div class='product-line-price'>".$productinfo['price']."</div>
   </div>";
   
   }
@@ -148,6 +148,9 @@ function(registrations) {
         registration.unregister();
     }
 });
+$(document).ready(function(){
+  recalculateCart()
+    })
     </script>
 </body>
 
