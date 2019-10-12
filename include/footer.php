@@ -44,7 +44,7 @@
         <section class="footer-bottom-section flex-rw">
             <div class="footer-bottom-wrapper">
                 <i class="fa fa-copyright" role="copyright">
-                </i> 2019 SmileBrite in <address class="footer-address" role="company address">Mumbai, IN</address><span class="footer-bottom-rights"> - All Rights Reserved - </span>
+                </i> 2019 101PRESENTS in <address class="footer-address" role="company address">Mumbai, IN</address><span class="footer-bottom-rights"> - All Rights Reserved - </span>
             </div>
             <div class="footer-bottom-wrapper">
                 <a href="" class="generic-anchor" rel="nofollow">Terms</a> | <a href="" class="generic-anchor" rel="nofollow">Privacy</a>

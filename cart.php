@@ -3,6 +3,8 @@
     <?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/include/head.php'); ?>
     <?php
     session_start();
+    include("db.php");
+    include($_SERVER['DOCUMENT_ROOT']."/101PRESENTS/include/cookielogin.php");
       if ( isset( $_SESSION['user_id'] ) ) {
           // Grab user data from the database using the user_id
           // Let them access the "logged in only" pages
@@ -31,6 +33,7 @@
 </head>
 
 <body>
+
     <?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/include/headernav.php'); ?>
     <div class="main  body-top">
         <article>
@@ -82,7 +85,6 @@ while($row1 = mysqli_fetch_array($result2,MYSQLI_ASSOC)){
   
   }
 }
-//
 ?>
 
 <!-- 

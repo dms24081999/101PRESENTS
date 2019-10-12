@@ -1,9 +1,15 @@
 <html>
 
 <head>
+<?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/include/head.php'); ?>
+    <?php
+        session_start();
+        include("db.php");
+        include($_SERVER['DOCUMENT_ROOT']."/101PRESENTS/include/cookielogin.php");
+    ?>
     <title>About | 101PRESENTS</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/include/head.php'); ?>
+    
     <style type="text/css">
     body {
         background-image: linear-gradient(rgba(255, 0, 0, 0.3), rgba(0, 255, 0, 0.3), rgba(0, 0, 255, 0.3)), url("assets/images/bg.jpg");
@@ -12,6 +18,7 @@
 </head>
 
 <body>
+
     <?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/include/headernav.php'); ?>
     <div class="main  body-top">
         <article>

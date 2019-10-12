@@ -119,7 +119,7 @@ body {
 
 .signup-signin-text {
     margin-block-start: 0em;
-    /*margin-block-end: 0.83em;*/
+    margin-bottom: 0.5em;
     text-align: center;
     color: white;
     font-size: 35px;

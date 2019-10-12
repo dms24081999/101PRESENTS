@@ -3,7 +3,9 @@
 <?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/include/head.php'); ?>
 <?php
 session_start();
-include("db.php");
+    include("db.php");
+    include($_SERVER['DOCUMENT_ROOT']."/101PRESENTS/include/cookielogin.php");
+
     // echo $_GET['id'];
     $sql = "SELECT * FROM products where productid=".$_GET['id'].";";
 $result = $con->query($sql);
@@ -25,15 +27,15 @@ $con->close();
     <?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/include/head.php'); ?>
     <link rel="stylesheet" type="text/css" href="/101PRESENTS/assets/css/products-info.css">
     <style type="text/css">
-    /*html,
-    body {
-        font-family: 'Roboto', sans-serif;
-    }*/
+    .products .card {
+        background: none;
+    }
     
     </style>
 </head>
 
 <body>
+
 <?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/include/headernav.php'); ?>
     <div class="main  body-top">
         <article>

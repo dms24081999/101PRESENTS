@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 
-<?php
-
-// Always start this first
-session_start();
-?>
 <html>
 
 <head>
+    <?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/include/head.php'); ?>
+    <?php
+        session_start();
+        include("db.php");
+        include($_SERVER['DOCUMENT_ROOT']."/101PRESENTS/include/cookielogin.php");
+    ?>
     <title>101PRESENTS</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="/101PRESENTS/manifest.json" rel="manifest">
-    <?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/include/head.php'); ?>
+    
     <link rel="stylesheet" type="text/css" href="assets/css/testimonial.css">
     <style type="text/css">
     .typewritter {
@@ -177,12 +178,7 @@ session_start();
 </head>
 
 <body>
-
-<?php
-//unset($_SESSION['user_id']);
-echo "Favorite color is " . $_SESSION["user_id"] . ".<br>";
-?>
-    
+   
     <audio id="my_audio" src="assets/audios/welcome.mp3"  autoplay="autoplay"></audio>
     <?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/include/headernav.php'); ?>
     <section id="home">

@@ -1,14 +1,16 @@
-<?php
-session_start();
-?>
+
 <html>
 
 <head>
+<?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/include/head.php'); ?>
+    <?php
+        session_start();
+        include("db.php");
+        include($_SERVER['DOCUMENT_ROOT']."/101PRESENTS/include/cookielogin.php");
+    ?>
     <title>Sign-Up | 101PRESENTS</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
 
-    <?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/include/head.php'); ?>
     <style type="text/css">
     body {
         background-image: linear-gradient(rgba(255, 0, 0, 0.3), rgba(0, 255, 0, 0.3), rgba(0, 0, 255, 0.3)), url("assets/images/bg.jpg");
@@ -44,9 +46,8 @@ session_start();
 <body>
 <?php
 // Always start this first
-include("db.php");
-session_start();
-echo "Favorite color is " . $_SESSION["user_id"] . ".<br>";
+
+// echo "Favorite color is " . $_SESSION["user_id"] . ".<br>";
 if ( isset( $_POST['signupbtn'] ) ) {
     if ( isset( $_POST['username'] ) && isset( $_POST['passwd'] )  && isset( $_POST['fname'] )  && isset( $_POST['lname'] )  && isset( $_POST['email'] )  && isset( $_POST['age'] )  && isset( $_POST['gender'] ) ) {
         // Getting submitted user data from database   

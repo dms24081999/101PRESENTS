@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<product>
+  <cd>
+    <title>Material</title>
+    <des>Metal</des>
+  </cd>
+<cd>
+    <title>Color</title>
+    <des>Brown</des>
+  </cd>
+<cd>
+    <title>For Gender</title>
+    <des>Men, Women</des>
+  </cd>
+<cd>
+    <title>Dimensions</title>
+    <des>58-14-135</des>
+  </cd>
+<cd>
+    <title>Product Type</title>
+    <des>Sunglasses</des>
+  </cd>
+</product>
