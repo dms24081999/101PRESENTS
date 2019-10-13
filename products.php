@@ -1,9 +1,11 @@
+<?php
+session_start();
+?>
 <html>
 
 <head>
 <?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/include/head.php'); ?>
     <?php
-        session_start();
         include("db.php");
         include($_SERVER['DOCUMENT_ROOT']."/101PRESENTS/include/cookielogin.php");
         $sqluser = "SELECT * FROM users where username='".$_SESSION['user_id']."'  limit 1;";

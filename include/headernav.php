@@ -5,12 +5,12 @@
                     <i class="fa fa-bars"></i>
                     <i class="fa fa-close"></i>
                 </div>
-                <a href="home.php" class="logo">
+                <a href="index.php" class="logo">
                     <img src="/101PRESENTS/assets/images/logo/main-logo.png" width="140px" height="25px" style="display:block;float:left;margin-top: 0px;">
                 </a>
                 <ul class="nav-list">
                     <li>
-                        <a href="/101PRESENTS/home.php" >Home</a>
+                        <a href="/101PRESENTS/index.php" >Home</a>
                     </li>
                     <li>
                         <a href="#">Products

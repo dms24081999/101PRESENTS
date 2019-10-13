@@ -20,6 +20,6 @@ if (!isset($_SESSION['user_id'])){
 //     );
 // }
 
-//header("location:home.php"); 
-//echo "<script type='text/javascript'> document.location = 'home.php'; </script>";
+//header("location:index.php"); 
+//echo "<script type='text/javascript'> document.location = 'index.php'; </script>";
 ?>

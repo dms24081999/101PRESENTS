@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 
 <html>
@@ -5,7 +8,6 @@
 <head>
     <?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/include/head.php'); ?>
     <?php
-        session_start();
         include("db.php");
         include($_SERVER['DOCUMENT_ROOT']."/101PRESENTS/include/cookielogin.php");
     ?>

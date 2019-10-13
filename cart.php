@@ -1,8 +1,9 @@
-
+<?php
+session_start();
+?>
 <head>
     <?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/include/head.php'); ?>
     <?php
-    session_start();
     include("db.php");
     include($_SERVER['DOCUMENT_ROOT']."/101PRESENTS/include/cookielogin.php");
       if ( isset( $_SESSION['user_id'] ) ) {
@@ -80,7 +81,7 @@ while($cart = mysqli_fetch_array($result2,MYSQLI_ASSOC)){
         Remove
       </button>
     </div>
-    <div class='product-line-price'>".$productinfo['price']."</div>
+    <div class='product-line-price'>".$productinfo['price'] * $cart['quantity']."</div>
   </div>";
   
   }
@@ -151,8 +152,9 @@ function(registrations) {
     }
 });
 $(document).ready(function(){
+  // updateQuantity('.product-quantity input');
   recalculateCart()
-    })
+})
     </script>
 </body>
 

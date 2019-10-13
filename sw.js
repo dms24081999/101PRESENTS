@@ -4,7 +4,7 @@ const cacheName = 'presents101'; //-${version}
 
 // Default files to always cache
 var cacheFiles = [
-  // '/101PRESENTS/home.php',
+  // '/101PRESENTS/index.php',
   // '/101PRESENTS/signup.php',
  // '/101PRESENTS/signin.php',
   // '/101PRESENTS/products.php',

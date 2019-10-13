@@ -32,8 +32,7 @@ $('.product-removal button').click( function() {
 
 
 /* Recalculate cart */
-function recalculateCart()
-{
+function recalculateCart(){
   var subtotal = 0;
   
   /* Sum up row totals */
@@ -63,8 +62,7 @@ function recalculateCart()
 
 
 /* Update quantity */
-function updateQuantity(quantityInput)
-{
+function updateQuantity(quantityInput){
   /* Calculate line price */
   var productRow = $(quantityInput).parent().parent();
   var price = parseFloat(productRow.children('.product-price').text());
@@ -101,9 +99,7 @@ function updateQuantity(quantityInput)
 
 
 /* Remove item from cart */
-function removeItem(removeButton)
-{
-  
+function removeItem(removeButton){
   /* Remove row from DOM and recalc cart total */
   var productRow = $(removeButton).parent().parent();
   productRow.slideUp(fadeTime, function() {
