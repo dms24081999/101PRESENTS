@@ -1,5 +1,6 @@
 <?php
 session_start();
+echo "<script>console.log('".$_SESSION['user_id']."');</script>";
 ?>
 <!DOCTYPE html>
 
@@ -307,11 +308,11 @@ session_start();
     <script src="/101PRESENTS/assets/js/notificationbox.js"></script>
     <script type="text/javascript">
     <?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/include/jscode.php'); ?>  
-    if('serviceWorker' in navigator) {
-        navigator.serviceWorker
-           .register('/101PRESENTS/sw.js')
-           .then(function() { console.log("Service Worker Registered"); });
-    }  
+    // if('serviceWorker' in navigator) {
+    //     navigator.serviceWorker
+    //        .register('/101PRESENTS/sw.js')
+    //        .then(function() { console.log("Service Worker Registered"); });
+    // }  
   
 
     window.onload = function() {

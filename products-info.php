@@ -122,8 +122,8 @@ $con->close();
                 </div>
             </main>
         </article>
-        <aside class="rightaside">
-        </aside>
+        <!-- <aside class="rightaside">
+        </aside> -->
     </div>
     <?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/include/footer.php'); ?>
     <?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/include/notificationbox.php'); ?>
@@ -136,11 +136,11 @@ $con->close();
     <script src="/101PRESENTS/assets/js/products.js"></script>
     <script type="text/javascript">
     <?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/include/jscode.php'); ?> 
-        if('serviceWorker' in navigator) {
-            navigator.serviceWorker
-            .register('/101PRESENTS/sw.js')
-            .then(function() { console.log("Service Worker Registered"); });
-        }  
+        // if('serviceWorker' in navigator) {
+        //     navigator.serviceWorker
+        //     .register('/101PRESENTS/sw.js')
+        //     .then(function() { console.log("Service Worker Registered"); });
+        // }  
 
         $(document).ready(function() {
             $('.color-choose input').on('click', function() {

@@ -217,6 +217,9 @@ ul.move-right li{
 		margin: 0 auto 0 0;
 		line-height: initial;
 	}
+	.auth.sub-menu{
+		right: auto;
+	}
 	.menu-icons, .primary{
 		display: block;
 		z-index: 100;

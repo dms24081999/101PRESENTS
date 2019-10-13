@@ -215,17 +215,17 @@ $con->close();
     <script src="/101PRESENTS/assets/js/notificationbox.js"></script>
     <script type="text/javascript">
     <?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/include/jscode.php'); ?> 
-    navigator.serviceWorker.getRegistrations().then(
-function(registrations) {
-    for(let registration of registrations) {  
-        registration.unregister();
-    }
-});
+//     navigator.serviceWorker.getRegistrations().then(
+// function(registrations) {
+//     for(let registration of registrations) {  
+//         registration.unregister();
+//     }
+// });
 
 
 
 // Get the element with id="defaultOpen" and click on it
-document.getElementById("defaultOpen").click();
+// document.getElementById("defaultOpen").click();
     $(document).ready(function(){
         $("input[name=username]").keyup(function(){
             var uname = $("input[name=username]").val().trim();

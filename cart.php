@@ -145,12 +145,12 @@ while($cart = mysqli_fetch_array($result2,MYSQLI_ASSOC)){
     <script src="/101PRESENTS/assets/js/notificationbox.js"></script>
     <script type="text/javascript">
         <?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/include/jscode.php'); ?> 
-navigator.serviceWorker.getRegistrations().then(
-function(registrations) {
-    for(let registration of registrations) {  
-        registration.unregister();
-    }
-});
+// navigator.serviceWorker.getRegistrations().then(
+// function(registrations) {
+//     for(let registration of registrations) {  
+//         registration.unregister();
+//     }
+// });
 $(document).ready(function(){
   // updateQuantity('.product-quantity input');
   recalculateCart()

@@ -53,7 +53,7 @@ if ( isset( $_POST['signupbtn'] ) ) {
     if ( isset( $_POST['username'] ) && isset( $_POST['passwd'] )  && isset( $_POST['fname'] )  && isset( $_POST['lname'] )  && isset( $_POST['email'] )  && isset( $_POST['age'] )  && isset( $_POST['gender'] ) ) {
         // Getting submitted user data from database   
         $username=$_POST['username'];
-        $passwd=$_POST['passwd'];
+        $passwd=md5($_POST['passwd']);
         $fname=$_POST['fname'];
         $lname=$_POST['lname'];
         $email=$_POST['email'];
@@ -147,27 +147,7 @@ $con->close();
                     </div>
                     <button class="ripplelink block primary" type="submit" name="signupbtn">Sign-Up</button>
                     <!-- onclick="document.forms['signup'].reportValidity() ? alert('Sign-Up Successful!') : alert('Plese enter correct information!');" -->
-                    <!--  <div class="row">
-                    <input class="mb-5 " type="text" placeholder="First Name" autofocus required autocomplete>
-                    <input class="mb-5 " type="text" placeholder="Last Name" autocomplete>
-                </div>
-             
-                <input class="mb-5 " type="text" placeholder="Username" required autocomplete>
-                <br>
-                <input class="mb-5 " type="email" placeholder="Email" required autocomplete>
-                <br>
-                <input class="mb-5 " type="password" placeholder="Password" required aria-required="true">
-                <div class="row">
-                    <input class="mb-5 " type="number" placeholder="Age" min="13" max="100" style="width:80px">
-                    <select name="Gender" style="width:200px">
-                        <option value="" selected="selected" disabled="disabled">Select your Gender</option>
-                        <option value="Male">Male</option>
-                        <option value="Female">Female</option>
-                        <option value="Other">Other</option>
-                    </select>
-                </div>
-                <br>
-                 -->
+                   
                 </form>
             </div>
         </article>
@@ -182,11 +162,12 @@ $con->close();
     <script src="/101PRESENTS/assets/js/notificationbox.js"></script>
     <script type="text/javascript">
     <?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/include/jscode.php'); ?> 
-    if('serviceWorker' in navigator) {
-        navigator.serviceWorker
-           .register('/101PRESENTS/sw.js')
-           .then(function() { console.log("Service Worker Registered"); });
-    }  
+//     navigator.serviceWorker.getRegistrations().then(
+// function(registrations) {
+//     for(let registration of registrations) {  
+//         registration.unregister();
+//     }
+// });
 
 
     $(document).ready(function(){

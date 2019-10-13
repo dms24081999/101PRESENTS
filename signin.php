@@ -4,7 +4,7 @@ require_once('api/GoogleAPI/settings.php');
 $login_url = 'https://accounts.google.com/o/oauth2/v2/auth?scope=' . urlencode('https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email') . '&redirect_uri=' . urlencode(CLIENT_REDIRECT_URL) . '&response_type=code&client_id=' . CLIENT_ID . '&access_type=online';
 include("db.php");
 include($_SERVER['DOCUMENT_ROOT']."/101PRESENTS/include/cookielogin.php");
-echo "Favorite color is " . $_SESSION["user_id"] . ".<br>";
+// echo "Favorite color is " . $_SESSION["user_id"] . ".<br>";
 if ( isset( $_POST['signinbtn'] ) ) {
     if ( isset( $_POST['username'] ) && isset( $_POST['passwd'] ) ) {
     // Getting submitted user data from database   
@@ -14,14 +14,14 @@ if ( isset( $_POST['signinbtn'] ) ) {
         $result = $stmt->get_result();
         $user = $result->fetch_object();
         // Verify user password and set $_SESSION
-        if ( $_POST['passwd'] == $user->passwd ) {
+        if ( md5($_POST['passwd']) == $user->passwd ) {
             $_SESSION['user_id'] = $user->username;
             if($_POST["remember_me"]=='1' || $_POST["remember_me"]=='on'){
                 $hour = time() + 3600 * 24 * 30;
                 setcookie('username', $_POST['username'], $hour);
-                setcookie('password', $_POST['passwd'], $hour);
+                setcookie('password', md5($_POST['passwd']), $hour);
             }
-            // echo "<script>console.log(".$_SESSION['user_id'].");</script>";
+            echo "<script>console.log('".$_SESSION['user_id']."');</script>";
         }
     }
     mysqli_close($con);
@@ -160,32 +160,20 @@ if ( isset( $_POST['signinbtn'] ) ) {
     <script src="/101PRESENTS/assets/js/notificationbox.js"></script>
     <script type="text/javascript">
         <?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/include/jscode.php'); ?> 
-    
-// function onSignIn(googleUser) {
-//   var profile = googleUser.getBasicProfile();
-//   console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-//   console.log('Name: ' + profile.getName());
-//   console.log('Image URL: ' + profile.getImageUrl());
-//   console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
-// }
 
-navigator.serviceWorker.getRegistrations().then(
-function(registrations) {
-    for(let registration of registrations) {  
-        registration.unregister();
-    }
-});
+// navigator.serviceWorker.getRegistrations().then(
+// function(registrations) {
+//     for(let registration of registrations) {  
+//         registration.unregister();
+//     }
+// });
 
 
     window.onload = function() {
         document.getElementById("username-input").focus();
     };
 
-    // $(document).ready(function(){
-    //     var cookies = document.cookie.split(";");
-    //     for (var i = 0; i < cookies.length; i++)
-    //     eraseCookie(cookies[i].split("=")[0]);
-    // })
+
 
     function validateUsername(user) {
         var username = user.value;
@@ -250,8 +238,7 @@ function(registrations) {
     }
 
 
-    function deleteAllCookies() {
-       
+    function deleteAllCookies() { 
         return true;
     }
     </script>
