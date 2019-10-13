@@ -56,14 +56,14 @@ $result1 = mysqli_query($con,$sql1);
 $value1=mysqli_fetch_assoc($result1);
 $sql2 = "SELECT * FROM cart where userid=".$value1["userid"].";";
 $result2=mysqli_query($con,$sql2);
-while($row1 = mysqli_fetch_array($result2,MYSQLI_ASSOC)){
-  //echo $row1["productid"];
-  $sql="SELECT * FROM products where productid=".$row1["productid"].";";
+while($cart = mysqli_fetch_array($result2,MYSQLI_ASSOC)){
+  //echo $cart["productid"];
+  $sql="SELECT * FROM products where productid=".$cart["productid"].";";
   $result=mysqli_query($con,$sql);
   while($productinfo = mysqli_fetch_array($result,MYSQLI_ASSOC)){
     //echo $productinfo["name"];
     $img=$productinfo['img1'];
-  echo  "<div class='product' id='cart".$row1['cartid']."'>
+  echo  "<div class='product' id='cart".$cart['cartid']."'>
     <div class='product-image'>
       <img src='data:image/jpeg;base64,".base64_encode($img)."' />
     </div>
@@ -73,10 +73,10 @@ while($row1 = mysqli_fetch_array($result2,MYSQLI_ASSOC)){
     </div>
     <div class='product-price'>".$productinfo['price']."</div>
     <div class='product-quantity'>
-      <input type='number' value='2' min='1'>
+      <input type='number' data-id=".$cart['cartid']." value='".$cart['quantity']."' min='1'>
     </div>
     <div class='product-removal'>
-      <button class='remove-product' data-id='".$row1['cartid']."'>
+      <button class='remove-product' data-id='".$cart['cartid']."'>
         Remove
       </button>
     </div>

@@ -22,30 +22,21 @@
                             <li>
                                 <a href="/101PRESENTS/products.php#flowers">Flowers</a>
                             </li>
-                            <li>
+                            <!-- <li>
                                 <a href="/101PRESENTS/products.php#chocolates">Chocolates</a>
                             </li>
                             <li>
                                 <a href="/101PRESENTS/products.php#cakes">Cakes</a>
-                            </li>
+                            </li> -->
                             <li>
                                 <a href="#">More...
                                     <i class="icon ion-md-arrow-dropdown"></i></a>
                                 <ul class="sub-menu">
                                     <li>
-                                        <a href="#">Watches
-                                            <i class="icon ion-md-arrow-dropdown"></i></a>
-                                        <ul class="sub-menu">
-                                            <li>
-                                                <a href="">Digital</a>
-                                            </li>
-                                            <li>
-                                                <a href="">Analog</a>
-                                            </li>
-                                        </ul>
+                                        <a href="/101PRESENTS/products.php#chocolates">Chocolates</a>
                                     </li>
                                     <li>
-                                        <a href="">Clothes</a>
+                                        <a href="/101PRESENTS/products.php#cakes">Cakes</a>
                                     </li>
                                 </ul>
                             </li>
@@ -54,21 +45,33 @@
                     <li>
                         <a href="/101PRESENTS/about.php">About</a>
                     </li>
-                    <!-- <ul class="move-right">
-                        <li class=" btn">
-                            <a href="">Sign-In</a>
-                        </li>
-                        <li class=" btn">
-                            <a href="">Sign-Up</a>
-                        </li>
-                    </ul> -->
                     <ul class="move-right">
-                        <li class=" btn">
-                             <a class="ripplelink primary " style="" href="/101PRESENTS/signin.php">Sign-In</a>
-                        </li>
-                        <li class=" btn">
-                            <a class="ripplelink primary " style="" href="/101PRESENTS/signup.php">Sign-Up</a>
-                        </li>
+                    <?php
+                        if ( isset( $_SESSION['user_id'] ) ) {
+                            echo "<li><a href='#'>Account
+                                <i class='icon ion-md-arrow-dropdown'></i></a>
+                                <ul class='auth sub-menu' style=''>
+                                    <li>
+                                        <a href='/101PRESENTS/updateprofile.php'>Update Profile</a>
+                                    </li>
+                                    <li>
+                                        <a href='/101PRESENTS/logout.php'>Logout</a>
+                                    </li>
+                                    <li>
+                                        <a href='/101PRESENTS/products.php#chocolates'>Chocolates</a>
+                                    </li>
+                                </ul></li>";
+                        } else {
+                            echo "<li class=' btn'>
+                                <a class='ripplelink primary ' style='' href='/101PRESENTS/signin.php'>Sign-In</a>
+                                </li>
+                                <li class=' btn'>
+                                    <a class='ripplelink primary ' style='' href='/101PRESENTS/signup.php'>Sign-Up</a>
+                                </li>";
+                        } 
+                    ?>
+                      
+                        
                     </ul>
                 </ul>
             </nav>

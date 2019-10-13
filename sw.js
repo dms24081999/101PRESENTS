@@ -4,11 +4,11 @@ const cacheName = 'presents101'; //-${version}
 
 // Default files to always cache
 var cacheFiles = [
-  '/101PRESENTS/home.php',
-  '/101PRESENTS/signup.php',
+  // '/101PRESENTS/home.php',
+  // '/101PRESENTS/signup.php',
  // '/101PRESENTS/signin.php',
-  '/101PRESENTS/products.php',
-  '/101PRESENTS/about.php',
+  // '/101PRESENTS/products.php',
+  // '/101PRESENTS/about.php',
   '/101PRESENTS/assets/css/navbar.css',
   '/101PRESENTS/assets/css/footer.css',
   '/101PRESENTS/assets/css/styles.css',

@@ -10,10 +10,32 @@ $login_url = 'https://accounts.google.com/o/oauth2/v2/auth?scope=' . urlencode('
 
 <head>
 <?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/include/head.php'); ?>
-    <?php
-        include("db.php");
-        include($_SERVER['DOCUMENT_ROOT']."/101PRESENTS/include/cookielogin.php");
-    ?>
+<?php
+    include("db.php");
+    include($_SERVER['DOCUMENT_ROOT']."/101PRESENTS/include/cookielogin.php");
+    echo "Favorite color is " . $_SESSION["user_id"] . ".<br>";
+    if ( isset( $_POST['signinbtn'] ) ) {
+        if ( isset( $_POST['username'] ) && isset( $_POST['passwd'] ) ) {
+        // Getting submitted user data from database   
+            $username=$_POST['username'];
+            $stmt = $con->prepare("SELECT * FROM users WHERE username = '".$username."';");     
+            $stmt->execute();
+            $result = $stmt->get_result();
+            $user = $result->fetch_object();
+            // Verify user password and set $_SESSION
+            if ( $_POST['passwd'] == $user->passwd ) {
+                $_SESSION['user_id'] = $user->username;
+                if($_POST["remember_me"]=='1' || $_POST["remember_me"]=='on'){
+                    $hour = time() + 3600 * 24 * 30;
+                    setcookie('username', $_POST['username'], $hour);
+                    setcookie('password', $_POST['passwd'], $hour);
+                }
+                // echo "<script>console.log(".$_SESSION['user_id'].");</script>";
+            }
+        }
+        mysqli_close($con);
+    }
+?>
     <title>Sign-In | 101PRESENTS</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -90,33 +112,7 @@ $login_url = 'https://accounts.google.com/o/oauth2/v2/auth?scope=' . urlencode('
 </head>
 
 <body>
-<?php
-// Always start this first
 
-echo "Favorite color is " . $_SESSION["user_id"] . ".<br>";
-if ( isset( $_POST['signinbtn'] ) ) {
-    if ( isset( $_POST['username'] ) && isset( $_POST['passwd'] ) ) {
-        // Getting submitted user data from database   
-        $username=$_POST['username'];
-        $stmt = $con->prepare("SELECT * FROM users WHERE username = '".$username."';");     
-        $stmt->execute();
-        $result = $stmt->get_result();
-        $user = $result->fetch_object();
-        // Verify user password and set $_SESSION
-    	if ( $_POST['passwd'] == $user->passwd ) {
-            $_SESSION['user_id'] = $user->username;
-            if($_POST["remember_me"]=='1' || $_POST["remember_me"]=='on'){
-                $hour = time() + 3600 * 24 * 30;
-                setcookie('username', $_POST['username'], $hour);
-                setcookie('password', $_POST['passwd'], $hour);
-            }
-            // echo "<script>console.log(".$_SESSION['user_id'].");</script>";
-        }
-    }
-    mysqli_close($con);
-}
-
-?>
 
     <?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/include/headernav.php'); ?>
     <div class="main body-top">

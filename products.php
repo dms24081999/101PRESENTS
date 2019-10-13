@@ -6,6 +6,10 @@
         session_start();
         include("db.php");
         include($_SERVER['DOCUMENT_ROOT']."/101PRESENTS/include/cookielogin.php");
+        $sqluser = "SELECT * FROM users where username='".$_SESSION['user_id']."'  limit 1;";
+        $resultuser = mysqli_query($con,$sqluser);
+        $valueuser=mysqli_fetch_assoc($resultuser);
+        echo $valueuser["userid"]
     ?>
     <title>Products | 101PRESENTS</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -92,7 +96,7 @@
                                                     <img onclick='change_img(this)' img='image-container".$productinfo['productid']."' src='data:image/jpeg;base64,".base64_encode($productinfo['img1'])."' alt=''>
                                                     <img onclick='change_img(this)' img='image-container".$productinfo['productid']."' src='data:image/jpeg;base64,".base64_encode($productinfo['img2'])."' alt=''>";
                                                     if(!empty($productinfo['img3'])){
-                                                        echo" <img onclick='change_img(this)' img='image-container".$productinfo['productid']."' src='data:image/jpeg;base64,".base64_encode($productinfo['img3'])."' alt=''>";
+                                                        echo "<img onclick='change_img(this)' img='image-container".$productinfo['productid']."' src='data:image/jpeg;base64,".base64_encode($productinfo['img3'])."' alt=''>";
                                                     }
                                         echo "</div>
                                                 <div class='price'>₹".$productinfo['price']."</div>
@@ -100,7 +104,7 @@
                                             <div class='product-info'>
                                                 <div class='name'>".$productinfo['name']."</div>
                                                 <div class='dis'>".$productinfo['tag']."</div>
-                                                <a class='add ripplelink btn' href='#'><i class='fa fa-cart-plus'></i>&nbsp;Add to Cart</a>
+                                                <a class='add ripplelink btn addcart' data-prodid=".$productinfo['productid']." data-userid=".$valueuser["userid"]." href='#'><i class='fa fa-cart-plus'></i>&nbsp;Add to Cart</a>
                                             </div>
                                         </div>
                                         </a>
@@ -137,7 +141,7 @@
                                             <div class='product-info'>
                                                 <div class='name'>".$productinfo['name']."</div>
                                                 <div class='dis'>".$productinfo['tag']."</div>
-                                                <a class='add ripplelink btn' href='#'><i class='fa fa-cart-plus'></i>&nbsp;Add to Cart</a>
+                                                <a class='add ripplelink btn addcart' data-prodid=".$productinfo['productid']." data-userid=".$valueuser["userid"]." href='#'><i class='fa fa-cart-plus'></i>&nbsp;Add to Cart</a>
                                             </div>
                                         </div>
                                         </a>
@@ -174,7 +178,7 @@
                                             <div class='product-info'>
                                                 <div class='name'>".$productinfo['name']."</div>
                                                 <div class='dis'>".$productinfo['tag']."</div>
-                                                <a class='add ripplelink btn' href='#'><i class='fa fa-cart-plus'></i>&nbsp;Add to Cart</a>
+                                                <a class='add ripplelink btn addcart' data-prodid=".$productinfo['productid']." data-userid=".$valueuser["userid"]." href='#'><i class='fa fa-cart-plus'></i>&nbsp;Add to Cart</a>
                                             </div>
                                         </div>
                                         </a>
@@ -211,7 +215,7 @@
                                             <div class='product-info'>
                                                 <div class='name'>".$productinfo['name']."</div>
                                                 <div class='dis'>".$productinfo['tag']."</div>
-                                                <a class='add ripplelink btn' href='#'><i class='fa fa-cart-plus'></i>&nbsp;Add to Cart</a>
+                                                <a class='add ripplelink btn addcart' data-prodid=".$productinfo['productid']." data-userid=".$valueuser["userid"]." href='#'><i class='fa fa-cart-plus'></i>&nbsp;Add to Cart</a>
                                             </div>
                                         </div>
                                         </a>
@@ -246,6 +250,30 @@
     //----------------------------------------Call Scroll products div with mouse scroll from main scripts file------------------------------------------
     $(document).ready(function() {
         $('.row').hScroll(60); // You can pass (optionally) scrolling amount
+
+        $('.addcart').click(function(e) {
+            e.preventDefault();
+            userid=$(this).attr('data-userid');
+            prodid=$(this).attr('data-prodid');
+            console.log(userid,prodid)
+            $.ajax({
+                type:'POST',
+                url:'ajax/addtocart.php',
+                data:{
+                    userid:userid,
+                    prodid:prodid
+                },
+                success: function(data){
+                console.log(data)
+                console.log(data)
+                    if(data=="YES"){
+                        console.log("added")
+                    }else{
+                        alert("can't add the row")
+                    }
+                }
+            })
+        });
     });
     </script>
 </body>

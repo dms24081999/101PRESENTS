@@ -99,6 +99,9 @@ nav:not(.move-right) {
 	display: inline-block;
 }
 
+
+
+
 .sub-menu{
 	width: 12.8rem;
 	display: block;
@@ -116,6 +119,30 @@ nav:not(.move-right) {
 	position: absolute;
 	top: -2.3rem;
 	left:3rem;
+	border: 1rem solid transparent;
+	border-bottom-color: #eb3007;
+}
+
+.auth.sub-menu{
+	width: 12.8rem;
+	display: block;
+	position: absolute;
+	border-top: 3px solid #eb3007;
+	background-color: #191919;
+	z-index: 10;
+	top: 10.8rem;
+	opacity: 0;
+	right: 0; 
+	left: auto;
+	visibility: hidden;
+	transition: all 650ms ease;
+}
+.auth.sub-menu::before{
+	content: "";
+	position: absolute;
+	top: -2.3rem;
+	left:auto;
+	right:3rem;
 	border: 1rem solid transparent;
 	border-bottom-color: #eb3007;
 }

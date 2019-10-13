@@ -27,9 +27,7 @@ $('.product-removal button').click( function() {
              alert("can't delete the row")
          }
     }
-
   })
-  
 });
 
 
@@ -71,16 +69,34 @@ function updateQuantity(quantityInput)
   var productRow = $(quantityInput).parent().parent();
   var price = parseFloat(productRow.children('.product-price').text());
   var quantity = $(quantityInput).val();
+  var prodid=$(quantityInput).attr("data-id");
+  console.log("data"+prodid)
   var linePrice = price * quantity;
-  
+  $.ajax({
+    type:'POST',
+    url:'ajax/updatecart.php',
+    data:{
+      prodid:prodid,
+      quantity:quantity
+    },
+    success: function(data){
+      console.log(data)
+         if(data=="YES"){
+           console.log("upd")
+           productRow.children('.product-line-price').each(function () {
+            $(this).fadeOut(fadeTime, function() {
+              $(this).text(linePrice.toFixed(2));
+              recalculateCart();
+              $(this).fadeIn(fadeTime);
+            });
+          }); 
+         }else{
+             alert("can't upd the row")
+         }
+    }
+  })
   /* Update line price display and recalc cart totals */
-  productRow.children('.product-line-price').each(function () {
-    $(this).fadeOut(fadeTime, function() {
-      $(this).text(linePrice.toFixed(2));
-      recalculateCart();
-      $(this).fadeIn(fadeTime);
-    });
-  });  
+   
 }
 
 
