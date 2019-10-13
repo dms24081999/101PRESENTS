@@ -1,6 +1,5 @@
 <?php
 session_start();
-echo "<script>console.log('".$_SESSION['user_id']."');</script>";
 ?>
 <!DOCTYPE html>
 

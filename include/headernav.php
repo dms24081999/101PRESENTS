@@ -55,10 +55,10 @@
                                         <a href='/101PRESENTS/updateprofile.php'>Update Profile</a>
                                     </li>
                                     <li>
-                                        <a href='/101PRESENTS/logout.php'>Logout</a>
+                                        <a href='/101PRESENTS/cart.php'>My Cart</a>
                                     </li>
                                     <li>
-                                        <a href='/101PRESENTS/products.php#chocolates'>Chocolates</a>
+                                    <a href='/101PRESENTS/logout.php'>Logout</a>
                                     </li>
                                 </ul></li>";
                         } else {
