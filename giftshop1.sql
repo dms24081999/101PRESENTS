@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 13, 2019 at 01:19 PM
+-- Generation Time: Oct 13, 2019 at 07:46 PM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.1.32
 
@@ -137,7 +137,7 @@ CREATE TABLE `users` (
   `lname` varchar(15) DEFAULT NULL,
   `username` varchar(15) NOT NULL,
   `email` varchar(30) NOT NULL,
-  `passwd` varchar(30) DEFAULT NULL,
+  `passwd` varchar(100) DEFAULT NULL,
   `age` int(11) DEFAULT NULL,
   `gender` varchar(10) DEFAULT NULL,
   `userid` int(11) NOT NULL
@@ -148,9 +148,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`fname`, `lname`, `username`, `email`, `passwd`, `age`, `gender`, `userid`) VALUES
-('Dominic', 'Silveira', 'dms21212408', 'dominicstrikefighter@gmail.com', 'Kat29051999', 18, '1', 1),
-('Dominic', 'Siluhy', 'dominicsilveira', 'dominicsilveira289@gmail.com', 'Kat29051999', 19, 'Male', 16),
-('Dominic', 'Michael', 'dms24081999', 'dms24081999@gmail.com', NULL, NULL, NULL, 17);
+('Dominic', 'Silveira', 'dominicsilveira', 'dominicsilveira289@gmail.com', '47ab6900d71218ec2870e27327faa795', 19, 'male', 23);
 
 --
 -- Indexes for dumped tables
@@ -202,7 +200,7 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `userid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `userid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
