@@ -95,7 +95,7 @@ nav:not(.move-right) {
 .nav-list a:hover:not(.ripplelink), .nav-list a.active{
 	color: #eb3007
 }
-.btn{
+nav .btn{
 	display: inline-block;
 }
 
@@ -214,8 +214,16 @@ ul.move-right li{
 		max-height: initial;
 	}
 	ul.move-right{
-		margin: 0 auto 0 0;
+		margin: 0;
 		line-height: initial;
+		/* display: block; */
+		padding: 15px;
+	}
+	.ripplelink.navbtn{
+		margin: 5px;
+	}
+	nav .btn{
+		display: block;
 	}
 	.auth.sub-menu{
 		right: auto;

@@ -6,7 +6,7 @@
                     <i class="fa fa-close"></i>
                 </div>
                 <a href="index.php" class="logo">
-                    <img src="/101PRESENTS/assets/images/logo/main-logo.png" width="140px" height="25px" style="display:block;float:left;margin-top: 0px;">
+                    <img src="/101PRESENTS/assets/images/logo/main-logo.png" width="160px" height="40px" style="display:block;float:left;margin-top: 0px;">
                 </a>
                 <ul class="nav-list">
                     <li>
@@ -63,10 +63,10 @@
                                 </ul></li>";
                         } else {
                             echo "<li class=' btn'>
-                                <a class='ripplelink primary ' style='' href='/101PRESENTS/signin.php'>Sign-In</a>
+                                <a class='ripplelink primary navbtn' style='' href='/101PRESENTS/signin.php'>Sign-In</a>
                                 </li>
                                 <li class=' btn'>
-                                    <a class='ripplelink primary ' style='' href='/101PRESENTS/signup.php'>Sign-Up</a>
+                                    <a class='ripplelink primary navbtn' style='' href='/101PRESENTS/signup.php'>Sign-Up</a>
                                 </li>";
                         } 
                     ?>

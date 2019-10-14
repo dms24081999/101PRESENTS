@@ -556,3 +556,101 @@ select option {
     background-color: yellow;
     color: white;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media only screen and (max-width: 568px) {
+
+    .products .row {
+        align-items: center;
+        justify-content: space-around;
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        height: auto;
+    }
+
+
+
+    .products .card {
+        width: 250px;
+        background: #f1f1f1;
+        margin: 5px;
+        height: 350px;
+        position: relative;
+    }
+
+    .products .add {
+        position: absolute;
+        bottom: 0;
+        width: 250px;
+        left: 50%;
+        transform: translate(-50%, 0);
+
+    }
+    .products .card .product-info {
+        padding: 10px;
+    }
+
+    .ripplelink.addcart {
+        border-radius: 0;
+    }
+
+    .products .card a,
+    .products .card a:hover,
+    .products .card a:visited,
+    .products .card a:link {
+        text-decoration: none
+    }
+
+    .products .card .top-section {
+        height: 250px;
+        overflow: hidden;
+        background: #fff;
+        position: relative;
+    }
+
+    .products .card .image-container {
+        width:250px;
+        height: 180px;
+    }
+
+    .products .card .nav {
+        text-align: center;
+    }
+
+    .products .card .nav img {
+        width: 50px;
+        height: 40px;
+        border: 1px solid #ddd;
+        margin: 8px 2px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+
+    .products .card .name {
+        text-align: center;
+        text-transform: uppercase;
+        font-size: 22px;
+        color: #333;
+    }
+
+    .products .card .dis {
+        font-size: 16px;
+        opacity: 0.7;
+    }
+}

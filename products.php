@@ -8,10 +8,12 @@ session_start();
     <?php
         include("db.php");
         include($_SERVER['DOCUMENT_ROOT']."/101PRESENTS/include/cookielogin.php");
-        $sqluser = "SELECT * FROM users where username='".$_SESSION['user_id']."'  limit 1;";
-        $resultuser = mysqli_query($con,$sqluser);
-        $valueuser=mysqli_fetch_assoc($resultuser);
-        echo $valueuser["userid"]
+        if(isset($_SESSION['user_id'])){
+            $sqluser = "SELECT * FROM users where username='".$_SESSION['user_id']."'  limit 1;";
+            $resultuser = mysqli_query($con,$sqluser);
+            $valueuser=mysqli_fetch_assoc($resultuser);
+            echo $valueuser["userid"];
+        }
     ?>
     <title>Products | 101PRESENTS</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -26,7 +28,6 @@ session_start();
         /*padding-top: 50px;*/
         height: auto;
         /*width: 40%;*/
-
         position: relative;
         /*background-color: black;*/
     }
@@ -36,7 +37,6 @@ session_start();
     }
 
     .products .row {
-
         display: flex;
         flex-wrap: nowrap;
         min-width: 100%;
@@ -255,26 +255,29 @@ session_start();
 
         $('.addcart').click(function(e) {
             e.preventDefault();
+           
             userid=$(this).attr('data-userid');
             prodid=$(this).attr('data-prodid');
             console.log(userid,prodid)
-            $.ajax({
-                type:'POST',
-                url:'ajax/addtocart.php',
-                data:{
-                    userid:userid,
-                    prodid:prodid
-                },
-                success: function(data){
-                console.log(data)
-                console.log(data)
-                    if(data=="YES"){
-                        console.log("added")
-                    }else{
-                        alert("can't add the row")
+            if(userid!==null){
+                $.ajax({
+                    type:'POST',
+                    url:'ajax/addtocart.php',
+                    data:{
+                        userid:userid,
+                        prodid:prodid
+                    },
+                    success: function(data){
+                    console.log(data)
+                    console.log(data)
+                        if(data=="YES"){
+                            console.log("added")
+                        }else{
+                            alert("can't add the row")
+                        }
                     }
-                }
-            })
+                })
+            }
         });
     });
     </script>
