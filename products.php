@@ -80,6 +80,12 @@ session_start();
             
         </aside> -->
         <article>
+        <div class="group">
+                        <input class="input-text" type="text" id="search-input" value="" onblur="search(this)" name="username" required>
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <div class="label">Search</div>
+                    </div>
             <section class="products" id="goggles" style="">
                 <div style="text-align:center;text-align: justify;height: auto">
                     <h2 class="main-head" style="">Sun-glasses</h2>
@@ -249,10 +255,33 @@ session_start();
         //     .then(function() { console.log("Service Worker Registered"); });
         // }  
     
+    function search(search) {
+        var search = search.value;
+        console.log(search)
+        if (search == "") {
+            // console.log("nameErr", "Please enter your username");
+            $("#search-input").removeClass("valid");
+            $("#search-input").removeClass("invalid");
+            return false;
+        } else {
+            $.ajax({
+                type:'GET',
+                url:'ajax/searchproducts.php',
+                data:{
+                    search:search,
+                },
+                success: function(data){
+                var data1=JSON.parse(data)
+                    console.log(data1[2])
+                }
+            })
+        }
+    }
+
+
     //----------------------------------------Call Scroll products div with mouse scroll from main scripts file------------------------------------------
     $(document).ready(function() {
         $('.row').hScroll(60); // You can pass (optionally) scrolling amount
-
         $('.addcart').click(function(e) {
             e.preventDefault();
            
