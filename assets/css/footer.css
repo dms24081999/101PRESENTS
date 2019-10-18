@@ -10,7 +10,7 @@ footer a {
 
 footer h4 {
     margin-block-start: 0em;
-    margin-block-end: 0.5em;
+    margin-block-end: 0.2em;
 }
 
 .generic-anchor {
@@ -43,7 +43,7 @@ footer {
 
 .footer-list-top>li {
     text-align: center;
-    padding-bottom: 10px;
+    padding-bottom: 5px;
 }
 
 .footer-list-header {

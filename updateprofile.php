@@ -105,10 +105,10 @@ if ( isset( $_POST['updprofbtn'] ) ) {
 
         $sql = "UPDATE users SET fname='".$fname."',lname='".$lname."',username='".$username."',email='".$email."',age=".$age.",gender='".$gender."' WHERE username = '". $_SESSION["user_id"] ."';";        
         if ($con->query($sql) === TRUE) {
-            echo "New record created successfully";
+            // echo "New record created successfully";
             $_SESSION["user_id"]=$username;
         } else {
-            echo "Error: " . $sql . "<br>" . $con->error;
+            // echo "Error: " . $sql . "<br>" . $con->error;
         }
     }
 }
@@ -174,11 +174,11 @@ $con->close();
                             <div class="select">
                                 <select class="select-text" value="<?php echo $valueuser["gender"]; ?>" name="gender" required>
                                 <?php
-                                    if($valueuser["gender"]=="Male"){
+                                    if($valueuser["gender"]=="male"){
                                         echo "<option value='' disabled></option>
                                         <option value='Male' selected>Male</option>
                                         <option value='Female' >Female</option>";
-                                    }else if($valueuser["gender"]=="Female"){
+                                    }else if($valueuser["gender"]=="female"){
                                         echo "<option value='' disabled></option>
                                         <option value='Male' >Male</option>
                                         <option value='Female' selected>Female</option>";

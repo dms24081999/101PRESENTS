@@ -10,6 +10,14 @@ session_start();
     <?php
         include("db.php");
         include($_SERVER['DOCUMENT_ROOT']."/101PRESENTS/include/cookielogin.php");
+        if(isset( $_SESSION['user_id'])){
+            $sqluser = "SELECT * FROM users where username='".$_SESSION['user_id']."'  limit 1;";
+            $resultuser = mysqli_query($con,$sqluser);
+            $valueuser=mysqli_fetch_assoc($resultuser);
+            $authuser=$valueuser["fname"]." ".$valueuser["lname"];
+        }else{
+            $authuser="Guest";
+        }
     ?>
     <title>101PRESENTS</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -229,7 +237,7 @@ session_start();
               
             </div>
         </div>
-        <a href="products.html">
+        <a href="/101PRESENTS/products.php">
             <div style="text-align: center;position:absolute;bottom: -25px;left: 50%;margin-left: -25px;z-index: 1;">
                 <span class=""><i class="fa fa-angle-down fa-2x more-circle-icon " style="background: white;color: black"></i></span>
             </div>
@@ -335,6 +343,7 @@ session_start();
         isParagraph = false;
     // Typerwrite text content. Use a pipe to indicate the start of the second line "|".  
     var textArray = [
+        "Hii|<?php echo $authuser ?>",
         "Welcome to|101PRESENTS"
 
     ];

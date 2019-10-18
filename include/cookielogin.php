@@ -11,6 +11,6 @@ if(isset($_COOKIE["username"]) && isset($_COOKIE["password"])){
         // echo "<script>console.log(".$_SESSION['user_id'].");</script>";
     }
 } else{
-    echo "Welcome Guest!";
+    // echo "Welcome Guest!";
 }
 ?>

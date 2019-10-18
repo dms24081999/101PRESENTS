@@ -30,9 +30,6 @@ $('input').keyup(function() {
 
 
 
-
-
-
 $(".toggle-password").click(function() {
     $('#toggle-password1').toggleClass("fa-eye fa-eye-slash");
     var input1 = $($(this).attr("toggle1"));

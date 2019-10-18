@@ -12,20 +12,17 @@
             <li>
                 <h4 class="footer-list-header">The Gift Selection</h4>
             </li>
-            <li><a href='' class="generic-anchor footer-list-anchor">ANGEL FIGURINES</a></li>
-            <li><a href='' class="generic-anchor footer-list-anchor">HOME DECOR</a></li>
-            <li><a href='' class="generic-anchor footer-list-anchor">MUGS</a></li>
-            <li><a href='' class="generic-anchor footer-list-anchor">PET LOVER</a></li>
-            <li><a href='' class="generic-anchor footer-list-anchor" target="_blank">HANDBAGS & JEWELRY</a></li>
+            <li><a href='/101PRESENTS/products.php#goggles' class="generic-anchor footer-list-anchor">Sun-glasses</a></li>
+            <li><a href='/101PRESENTS/products.php#flowers' class="generic-anchor footer-list-anchor">Flowers</a></li>
+            <li><a href='/101PRESENTS/products.php#chocolates' class="generic-anchor footer-list-anchor">Chocolates</a></li>
+            <li><a href='/101PRESENTS/products.php#cakes' class="generic-anchor footer-list-anchor">Cakes</a></li>
         </ul>
         <ul class="footer-list-top">
             <li id='help'>
                 <h4 class="footer-list-header">Please Help Me</h4>
             </li>
-            <li><a href='about.html' class="generic-anchor footer-list-anchor" itemprop="significantLink">CONTACT</a></li>
-            <li><a href='' class="generic-anchor footer-list-anchor" itemprop="significantLink">FAQ</a></li>
-            <li id='find-a-store'><a href='about.html' class="generic-anchor footer-list-anchor" itemprop="significantLink">STORE LOCATOR</a></li>
-            <li id='user-registration'><a href='signup.html' class="generic-anchor footer-list-anchor" itemprop="significantLink">NEW USERS</a></li>
+            <li id='find-a-store'><a href='/101PRESENTS/about.php#map' class="generic-anchor footer-list-anchor" itemprop="significantLink">STORE LOCATOR</a></li>
+            <li id='user-registration'><a href='/101PRESENTS/signup.php' class="generic-anchor footer-list-anchor" itemprop="significantLink">NEW USERS</a></li>
             <!-- <li id='user-registration'><a href='signup.html' class="generic-anchor footer-list-anchor" itemprop="significantLink">ORDER STATUS</a></li> -->
         </ul>
         <section class="footer-social-section flex-rw">

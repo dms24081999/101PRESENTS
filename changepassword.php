@@ -1,7 +1,5 @@
 <?php
 session_start();
-require_once('api/GoogleAPI/settings.php');
-$login_url = 'https://accounts.google.com/o/oauth2/v2/auth?scope=' . urlencode('https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email') . '&redirect_uri=' . urlencode(CLIENT_REDIRECT_URL) . '&response_type=code&client_id=' . CLIENT_ID . '&access_type=online';
 include("db.php");
 include($_SERVER['DOCUMENT_ROOT']."/101PRESENTS/include/cookielogin.php");
 // echo "Favorite color is " . $_SESSION["user_id"] . ".<br>";
@@ -16,17 +14,12 @@ if ( isset( $_POST['signinbtn'] ) ) {
         // Verify user password and set $_SESSION
         if ( md5($_POST['passwd']) == $user->passwd ) {
             $_SESSION['user_id'] = $user->username;
-            if(isset($_POST["remember_me"])){
-                if($_POST["remember_me"]=='1' || $_POST["remember_me"]=='on'){
-                    $hour = time() + 3600 * 24 * 30;
-                    setcookie('username', $_POST['username'], $hour);
-                    setcookie('password', md5($_POST['passwd']), $hour);
-                }
+            if($_POST["remember_me"]=='1' || $_POST["remember_me"]=='on'){
+                $hour = time() + 3600 * 24 * 30;
+                setcookie('username', $_POST['username'], $hour);
+                setcookie('password', md5($_POST['passwd']), $hour);
             }
             echo "<script>console.log('".$_SESSION['user_id']."');</script>";
-            header("location:index.php"); 
-        }else{
-            echo "<script>alert('Invalid Login Details!');</script>";
         }
     }
     mysqli_close($con);
@@ -69,7 +62,8 @@ if ( isset( $_POST['signinbtn'] ) ) {
         display: block;
     }
 
-    .loginBtn {
+
+.loginBtn {
   box-sizing: border-box;
   text-align: center;
   position: relative;
@@ -118,8 +112,6 @@ if ( isset( $_POST['signinbtn'] ) ) {
 </head>
 
 <body>
-
-
     <?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/include/headernav.php'); ?>
     <div class="main body-top">
         <article>
@@ -127,33 +119,22 @@ if ( isset( $_POST['signinbtn'] ) ) {
                 <form class="box" name="signin" method="post">
                     <h1 class="signup-signin-text">Sign-In</h1>
                     <div class="group">
-                        <input class="input-text" type="text" id="username-input" value="" onblur="validateUsername(this)" name="username" required>
+                        <input class="input-text passwd" type="password" id="passwd1-input" value="" onblur="validatePasswd(this)" name="passwd1" required>
                         <span class="highlight"></span>
                         <span class="bar"></span>
-                        <div class="label">Username</div>
-                    </div>
-                    <div class="group">
-                        <input class="input-text passwd" type="password" id="passwd-input" name="passwd" value="" onblur="validatePasswd(this)" required>
-                        <span class="highlight"></span>
-                        <span class="bar"></span>
-                        <span toggle1="#passwd-input" id="toggle-password1" class="fa fa-fw fa-eye password-view-icon toggle-password" style=""></span>
+                        <span toggle1="#passwd-input" id="toggle-password1" class="fa fa-fw fa-eye password-view-icon toggle-passwords" style=""></span>
                         <div class="label">Password</div>
                     </div>
-                    <!--  <input class="mb-5 " type="text" placeholder="Username" required autocomplete>
-                <br>
-                <input class="mb-5 " type="password" placeholder="Password" required aria-required="true">
-                <br> -->
-                <!-- <label><input type="checkbox" name="remember_me" id="remember_me">Remember me</label> -->
-                <label class="pure-material-checkbox mb-5">
-                <input type="checkbox" name="remember_me" id="remember_me">
-                <span>Remember Me</span>
-                </label>
-                    <button class="ripplelink block primary mb-5" type="submit" name="signinbtn">Sign-In</button>
-                    <!-- onclick="return validateSingInForm()" -->
-                    <a href="<?= $login_url ?>">
-                    <button class="loginBtn loginBtn--google" type="button" >Login with Google</button>
-                    </a>
-                    <!-- <a href="<?= $login_url ?>" class="ripplelink block primary">Login with Google</a> -->
+                    <div class="group">
+                        <input class="input-text passwd" type="password" id="passwd2-input" name="passwd2" value="" onblur="validatePasswd(this)" required>
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <span toggle1="#passwd-input" id="toggle-password2" class="fa fa-fw fa-eye password-view-icon toggle-passwords" style=""></span>
+                        <div class="label">Confirm-Password</div>
+                    </div>
+                    <br>
+                    <button class="ripplelink block primary" type="submit" name="signinbtn" >Sign-In</button>
+                    <br>
                  
                 </form>
             </div>
@@ -179,34 +160,24 @@ if ( isset( $_POST['signinbtn'] ) ) {
 
 
     window.onload = function() {
-        document.getElementById("username-input").focus();
+        document.getElementById("passwd1-input").focus();
     };
-
-
-
-    function validateUsername(user) {
-        var username = user.value;
-        console.log(username)
-        if (username == "") {
-            // console.log("nameErr", "Please enter your username");
-            $("#username-input").removeClass("valid");
-            $("#username-input").removeClass("invalid");
-            return false;
+    $(".toggle-passwords").click(function() {
+        $('#toggle-password1').toggleClass("fa-eye fa-eye-slash");
+        $('#toggle-password2').toggleClass("fa-eye fa-eye-slash");
+        var input1 = $('#toggle-password1').attr("toggle1");
+        var input2 = $('#toggle-password2').attr("toggle1");
+        if (input1.attr("type") == "password") {
+            input1.attr("type", "text");
         } else {
-            var regex = /^[a-zA-Z0-9]+$/;
-            if (regex.test(username) === false) {
-                // console.log("nameErr", "Please enter a valid username");
-                $("#username-input").removeClass("valid");
-                $("#username-input").addClass("invalid");
-                return false;
-            } else {
-                // console.log("nameErr", "");
-                $("#username-input").addClass("valid");
-                $("#username-input").removeClass("invalid");
-                return true;
-            }
+            input1.attr("type", "password");
         }
-    }
+        if (input2.attr("type") == "password") {
+            input2.attr("type", "text");
+        } else {
+            input2.attr("type", "password");
+        }
+    });
 
     function validatePasswd(passd) {
         var passwd = passd.value;
@@ -232,24 +203,7 @@ if ( isset( $_POST['signinbtn'] ) ) {
         }
     }
 
-    function validateSingInForm() {
-        if ((validateUsername(document.forms["signin"]["username"])) && (validatePasswd(document.forms["signin"]["passwd"]))) {
-            console.log("valid")
-            if (confirm("Confirm Sign-In?")) {
-                return true;
-            } else {
-                return false;
-            }
-        } else {
-            console.log("invalid")
-            return false;
-        }
-    }
 
-
-    function deleteAllCookies() { 
-        return true;
-    }
     </script>
 </body>
 

@@ -6,11 +6,11 @@ unset($_SESSION['user_id']);
 setcookie("username", "", time() - 3600); 
 setcookie("password", "", time() - 3600); 
 if (!isset($_SESSION['user_id'])){
-   	echo "Successfully logged out!<br />";
-	echo "<br /><a href='signupform.php'>SignUp</a>";
-    echo "<br /><a href='signinform.php'>SignIn</a>";
+   	// echo "Successfully logged out!<br />";
+	// echo "<br /><a href='signupform.php'>SignUp</a>";
+    // echo "<br /><a href='signinform.php'>SignIn</a>";
 }else 
-   	echo "Error Occured!!<br />";
+   	// echo "Error Occured!!<br />";
 // $_SESSION = array();
 // if (ini_get("session.use_cookies")) {
 //     $params = session_get_cookie_params();
@@ -20,6 +20,6 @@ if (!isset($_SESSION['user_id'])){
 //     );
 // }
 
-//header("location:index.php"); 
-//echo "<script type='text/javascript'> document.location = 'index.php'; </script>";
+header("location:index.php"); 
+echo "<script type='text/javascript'> document.location = 'index.php'; </script>";
 ?>

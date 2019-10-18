@@ -12,7 +12,10 @@ session_start();
             $sqluser = "SELECT * FROM users where username='".$_SESSION['user_id']."'  limit 1;";
             $resultuser = mysqli_query($con,$sqluser);
             $valueuser=mysqli_fetch_assoc($resultuser);
-            echo $valueuser["userid"];
+            $authuser=$valueuser["userid"];
+            // echo $authuser;
+        }else{
+            $authuser=0;
         }
     ?>
     <title>Products | 101PRESENTS</title>
@@ -96,27 +99,27 @@ session_start();
                                 $result=mysqli_query($con,$sql);
                                 while($productinfo = mysqli_fetch_array($result,MYSQLI_ASSOC)){
                                     echo "<div class='column'>
-                                    <a href='/101PRESENTS/products-info.php?id=".$productinfo['productid']."'>
-                                        <div class='card' style='cursor:pointer;'>
-                                            <div class='top-section'>
-                                                <img id='image-container".$productinfo['productid']."' class='image-container' src='data:image/jpeg;base64,".base64_encode($productinfo['img1'])."' alt=''>
-                                                <div class='nav'>
-                                                    <img onclick='change_img(this)' img='image-container".$productinfo['productid']."' src='data:image/jpeg;base64,".base64_encode($productinfo['img1'])."' alt=''>
-                                                    <img onclick='change_img(this)' img='image-container".$productinfo['productid']."' src='data:image/jpeg;base64,".base64_encode($productinfo['img2'])."' alt=''>";
-                                                    if(!empty($productinfo['img3'])){
-                                                        echo "<img onclick='change_img(this)' img='image-container".$productinfo['productid']."' src='data:image/jpeg;base64,".base64_encode($productinfo['img3'])."' alt=''>";
-                                                    }
-                                        echo "</div>
-                                                <div class='price'>₹".$productinfo['price']."</div>
+                                            <div class='card' style='cursor:pointer;'>
+                                                <div class='top-section'>
+                                                    <img id='image-container".$productinfo['productid']."' class='image-container' src='data:image/jpeg;base64,".base64_encode($productinfo['img1'])."' alt=''>
+                                                    <div class='nav'>
+                                                        <img onclick='change_img(this)' img='image-container".$productinfo['productid']."' src='data:image/jpeg;base64,".base64_encode($productinfo['img1'])."' alt=''>
+                                                        <img onclick='change_img(this)' img='image-container".$productinfo['productid']."' src='data:image/jpeg;base64,".base64_encode($productinfo['img2'])."' alt=''>";
+                                                        if(!empty($productinfo['img3'])){
+                                                            echo "<img onclick='change_img(this)' img='image-container".$productinfo['productid']."' src='data:image/jpeg;base64,".base64_encode($productinfo['img3'])."' alt=''>";
+                                                        }
+                                        echo "      </div>
+                                                    <div class='price'>₹".$productinfo['price']."</div>
+                                                </div>
+                                                <a href='/101PRESENTS/products-info.php?id=".$productinfo['productid']."'>
+                                                    <div class='product-info'>
+                                                        <div class='name'>".$productinfo['name']."</div>
+                                                        <div class='dis'>".$productinfo['tag']."</div>
+                                                        <a class='add ripplelink btn addcart' data-prodid=".$productinfo['productid']." data-userid=".$authuser." href='#'><i class='fa fa-cart-plus'></i>&nbsp;Add to Cart</a>
+                                                    </div>
+                                                </a>
                                             </div>
-                                            <div class='product-info'>
-                                                <div class='name'>".$productinfo['name']."</div>
-                                                <div class='dis'>".$productinfo['tag']."</div>
-                                                <a class='add ripplelink btn addcart' data-prodid=".$productinfo['productid']." data-userid=".$valueuser["userid"]." href='#'><i class='fa fa-cart-plus'></i>&nbsp;Add to Cart</a>
-                                            </div>
-                                        </div>
-                                        </a>
-                                    </div>";
+                                        </div>";
                                 }
                             ?>      
                         </div>
@@ -133,7 +136,7 @@ session_start();
                                 $result=mysqli_query($con,$sql);
                                 while($productinfo = mysqli_fetch_array($result,MYSQLI_ASSOC)){
                                     echo "<div class='column'>
-                                    <a href='/101PRESENTS/products-info.php?id=".$productinfo['productid']."'>
+                                    
                                         <div class='card' style='cursor:pointer;'>
                                             <div class='top-section'>
                                                 <img id='image-container".$productinfo['productid']."' class='image-container' src='data:image/jpeg;base64,".base64_encode($productinfo['img1'])."' alt=''>
@@ -146,13 +149,15 @@ session_start();
                                         echo "</div>
                                                 <div class='price'>₹".$productinfo['price']."</div>
                                             </div>
+                                            <a href='/101PRESENTS/products-info.php?id=".$productinfo['productid']."'>
                                             <div class='product-info'>
                                                 <div class='name'>".$productinfo['name']."</div>
                                                 <div class='dis'>".$productinfo['tag']."</div>
-                                                <a class='add ripplelink btn addcart' data-prodid=".$productinfo['productid']." data-userid=".$valueuser["userid"]." href='#'><i class='fa fa-cart-plus'></i>&nbsp;Add to Cart</a>
+                                                <a class='add ripplelink btn addcart' data-prodid=".$productinfo['productid']." data-userid=".$authuser." href='#'><i class='fa fa-cart-plus'></i>&nbsp;Add to Cart</a>
                                             </div>
+                                            </a>
                                         </div>
-                                        </a>
+                                        
                                     </div>";
                                 }
                             ?>        
@@ -170,7 +175,7 @@ session_start();
                                 $result=mysqli_query($con,$sql);
                                 while($productinfo = mysqli_fetch_array($result,MYSQLI_ASSOC)){
                                     echo "<div class='column'>
-                                    <a href='/101PRESENTS/products-info.php?id=".$productinfo['productid']."'>
+                                    
                                         <div class='card' style='cursor:pointer;'>
                                             <div class='top-section'>
                                                 <img id='image-container".$productinfo['productid']."' class='image-container' src='data:image/jpeg;base64,".base64_encode($productinfo['img1'])."' alt=''>
@@ -183,13 +188,15 @@ session_start();
                                         echo "</div>
                                                 <div class='price'>₹".$productinfo['price']."</div>
                                             </div>
+                                            <a href='/101PRESENTS/products-info.php?id=".$productinfo['productid']."'>
                                             <div class='product-info'>
                                                 <div class='name'>".$productinfo['name']."</div>
                                                 <div class='dis'>".$productinfo['tag']."</div>
-                                                <a class='add ripplelink btn addcart' data-prodid=".$productinfo['productid']." data-userid=".$valueuser["userid"]." href='#'><i class='fa fa-cart-plus'></i>&nbsp;Add to Cart</a>
+                                                <a class='add ripplelink btn addcart' data-prodid=".$productinfo['productid']." data-userid=".$authuser." href='#'><i class='fa fa-cart-plus'></i>&nbsp;Add to Cart</a>
                                             </div>
+                                            </a>
                                         </div>
-                                        </a>
+                                        
                                     </div>";
                                 }
                             ?>
@@ -207,7 +214,7 @@ session_start();
                                 $result=mysqli_query($con,$sql);
                                 while($productinfo = mysqli_fetch_array($result,MYSQLI_ASSOC)){
                                     echo "<div class='column'>
-                                    <a href='/101PRESENTS/products-info.php?id=".$productinfo['productid']."'>
+                                    
                                         <div class='card' style='cursor:pointer;'>
                                             <div class='top-section'>
                                                 <img id='image-container".$productinfo['productid']."' class='image-container' src='data:image/jpeg;base64,".base64_encode($productinfo['img1'])."' alt=''>
@@ -220,13 +227,15 @@ session_start();
                                         echo "</div>
                                                 <div class='price'>₹".$productinfo['price']."</div>
                                             </div>
+                                            <a href='/101PRESENTS/products-info.php?id=".$productinfo['productid']."'>
                                             <div class='product-info'>
                                                 <div class='name'>".$productinfo['name']."</div>
                                                 <div class='dis'>".$productinfo['tag']."</div>
-                                                <a class='add ripplelink btn addcart' data-prodid=".$productinfo['productid']." data-userid=".$valueuser["userid"]." href='#'><i class='fa fa-cart-plus'></i>&nbsp;Add to Cart</a>
+                                                <a class='add ripplelink btn addcart' data-prodid=".$productinfo['productid']." data-userid=".$authuser." href='#'><i class='fa fa-cart-plus'></i>&nbsp;Add to Cart</a>
                                             </div>
+                                            </a>
                                         </div>
-                                        </a>
+                                       
                                     </div>";
                                 }
                             ?>
@@ -288,24 +297,31 @@ session_start();
             userid=$(this).attr('data-userid');
             prodid=$(this).attr('data-prodid');
             console.log(userid,prodid)
-            if(userid!==null){
-                $.ajax({
-                    type:'POST',
-                    url:'ajax/addtocart.php',
-                    data:{
-                        userid:userid,
-                        prodid:prodid
-                    },
-                    success: function(data){
-                    console.log(data)
-                    console.log(data)
-                        if(data=="YES"){
-                            console.log("added")
-                        }else{
-                            alert("can't add the row")
+            if(userid==null){
+                alert("You're not logged in!")
+            }else if(userid!==null){
+                var r = confirm("Add to Cart?");
+                if (r == true) {
+                    $.ajax({
+                        type:'POST',
+                        url:'ajax/addtocart.php',
+                        data:{
+                            userid:userid,
+                            prodid:prodid
+                        },
+                        success: function(data){
+                        console.log(data)
+                        console.log(data)
+                            if(data=="YES"){
+                                console.log("added")
+                            }else{
+                                alert("can't add the row")
+                            }
                         }
-                    }
-                })
+                    })
+                } else {
+                    txt = "You pressed Cancel!";
+                }
             }
         });
     });

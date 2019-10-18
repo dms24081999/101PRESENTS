@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 13, 2019 at 07:46 PM
+-- Generation Time: Oct 15, 2019 at 10:14 PM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.1.32
 
@@ -42,25 +42,11 @@ CREATE TABLE `cart` (
 INSERT INTO `cart` (`cartid`, `productid`, `userid`, `quantity`) VALUES
 (1, 1, 16, 1),
 (14, 2, 16, 2),
-(15, 3, 16, 2);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `login`
---
-
-CREATE TABLE `login` (
-  `username` varchar(20) DEFAULT NULL,
-  `password` varchar(30) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `login`
---
-
-INSERT INTO `login` (`username`, `password`) VALUES
-('dms', 'Kat29051999');
+(15, 3, 16, 2),
+(16, 2, 23, 3),
+(17, 5, 28, 2),
+(19, 3, 28, 1),
+(20, 2, 28, 1);
 
 -- --------------------------------------------------------
 
@@ -148,7 +134,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`fname`, `lname`, `username`, `email`, `passwd`, `age`, `gender`, `userid`) VALUES
-('Dominic', 'Silveira', 'dominicsilveira', 'dominicsilveira289@gmail.com', '47ab6900d71218ec2870e27327faa795', 19, 'male', 23);
+('Flora', 'Silveira', 'florasilveira', 'florasilveira02@gmail.com', '47ab6900d71218ec2870e27327faa795', 19, 'Female', 23),
+('Vincent', 'Silveira', 'vincent09', 'vincentsilveira09@gmail.com', 'cc80d8f3cf908f4389c9a64a38538d2a', 15, 'male', 26),
+('Dominic', 'Silveira', 'dominicsilveira', 'dominicsilveira289@gmail.com', '47ab6900d71218ec2870e27327faa795', 20, 'male', 28);
 
 --
 -- Indexes for dumped tables
@@ -159,12 +147,6 @@ INSERT INTO `users` (`fname`, `lname`, `username`, `email`, `passwd`, `age`, `ge
 --
 ALTER TABLE `cart`
   ADD PRIMARY KEY (`cartid`);
-
---
--- Indexes for table `login`
---
-ALTER TABLE `login`
-  ADD UNIQUE KEY `username` (`username`);
 
 --
 -- Indexes for table `products`
@@ -188,7 +170,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `cartid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `cartid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `products`
@@ -200,7 +182,7 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `userid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `userid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

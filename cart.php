@@ -70,7 +70,7 @@ while($cart = mysqli_fetch_array($result2,MYSQLI_ASSOC)){
     </div>
     <div class='product-details'>
       <div class='product-title'>".$productinfo['name']."</div>
-      <p class='product-description'>".$productinfo['description']."</p>
+      <p class='product-description'>".$productinfo['tag']."</p>
     </div>
     <div class='product-price'>".$productinfo['price']."</div>
     <div class='product-quantity'>
@@ -132,8 +132,8 @@ while($cart = mysqli_fetch_array($result2,MYSQLI_ASSOC)){
 
 </div>
         </article>
-        <aside class="rightaside">
-        </aside>
+        <!-- <aside class="rightaside">
+        </aside> -->
     </div>
     <?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/include/footer.php'); ?>
     <?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/include/notificationbox.php'); ?>

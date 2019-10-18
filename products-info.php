@@ -4,25 +4,30 @@ session_start();
 <head>
 <?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/include/head.php'); ?>
 <?php
+        include("db.php");
+        include($_SERVER['DOCUMENT_ROOT']."/101PRESENTS/include/cookielogin.php");
+            // echo $_GET['id'];
+        $sql = "SELECT * FROM products where productid=".$_GET['id'].";";
+        $result = $con->query($sql);
+        if ($result->num_rows > 0) {
+            // output data of each row
+            $productinfo = mysqli_fetch_array($result);
+            // echo "<br> id: ". $productinfo["productid"]. " - Name: ". $productinfo["name"]. " " . $productinfo["price"] . "<br>";
+        } else {
+            // echo "0 results";
+        }
+        if(isset($_SESSION['user_id'])){
+            $sqluser = "SELECT * FROM users where username='".$_SESSION['user_id']."'  limit 1;";
+            $resultuser = mysqli_query($con,$sqluser);
+            $valueuser=mysqli_fetch_assoc($resultuser);
+            $authuser=$valueuser["userid"];
+            // echo $authuser;
+        }else{
+            $authuser=0;
+        }
+        $con->close();
+    ?>
 
-    include("db.php");
-    include($_SERVER['DOCUMENT_ROOT']."/101PRESENTS/include/cookielogin.php");
-
-    // echo $_GET['id'];
-    $sql = "SELECT * FROM products where productid=".$_GET['id'].";";
-$result = $con->query($sql);
-
-if ($result->num_rows > 0) {
-    // output data of each row
-$productinfo = mysqli_fetch_array($result);
-        // echo "<br> id: ". $productinfo["productid"]. " - Name: ". $productinfo["name"]. " " . $productinfo["price"] . "<br>";
-
-} else {
-    // echo "0 results";
-}
-
-$con->close();
-?>
     <title><?php echo $productinfo["name"]; ?> | 101PRESENTS</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -69,7 +74,7 @@ $con->close();
                     <!-- Product Configuration -->
                     <div class="product-configuration">
                         <!-- Product Color -->
-                        <div class="product-color">
+                        <!-- <div class="product-color">
                             <span>Color</span>
                             <div class="color-choose">
                                 <div>
@@ -85,7 +90,7 @@ $con->close();
                                     <label for="black"><span></span></label>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                         <!-- Cable Configuration -->
                         <!-- <div class="cable-config">
                             <span>Cable configuration</span>
@@ -117,7 +122,7 @@ $con->close();
                     <!-- Product Pricing -->
                     <div class="product-price">
                         <span>₹<?php echo $productinfo["price"]; ?></span>
-                        <a href="#" class="cart-btn">Add to cart</a>
+                        <a href="#" class="cart-btn addcart" data-prodid="<?php echo $productinfo['productid']; ?>" data-userid="<?php echo $authuser ?>">Add to cart</a>
                     </div>
                 </div>
             </main>
@@ -148,6 +153,38 @@ $con->close();
                 $('.active').removeClass('active');
                 $('.left-column img[data-image = ' + headphonesColor + ']').addClass('active');
                 $(this).addClass('active');
+            });
+            $('.addcart').click(function(e) {
+                e.preventDefault();
+                userid=$(this).attr('data-userid');
+                prodid=$(this).attr('data-prodid');
+                console.log(userid,prodid)
+                if(userid==null){
+                    alert("You're not logged in!")
+                }else if(userid!==null){
+                    var r = confirm("Add to Cart?");
+                    if (r == true) {
+                        $.ajax({
+                            type:'POST',
+                            url:'ajax/addtocart.php',
+                            data:{
+                                userid:userid,
+                                prodid:prodid
+                            },
+                            success: function(data){
+                            console.log(data)
+                            console.log(data)
+                                if(data=="YES"){
+                                    console.log("added")
+                                }else{
+                                    alert("can't add the row")
+                                }
+                            }
+                        })
+                    } else {
+                        txt = "You pressed Cancel!";
+                    }
+                }
             });
         });
     </script>

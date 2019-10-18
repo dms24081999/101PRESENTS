@@ -1,36 +1,6 @@
 <?php
 session_start();
-require_once('api/GoogleAPI/settings.php');
-$login_url = 'https://accounts.google.com/o/oauth2/v2/auth?scope=' . urlencode('https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email') . '&redirect_uri=' . urlencode(CLIENT_REDIRECT_URL) . '&response_type=code&client_id=' . CLIENT_ID . '&access_type=online';
-include("db.php");
-include($_SERVER['DOCUMENT_ROOT']."/101PRESENTS/include/cookielogin.php");
-// echo "Favorite color is " . $_SESSION["user_id"] . ".<br>";
-if ( isset( $_POST['signinbtn'] ) ) {
-    if ( isset( $_POST['username'] ) && isset( $_POST['passwd'] ) ) {
-    // Getting submitted user data from database   
-        $username=$_POST['username'];
-        $stmt = $con->prepare("SELECT * FROM users WHERE username = '".$username."';");     
-        $stmt->execute();
-        $result = $stmt->get_result();
-        $user = $result->fetch_object();
-        // Verify user password and set $_SESSION
-        if ( md5($_POST['passwd']) == $user->passwd ) {
-            $_SESSION['user_id'] = $user->username;
-            if(isset($_POST["remember_me"])){
-                if($_POST["remember_me"]=='1' || $_POST["remember_me"]=='on'){
-                    $hour = time() + 3600 * 24 * 30;
-                    setcookie('username', $_POST['username'], $hour);
-                    setcookie('password', md5($_POST['passwd']), $hour);
-                }
-            }
-            echo "<script>console.log('".$_SESSION['user_id']."');</script>";
-            header("location:index.php"); 
-        }else{
-            echo "<script>alert('Invalid Login Details!');</script>";
-        }
-    }
-    mysqli_close($con);
-}
+
 ?>
 
 
@@ -42,7 +12,7 @@ if ( isset( $_POST['signinbtn'] ) ) {
 <?php
    
 ?>
-    <title>Sign-In | 101PRESENTS</title>
+    <title>Delete Profile | 101PRESENTS</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <style type="text/css">
@@ -118,14 +88,34 @@ if ( isset( $_POST['signinbtn'] ) ) {
 </head>
 
 <body>
-
+<?php
+include("db.php");
+include($_SERVER['DOCUMENT_ROOT']."/101PRESENTS/include/cookielogin.php");
+// echo "Favorite color is " . $_SESSION["user_id"] . ".<br>";
+if ( isset( $_POST['delbtn'] ) ) {
+    if ( isset( $_POST['username'] ) && isset( $_POST['passwd'] ) ) {
+    // Getting submitted user data from database   
+        $qry = "DELETE FROM users WHERE username ='".$_POST['username']."' and passwd='".md5($_POST['passwd'])."';";
+        echo $qry;
+        $result=mysqli_query($con,$qry);
+        if(isset($result)) {
+        echo "YES";
+        } else {
+        echo "NO";
+        }
+        include('logout.php');
+        header("location:index.php"); 
+    }
+    mysqli_close($con);
+}
+?>
 
     <?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/include/headernav.php'); ?>
     <div class="main body-top">
         <article>
             <div style="vertical-align: middle;text-align: center;color: white;">
                 <form class="box" name="signin" method="post">
-                    <h1 class="signup-signin-text">Sign-In</h1>
+                    <h1 class="signup-signin-text">Delete Account Form</h1>
                     <div class="group">
                         <input class="input-text" type="text" id="username-input" value="" onblur="validateUsername(this)" name="username" required>
                         <span class="highlight"></span>
@@ -144,16 +134,10 @@ if ( isset( $_POST['signinbtn'] ) ) {
                 <input class="mb-5 " type="password" placeholder="Password" required aria-required="true">
                 <br> -->
                 <!-- <label><input type="checkbox" name="remember_me" id="remember_me">Remember me</label> -->
-                <label class="pure-material-checkbox mb-5">
-                <input type="checkbox" name="remember_me" id="remember_me">
-                <span>Remember Me</span>
-                </label>
-                    <button class="ripplelink block primary mb-5" type="submit" name="signinbtn">Sign-In</button>
+                
+                    <button class="ripplelink block primary mb-5" type="submit" name="delbtn">Delete Account</button>
                     <!-- onclick="return validateSingInForm()" -->
-                    <a href="<?= $login_url ?>">
-                    <button class="loginBtn loginBtn--google" type="button" >Login with Google</button>
-                    </a>
-                    <!-- <a href="<?= $login_url ?>" class="ripplelink block primary">Login with Google</a> -->
+                    
                  
                 </form>
             </div>
