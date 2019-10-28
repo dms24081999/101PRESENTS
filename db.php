@@ -9,6 +9,9 @@ if($con){
 }else{
     // echo "<script>console.log('Database failed');</script>";
 }
+mysqli_set_charset($con, 'utf8');
+$con->query("SET CHARACTER SET utf8;");
+$con->query("SET collation_connection = utf8_unicode_ci;");
 $con->query('set character_set_client=utf8');
 $con->query('set character_set_connection=utf8');
 $con->query('set character_set_results=utf8');

@@ -86,12 +86,32 @@ session_start();
             
         </aside> -->
         <article>
-        <div class="group">
-                        <input class="input-text" type="text" id="search-input" value="" onblur="search(this)" name="username" required>
-                        <span class="highlight"></span>
-                        <span class="bar"></span>
-                        <div class="label">Search</div>
+            <div class="group">
+                <input class="input-text" type="text" id="search-input" value="" placeholder="Search" onblur="search(this)" name="username" required>
+                <span class="highlight"></span>
+                <span class="bar"></span>
+                <!-- <div class="label">Search</div> -->
+            </div>
+            <section class="products" id="searchresults" style="display:none">
+                <div style="text-align:center;text-align: justify;height: auto">
+                    <h2 class="main-head" style="">Search Results (<span id="searchresultstotal"></span>)</h2>
+                    <div class="products">
+                        <div class="products-button-container" style="display: flex;">
+                            <button class="left-button" data-div="products-list-searchresults">
+                                <img src="/101PRESENTS/assets/images/icon/arrow-icon.png">
+                            </button>
+                        </div>
+                        <div class="row" id="products-list-searchresults">
+                                 
+                        </div>
+                        <div class="products-button-container">
+                            <button  class="right-button" data-div="products-list-searchresults">
+                                <img src="/101PRESENTS/assets/images/icon/arrow-icon.png">
+                            </button>
+                        </div>
                     </div>
+                </div>
+            </section>
             <section class="products" id="goggles" style="">
                 <div style="text-align:center;text-align: justify;height: auto">
                     <h2 class="main-head" style="">Sun-glasses</h2>
@@ -311,11 +331,22 @@ session_start();
         var search = search.value;
         console.log(search)
         if (search == "") {
-            // console.log("nameErr", "Please enter your username");
+            $("#goggles").css("display", "block");
+            $("#flowers").css("display", "block");
+            $("#chocolates").css("display", "block");
+            $("#cakes").css("display", "block");
+            $("#searchresults").css("display", "none");
             $("#search-input").removeClass("valid");
             $("#search-input").removeClass("invalid");
-            return false;
+            $('#products-list-searchresults').empty();
         } else {
+            
+            $("#goggles").css("display", "none");
+            $("#flowers").css("display", "none");
+            $("#chocolates").css("display", "none");
+            $("#cakes").css("display", "none");
+            $("#searchresults").css("display", "block");
+            $('#products-list-searchresults').empty();
             $.ajax({
                 type:'GET',
                 url:'ajax/searchproducts.php',
@@ -323,8 +354,34 @@ session_start();
                     search:search,
                 },
                 success: function(data){
-                var data1=JSON.parse(data)
-                    console.log(data1)
+                    var data=JSON.parse(data)
+                   
+                    console.log(data)
+                    html=""
+                    $.each(data,function(key,value){
+                        console.log(data.length)
+                        html+="<div class='column'>"+
+                        "<div class='card' style='cursor:pointer;'>"+
+                            "<div class='top-section'>"+
+                                "<img id='image-container"+data[key].productid+"' class='image-container' src='data:image/jpeg;base64,"+data[key].img1+"' alt=''>"+
+                                    "<div class='nav'>"+
+                                        "<img onclick='change_img(this)' img='image-container"+data[key].productid+"' src='data:image/jpeg;base64,"+data[key].img1+"' alt=''>"+
+                                            "<img onclick='change_img(this)' img='image-container"+data[key].productid+"' src='data:image/jpeg;base64,"+data[key].img2+"' alt=''>";
+                        if(data[key].img3.length > 0){
+                             html+="<img onclick='change_img(this)' img='image-container"+data[key].productid+"' src='data:image/jpeg;base64,"+data[key].img3+"' alt=''>";
+                        }
+                        html+="</div><div class='price'>₹"+data[key].price+"</div>"+
+                                 "</div><a href='/101PRESENTS/products-info.php?id="+data[key].productid+"'>"+
+                                     "<div class='product-info'>"+
+                                         "<div class='name'>"+data[key].name+"</div>"+
+                                             "<div class='dis'>"+data[key].tag+"</div>"+
+                                             "<a class='add ripplelink btn addcart' data-prodid="+data[key].productid+" data-userid="+<?php echo $authuser ?>+" href='#'><i class='fa fa-cart-plus'></i>&nbsp;Add to Cart</a>"+
+                                     "</div></a></div></div>";
+                        
+                    })
+                    console.log(html)
+                    $("#products-list-searchresults").append(html)
+                    $("#searchresultstotal").html(data.length)
                 }
             })
         }

@@ -183,7 +183,7 @@ ul.move-right li{
 	margin-right: 6px;
 }
 
-@media screen and (max-width: 800px){
+@media screen and (max-width: 826px){
 	.nav-list{
 		position: fixed;
 		top: 0;
