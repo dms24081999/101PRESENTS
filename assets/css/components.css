@@ -689,18 +689,19 @@ select option {
     animation: inputHighlighter 0.3s ease;
 }
 
+.error-message {
+    color: #cc0033;
+    font-size: 13px;
+    color:red;
+    float: left;
+    margin: 5px 0 0;
+    display: none;
+    font-family: 'Roboto', sans-serif;
+}
 
+  
+ 
 
-
-
-
-
-
-
-
-
-
-/*position the password show and hide toggle button*/
 
 
 

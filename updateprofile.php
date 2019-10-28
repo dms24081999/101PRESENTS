@@ -30,6 +30,13 @@ session_start();
         transition: 0.2s ease all;
         font-size: 14px;
     }
+    .empty~.error-message {
+        display:none;
+    }
+    .input-text.notempty:invalid~.error-message,
+    .select-text.notempty:invalid~.error-message {
+        display:block;
+    }
 
     .notempty~.label {
         color: red;
@@ -43,48 +50,8 @@ session_start();
     }
 
 
-    .tab {
-  float: left;
-  border: 1px solid #ccc;
-  background-color: #f1f1f1;
-  width: 30%;
-  height: 300px;
-}
+  
 
-/* Style the buttons inside the tab */
-.tab button {
-  display: block;
-  background-color: inherit;
-  color: black;
-  padding: 22px 16px;
-  width: 100%;
-  border: none;
-  outline: none;
-  text-align: left;
-  cursor: pointer;
-  transition: 0.3s;
-  font-size: 17px;
-}
-
-/* Change background color of buttons on hover */
-.tab button:hover {
-  background-color: #ddd;
-}
-
-/* Create an active/current "tab button" class */
-.tab button.active {
-  background-color: #ccc;
-}
-
-/* Style the tab content */
-.tabcontent {
-  float: left;
-  padding: 0px 12px;
-  border: 1px solid #ccc;
-  width: 70%;
-  border-left: none;
-  height: 300px;
-}
     </style>
 </head>
 
@@ -135,12 +102,14 @@ $con->close();
                             <span class="highlight"></span>
                             <span class="bar"></span>
                             <label class="label">First Name</label>
+                            <span class="error-message">Invalid First name field!</span>
                         </div>
                         <div class="group" style="display: inline-block;">
                             <input class="input-text" type="text" pattern="[A-Za-z]{1,}" title="Enter a valid Surame!" name="lname" value="<?php echo $valueuser["lname"]; ?>" autocomplete required>
                             <span class="highlight"></span>
                             <span class="bar"></span>
                             <label class="label">Last Name</label>
+                            <span class="error-message">Invalid Last name field!</span>
                         </div>
                     </div>
                     <div class="group">
@@ -148,6 +117,7 @@ $con->close();
                         <span class="highlight"></span>
                         <span class="bar"></span>
                         <label class="label">Username</label>
+                        <span class="error-message">Invalid Username field!</span>
                     </div>
                     <div class="group">
                         <input class="input-text" type="email" value="<?php echo $valueuser["email"]; ?>" name="email" id="signup-email" required autocomplete>
@@ -155,6 +125,7 @@ $con->close();
                         <span class="highlight"></span>
                         <span class="bar"></span>
                         <label class="label">E-mail</label>
+                        <span class="error-message">Invalid E-mail field!</span>
                     </div>
                     <!-- <div class="group">
                         <input class="input-text passwd" type="password" id="passwd-input" name="passwd" value="" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters!" required aria-required="true">
@@ -169,6 +140,7 @@ $con->close();
                             <span class="highlight"></span>
                             <span class="bar"></span>
                             <label class="label">Age</label>
+                            <span class="error-message">Invalid Age input!</span>
                         </div>
                         <div class="group" style="width:80%;display: inline-block;">
                             <div class="select">
@@ -193,6 +165,7 @@ $con->close();
                                 <span class="highlight"></span>
                                 <span class="select-bar"></span>
                                 <label class="label">Gender</label>
+                                <span class="error-message">Invalid Gender input!</span>
                             </div>
                         </div>
                      

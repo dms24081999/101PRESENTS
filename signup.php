@@ -30,6 +30,13 @@ session_start();
         transition: 0.2s ease all;
         font-size: 14px;
     }
+    .empty~.error-message {
+        display:none;
+    }
+    .input-text.notempty:invalid~.error-message,
+    .select-text.notempty:invalid~.error-message {
+        display:block;
+    }
 
     .notempty~.label {
         color: red;
@@ -41,6 +48,7 @@ session_start();
     .notempty~.password-view-icon {
         display: block;
     }
+  
     </style>
 </head>
 
@@ -83,16 +91,18 @@ $con->close();
                     </div>
                     <div class="row">
                         <div class="group" style="display: inline-block;">
-                            <input class="input-text" type="text" pattern="[A-Za-z]{1,}" title="Enter a valid Name!" name="fname" value="" autofocus required autocomplete>
+                            <input class="input-text " type="text" pattern="[A-Za-z]{1,}" title="Enter a valid Name!" name="fname" value="" autofocus required autocomplete>
                             <span class="highlight"></span>
                             <span class="bar"></span>
                             <label class="label">First Name</label>
+                            <span class="error-message">Invalid First name field!</span>
                         </div>
                         <div class="group" style="display: inline-block;">
                             <input class="input-text" type="text" pattern="[A-Za-z]{1,}" title="Enter a valid Surame!" name="lname" value="" autocomplete required>
                             <span class="highlight"></span>
                             <span class="bar"></span>
                             <label class="label">Last Name</label>
+                            <span class="error-message">Invalid Last name field!</span>
                         </div>
                     </div>
                     <div class="group">
@@ -100,6 +110,7 @@ $con->close();
                         <span class="highlight"></span>
                         <span class="bar"></span>
                         <label class="label">Username</label>
+                        <span class="error-message">Invalid Username field!</span>
                     </div>
                     <div class="group">
                         <input class="input-text" type="email" value="" name="email" id="signup-email" required autocomplete>
@@ -107,6 +118,7 @@ $con->close();
                         <span class="highlight"></span>
                         <span class="bar"></span>
                         <label class="label">E-mail</label>
+                        <span class="error-message">Invalid E-mail field!</span>
                     </div>
                     <div class="group">
                         <input class="input-text passwd" type="password" id="passwd-input" name="passwd" value="" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters!" required aria-required="true">
@@ -114,6 +126,7 @@ $con->close();
                         <span class="bar"></span>
                         <span toggle1="#passwd-input" id="toggle-password1" class="fa fa-fw fa-eye password-view-icon toggle-password" style=""></span>
                         <label class="label">Password</label>
+                        <span class="error-message">Invalid Password field!</span>
                     </div>
                     <div class="row">
                         <div class="group" style="width:18%;display: inline-block;">
@@ -121,6 +134,7 @@ $con->close();
                             <span class="highlight"></span>
                             <span class="bar"></span>
                             <label class="label">Age</label>
+                            <span class="error-message">Invalid Age input!</span>
                         </div>
                         <div class="group" style="width:80%;display: inline-block;">
                             <div class="select">
@@ -132,6 +146,7 @@ $con->close();
                                 <span class="highlight"></span>
                                 <span class="select-bar"></span>
                                 <label class="label">Gender</label>
+                                <span class="error-message">Invalid Gender input!</span>
                             </div>
                         </div>
                         <!--   <div class="group" style="width:80%;display: inline-block;">

@@ -23,8 +23,10 @@ $('input[value!=""]').addClass('notempty');
 $('input').keyup(function() {
     if ($(this).val() != "") {
         $(this).addClass("notempty");
+        $(this).removeClass("empty");
     } else {
         $(this).removeClass("notempty");
+        $(this).addClass("empty");
     }
 });
 
