@@ -236,6 +236,53 @@
 .products .card .btn:hover {
     background: #333;
 }
+.products-button-container{
+	width: 64px;
+	height: 505px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	float: left;
+	position: absolute;
+	z-index: 2;
+	transition: all 0.75 ease;
+}
+.products-button-container:first-child{
+	margin-left: 0px;
+	margin-top: 55px;
+	display: none;
+}
+.products-button-container:last-child{
+
+    margin-top: -535px;
+    position: absolute;
+    right:0;
+    
+}
+.products-button-container:hover:first-child{
+	background-image: linear-gradient(-90deg, rgba(1,18,47,0.00) 0%, #01122F 100%);
+}
+.products-button-container:hover:last-child{
+	background-image: linear-gradient(90deg, rgba(1,18,47,0.00) 0%, #01122F 100%);
+}
+
+.products-button-container button{
+	width: 40px;
+	height: 40px;
+	display: none;
+	align-items: center;
+	justify-content: center;
+	background-color: transparent;
+	border: none;
+	outline: none;
+	cursor: pointer;
+}
+.products-button-container:hover button{
+	display: flex;
+}
+.products-button-container:first-child button img{
+	transform: rotate(180deg);
+}
 
 .gallery {
     display: flex;
@@ -749,7 +796,15 @@ select option {
 
 
 @media only screen and (max-width: 568px) {
+    .products-button-container{
+        height: 355px;    
+    }
+    .products-button-container:last-child {
+        margin-top: -385px;
 
+    }
+
+ 
     .products .row {
         align-items: center;
         justify-content: space-around;

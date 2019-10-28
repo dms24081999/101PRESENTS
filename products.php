@@ -27,7 +27,7 @@ session_start();
     }
 
     section.products {
-        margin: 0;
+        margin: 20;
         padding-top: 60px;
         height: auto;
         /*width: 40%;*/
@@ -37,6 +37,7 @@ session_start();
 
     .products {
         padding: 0px;
+        position: relative;
     }
 
     .products .row {
@@ -72,6 +73,8 @@ session_start();
         margin-block-end: 0em;
         color: white
     }
+
+   
     </style>
 </head>
 
@@ -93,7 +96,12 @@ session_start();
                 <div style="text-align:center;text-align: justify;height: auto">
                     <h2 class="main-head" style="">Sun-glasses</h2>
                     <div class="products">
-                        <div class="row" id="products-list">
+                        <div class="products-button-container" style="display: flex;">
+                            <button class="left-button" data-div="products-list-goggles">
+                                <img src="/101PRESENTS/assets/images/icon/arrow-icon.png">
+                            </button>
+                        </div>
+                        <div class="row" id="products-list-goggles">
                             <?php
                                 $sql = "SELECT * FROM products where producttype='goggles';";
                                 $result=mysqli_query($con,$sql);
@@ -123,6 +131,11 @@ session_start();
                                 }
                             ?>      
                         </div>
+                        <div class="products-button-container">
+                            <button  class="right-button" data-div="products-list-goggles">
+                                <img src="/101PRESENTS/assets/images/icon/arrow-icon.png">
+                            </button>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -130,7 +143,12 @@ session_start();
                 <div style="text-align:center;text-align: justify;height: auto">
                     <h2 class="main-head" style="">Flowers</h2>
                     <div class="products">
-                        <div class="row" id="products-list">
+                        <div class="products-button-container" style="display: flex;">
+                            <button class="left-button" data-div="products-list-flowers">
+                                <img src="/101PRESENTS/assets/images/icon/arrow-icon.png">
+                            </button>
+                        </div>
+                        <div class="row" id="products-list-flowers">
                             <?php
                                 $sql = "SELECT * FROM products where producttype='flowers';";
                                 $result=mysqli_query($con,$sql);
@@ -162,6 +180,11 @@ session_start();
                                 }
                             ?>        
                         </div>
+                        <div class="products-button-container">
+                            <button class="right-button" data-div="products-list-flowers">
+                                <img src="/101PRESENTS/assets/images/icon/arrow-icon.png">
+                            </button>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -169,7 +192,12 @@ session_start();
                 <div style="text-align:center;text-align: justify;height: auto">
                     <h2 class="main-head" style="">Chocolates</h2>
                     <div class="products">
-                        <div class="row" id="products-list">
+                        <div class="products-button-container" style="display: flex;">
+                            <button class="left-button" data-div="products-list-chocolates">
+                                <img src="/101PRESENTS/assets/images/icon/arrow-icon.png">
+                            </button>
+                        </div>
+                        <div class="row" id="products-list-chocolates">
                             <?php
                                 $sql = "SELECT * FROM products where producttype='chocolates';";
                                 $result=mysqli_query($con,$sql);
@@ -201,6 +229,11 @@ session_start();
                                 }
                             ?>
                         </div>
+                        <div class="products-button-container">
+                            <button class="right-button" data-div="products-list-chocolates">
+                                <img src="/101PRESENTS/assets/images/icon/arrow-icon.png">
+                            </button>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -208,7 +241,12 @@ session_start();
                 <div style="text-align:center;text-align: justify;height: auto">
                     <h2 class="main-head" style="">Cakes</h2>
                     <div class="products">
-                        <div class="row" id="products-list">
+                        <div class="products-button-container" style="display: flex;">
+                            <button class="left-button" data-div="products-list-cakes">
+                                <img src="/101PRESENTS/assets/images/icon/arrow-icon.png">
+                            </button>
+                        </div>
+                        <div class="row" id="products-list-cakes">
                             <?php
                                 $sql = "SELECT * FROM products where producttype='cakes';";
                                 $result=mysqli_query($con,$sql);
@@ -239,6 +277,11 @@ session_start();
                                     </div>";
                                 }
                             ?>
+                        </div>
+                        <div class="products-button-container">
+                            <button class="right-button" data-div="products-list-cakes">
+                                <img src="/101PRESENTS/assets/images/icon/arrow-icon.png">
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -281,7 +324,7 @@ session_start();
                 },
                 success: function(data){
                 var data1=JSON.parse(data)
-                    console.log(data1[2])
+                    console.log(data1)
                 }
             })
         }
@@ -289,8 +332,27 @@ session_start();
 
 
     //----------------------------------------Call Scroll products div with mouse scroll from main scripts file------------------------------------------
-    $(document).ready(function() {
+    function horizontalScrollright(){
         $('.row').hScroll(60); // You can pass (optionally) scrolling amount
+    }
+
+    $('.right-button').click(function() {
+        event.preventDefault();
+        $("#"+$(this).attr("data-div")).animate({
+            scrollLeft: "+=200px"
+        }, "slow");
+    });
+
+    $('.left-button').click(function() {
+        event.preventDefault();
+        $("#"+$(this).attr("data-div")).animate({
+            scrollLeft: "-=200px"
+        }, "slow");
+    });
+
+
+    $(document).ready(function() {
+        horizontalScrollright()
         $('.addcart').click(function(e) {
             e.preventDefault();
            
