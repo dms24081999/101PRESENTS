@@ -16,7 +16,7 @@ session_start();
     
     <style type="text/css">
     body {
-        background-image: linear-gradient(rgba(255, 0, 0, 0.3), rgba(0, 255, 0, 0.3), rgba(0, 0, 255, 0.3)), url("assets/images/bg.jpg");
+        background-image: linear-gradient(rgba(255, 0, 0, 0.3), rgba(0, 255, 0, 0.3), rgba(0, 0, 255, 0.3)), url("/101PRESENTS/assets/images/bg.jpg");
     }
     </style>
 </head>
@@ -26,7 +26,7 @@ session_start();
     <?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/include/headernav.php'); ?>
     <div class="main  body-top">
         <article>
-            <div style="text-align: center;color: white;">
+            <div style="text-align: center;color: white;" id="about">
                 <h1 style="color: white;font-size: 35px">ABOUT US</h1>
                 <?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/include/aboutowner.php'); ?> 
             </div>

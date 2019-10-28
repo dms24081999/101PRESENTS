@@ -3,10 +3,8 @@
             <li>
                 <h4 class="footer-list-header">About 101PRESENTS</h4>
             </li>
-            <li><a href='about.html' class="generic-anchor footer-list-anchor">GET TO KNOW US</a></li>
-            <li><a href='' class="generic-anchor footer-list-anchor" itemprop="significantLink">PROMOS</a></li>
-            <!-- <li><a href='' class="generic-anchor footer-list-anchor" itemprop="significantLink">BECOME A RETAILER</a></li> -->
-            <li><a href='' itemprop="significantLink" class="generic-anchor footer-list-anchor">JOB OPENINGS</a></li>
+            <li><a href='/101PRESENTS/about.php#about' class="generic-anchor footer-list-anchor">GET TO KNOW US</a></li>
+            <li><a href='/101PRESENTS/index.php#testimonials' class="generic-anchor footer-list-anchor" itemprop="significantLink">Testimonials</a></li>
         </ul>
         <ul class="footer-list-top">
             <li>
@@ -30,11 +28,11 @@
                 CONNECT <span class="footer-social-small">with</span> US
             </span>
             <span class="footer-social-overlap footer-social-icons-wrapper">
-                <a href="" class="generic-anchor" target="_blank" title="Pinterest" itemprop="significantLink"><i class="fa fa-pinterest"></i></a>
-                <a href="" class="generic-anchor" target="_blank" title="Facebook" itemprop="significantLink"><i class="fa fa-facebook"></i></a>
-                <a href="" class="generic-anchor" target="_blank" title="Twitter" itemprop="significantLink"><i class="fa fa-twitter"></i></a>
-                <a href="" class="generic-anchor" target="_blank" title="Instagram" itemprop="significantLink"><i class="fa fa-instagram"></i></a>
-                <a href="" class="generic-anchor" target="_blank" title="Youtube" itemprop="significantLink"><i class="fa fa-youtube"></i></a>
+                <a href="https://in.pinterest.com/" class="generic-anchor" target="_blank" title="Pinterest" itemprop="significantLink"><i class="fa fa-pinterest"></i></a>
+                <a href="https://www.facebook.com/" class="generic-anchor" target="_blank" title="Facebook" itemprop="significantLink"><i class="fa fa-facebook"></i></a>
+                <a href="https://twitter.com/home" class="generic-anchor" target="_blank" title="Twitter" itemprop="significantLink"><i class="fa fa-twitter"></i></a>
+                <a href="https://instagram.com" class="generic-anchor" target="_blank" title="Instagram" itemprop="significantLink"><i class="fa fa-instagram"></i></a>
+                <a href="https://www.youtube.com/channel/UCXHgB14EOtc1-gWiNfJyYMw" class="generic-anchor" target="_blank" title="Youtube" itemprop="significantLink"><i class="fa fa-youtube"></i></a>
                 <a href="" class="generic-anchor" target="_blank" title="Google Plus" itemprop="significantLink"><i class="fa fa-google-plus"></i></a>
             </span>
         </section>

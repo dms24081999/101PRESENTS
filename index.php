@@ -128,28 +128,7 @@ session_start();
 
     }
 
-    /*.products {
-        padding: 0px;
-    }
-    .products .row {
-        display: flex;
-        flex-wrap: nowrap;
-        min-width: 100%;
-        overflow-x: auto;
-        flex-direction: row;
-        justify-content: flex-start;
-    }
-    .products .column {
-        margin: 10px;
-    }
-    .products .row::-webkit-scrollbar {
-        width: 0px;
-        background: transparent;
-    }
-    .products .row::-webkit-scrollbar-thumb {
-        background: transparent;
-    }*/
-
+ 
     section#products {
         margin: 0;
         padding-top: 20px;
@@ -243,29 +222,7 @@ session_start();
             </div>
         </a>
     </section>
-   <!--  <div class="bgimg-2">
-        <div class="caption">
-            <span class="border" style="background-color:transparent;font-size:25px;color: #f7f7f7;">LESS HEIGHT</span>
-        </div>
-    </div> -->
-   <!--  <div style="position:relative;">
-        <div style="color:#ddd;background-color:#282E34;text-align:center;padding:50px 80px;text-align: justify;">
-            <p>Scroll up and down to really get the feeling of how Parallax Scrolling works.</p>
-        </div>
-    </div> -->
-    <!--   <section id="home-gallery" style="background: white;padding: 20px">
-        <div class="wrapper">
-            <div class="carousel">
-                <button type="button" id="carousel-arrow-prev" class="carousel-arrow carousel-arrow-prev" arial-label="Image précédente"></button>
-                <button type="button" id="carousel-arrow-next" class="carousel-arrow carousel-arrow-next" arial-label="Image suivante"></button>
-                <img id="carousel-0" class="carousel-img carousel-img-displayed" src="http://res.cloudinary.com/dnqehhgmu/image/upload/v1509718497/winter_cttfdr.jpg" alt="Winter" />
-                <img id="carousel-1" class="carousel-img carousel-img-noDisplay" src="http://res.cloudinary.com/dnqehhgmu/image/upload/v1509718497/sea_ej0zoc.jpg" alt="Sea" />
-                <img id="carousel-2" class="carousel-img carousel-img-noDisplay" src="http://res.cloudinary.com/dnqehhgmu/image/upload/v1509718497/night_pw1bpm.jpg" alt="Night" />
-                <img id="carousel-3" class="carousel-img carousel-img-noDisplay" src="http://res.cloudinary.com/dnqehhgmu/image/upload/v1509718497/mountain_dekhfd.jpg" alt="Moutain" />
-                <img id="carousel-4" class="carousel-img carousel-img-noDisplay" src="http://res.cloudinary.com/dnqehhgmu/image/upload/v1509718497/desert_zy3uth.jpg" alt="Desert" />
-            </div>
-        </div>
-    </section> -->
+ 
     <section id="about" class="bgimg-2" style="">
         <div class="" style="">
             <h2 style="text-align: center;padding-top: 20px;color: white;font-size: 35px">About Us</h2>
@@ -277,7 +234,7 @@ session_start();
             </div>
         </a>
     </section>
-    <div class="testimonial-section">
+    <div class="testimonial-section" id="testimonials">
         <div class="inner-width">
             <h1>What Our Customers Say</h1>
             <div class="testimonial-pics">

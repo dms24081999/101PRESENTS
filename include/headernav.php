@@ -5,7 +5,7 @@
                     <i class="fa fa-bars"></i>
                     <i class="fa fa-close"></i>
                 </div>
-                <a href="index.php" class="logo">
+                <a href="/101PRESENTS/index.php" class="logo">
                     <img src="/101PRESENTS/assets/images/logo/main-logo.png" width="160px" height="40px" style="display:block;float:left;margin-top: 0px;">
                 </a>
                 <ul class="nav-list">
