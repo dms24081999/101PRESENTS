@@ -71,6 +71,8 @@ if ( isset( $_POST['signupbtn'] ) ) {
         $sql = "INSERT INTO users (fname,lname,username,email,passwd,age,gender) VALUES ('".$fname."','".$lname."','".$username."','".$email."','".$passwd."',".$age.",'".$gender."');";         
         if ($con->query($sql) === TRUE) {
             // echo "New record created successfully";
+            header("location:signin.php"); 
+echo "<script type='text/javascript'> document.location = 'signin.php'; </script>";
         } else {
             // echo "Error: " . $sql . "<br>" . $con->error;
         }

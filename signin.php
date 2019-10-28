@@ -24,6 +24,8 @@ if ( isset( $_POST['signinbtn'] ) ) {
                 }
             }
             echo "<script>console.log('".$_SESSION['user_id']."');</script>";
+        
+echo "<script type='text/javascript'> document.location = 'index.php'; </script>";
             header("location:index.php"); 
         }else{
             echo "<script>alert('Invalid Login Details!');</script>";

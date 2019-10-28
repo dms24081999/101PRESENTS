@@ -7,7 +7,7 @@
     <div id='notification-content-section'>
         <!----- text section ----->
         <div id='text-section-notification-box'>
-            <h2>New</h2>
+            <h2>New Products</h2>
             <?php
             include($_SERVER['DOCUMENT_ROOT']."/101PRESENTS/db.php");
                 $sql = "SELECT * FROM products where notification=1;";

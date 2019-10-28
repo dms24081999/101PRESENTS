@@ -186,8 +186,7 @@ session_start();
     </section>
     <section id="products" style="">
         <div style="color: #777;text-align:center;text-align: justify;height: auto;display: block;">
-            <h2 style="text-align: center;font-size: 35px">Products</h2>
-            
+            <!-- <h2 style="text-align: center;font-size: 35px">Products</h2> -->
                 <div class="gallery">
                     <a href="products.html#goggles">
                         <div class="gallery-item">
