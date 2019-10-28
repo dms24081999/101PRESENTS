@@ -28,7 +28,7 @@ session_start();
 
     section.products {
         margin: 0;
-        /*padding-top: 50px;*/
+        padding-top: 60px;
         height: auto;
         /*width: 40%;*/
         position: relative;

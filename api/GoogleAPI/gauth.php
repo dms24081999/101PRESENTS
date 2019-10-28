@@ -3,16 +3,7 @@ require_once('settings.php');
 require_once('google-login-api.php');
 include($_SERVER['DOCUMENT_ROOT']."/101PRESENTS/db.php");
 session_start();
-//if(!isset($_SESSION['user_id']) && empty($_SESSION['user_id'])) {
-//	$_SESSION = array();
-//	if (ini_get("session.use_cookies")) {
-//		$params = session_get_cookie_params();
-//		setcookie(session_name(), '', time() - 60*60,
-//			$params["path"], $params["domain"],
-//			$params["secure"], $params["httponly"]
-//		);	
-//	}
-//}
+
 
 // Google passes a parameter 'code' in the Redirect Url
 if(isset($_GET['code'])) {
@@ -48,6 +39,8 @@ if(isset($_GET['code'])) {
 			}
 		}
 		$con->close();
+		echo "<script type='text/javascript'> document.location = '/101PRESENTS/index.php'; </script>";
+		header("location: /101PRESENTS/index.php"); 
 		
 	}
 	catch(Exception $e) {
@@ -55,6 +48,7 @@ if(isset($_GET['code'])) {
 		echo $e->getMessage();
 		exit();
 	}
+
 }
 ?>
 <head>

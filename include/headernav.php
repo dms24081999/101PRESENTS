@@ -45,10 +45,11 @@
                     <li>
                         <a href="/101PRESENTS/about.php">About</a>
                     </li>
+                    
                     <ul class="move-right">
                     <?php
                         if ( isset( $_SESSION['user_id'] ) ) {
-                            echo "<li><a href='#'>Account
+                            echo "<li><a href='#'><div class='user' style='margin-top:5px'></div>
                                 <i class='icon ion-md-arrow-dropdown'></i></a>
                                 <ul class='auth sub-menu' style=''>
                                     <li>

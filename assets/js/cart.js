@@ -24,7 +24,7 @@ $('.product-removal button').click( function() {
            console.log("del")
             removeItem(thisid);
          }else{
-             alert("can't delete the row")
+             alert("Can't delete the row")
          }
     }
   })

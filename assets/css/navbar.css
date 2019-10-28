@@ -127,6 +127,7 @@ nav .btn{
 	width: 15rem;
 	display: block;
 	position: absolute;
+	margin-top: 1rem;
 	border-top: 3px solid #eb3007;
 	background-color: #191919;
 	z-index: 10;
@@ -140,9 +141,9 @@ nav .btn{
 .auth.sub-menu::before{
 	content: "";
 	position: absolute;
-	top: -2.3rem;
+	top: -2rem;
+	right: 1.6rem;
 	left:auto;
-	right:3rem;
 	border: 1rem solid transparent;
 	border-bottom-color: #eb3007;
 }
