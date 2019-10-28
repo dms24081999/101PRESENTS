@@ -15,6 +15,8 @@ session_start();
             // echo "<br> id: ". $productinfo["productid"]. " - Name: ". $productinfo["name"]. " " . $productinfo["price"] . "<br>";
         } else {
             // echo "0 results";
+            header("location:404.php"); 
+            echo "<script type='text/javascript'> document.location = '404.php'; </script>";
         }
         if(isset($_SESSION['user_id'])){
             $sqluser = "SELECT * FROM users where username='".$_SESSION['user_id']."'  limit 1;";
