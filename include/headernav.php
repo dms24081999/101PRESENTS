@@ -56,6 +56,9 @@
                                         <a href='/101PRESENTS/updateprofile.php'>Update Profile</a>
                                     </li>
                                     <li>
+                                        <a href='/101PRESENTS/deleteprofile.php'>Delete Profile</a>
+                                    </li>
+                                    <li>
                                         <a href='/101PRESENTS/changepassword.php'>Change Password</a>
                                     </li>
                                     <li>

@@ -148,16 +148,16 @@ $con->close();
                                 <?php
                                     if($valueuser["gender"]=="male"){
                                         echo "<option value='' disabled></option>
-                                        <option value='Male' selected>Male</option>
-                                        <option value='Female' >Female</option>";
+                                        <option value='male' selected>Male</option>
+                                        <option value='female' >Female</option>";
                                     }else if($valueuser["gender"]=="female"){
                                         echo "<option value='' disabled></option>
-                                        <option value='Male' >Male</option>
-                                        <option value='Female' selected>Female</option>";
+                                        <option value='male' >Male</option>
+                                        <option value='female' selected>Female</option>";
                                     }else{
                                         echo "<option value='' disabled selected></option>
-                                        <option value='Male' >Male</option>
-                                        <option value='Female' >Female</option>";
+                                        <option value='male' >Male</option>
+                                        <option value='female' >Female</option>";
                                     }
                                 ?>
                                     

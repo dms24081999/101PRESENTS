@@ -87,7 +87,7 @@ session_start();
         </aside> -->
         <article>
             <div class="group">
-                <input class="input-text" type="text" id="search-input" value="" placeholder="Search" onblur="search(this)" style="background: aliceblue;color:black" name="search">
+                <input class="input-text" type="text" id="search-input" value="" placeholder="Search"  style="background: aliceblue;color:black" name="search">
                 <span class="highlight"></span>
                 <span class="bar"></span>
                 <!-- <div class="label">Search</div> -->
@@ -326,9 +326,17 @@ session_start();
         //     .register('/101PRESENTS/sw.js')
         //     .then(function() { console.log("Service Worker Registered"); });
         // }  
-    
+        var $input = $('#search-input');
+        $input.on('keyup', function () {
+            search($input.val())
+        });
+
+            //on keydown, clear the countdown 
+        $input.on('keydown', function () { 
+            search($input.val())
+        });
+
     function search(search) {
-        var search = search.value;
         console.log(search)
         if (search == "") {
             $("#goggles").css("display", "block");
