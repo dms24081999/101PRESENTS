@@ -8,27 +8,33 @@ include($_SERVER['DOCUMENT_ROOT']."/101PRESENTS/include/cookielogin.php");
 if ( isset( $_POST['signinbtn'] ) ) {
     if ( isset( $_POST['username'] ) && isset( $_POST['passwd'] ) ) {
     // Getting submitted user data from database   
-        $username=$_POST['username'];
-        $stmt = $con->prepare("SELECT * FROM users WHERE username = '".$username."';");     
-        $stmt->execute();
-        $result = $stmt->get_result();
-        $user = $result->fetch_object();
-        // Verify user password and set $_SESSION
-        if ( md5($_POST['passwd']) == $user->passwd ) {
-            $_SESSION['user_id'] = $user->username;
-            if(isset($_POST["remember_me"])){
-                if($_POST["remember_me"]=='1' || $_POST["remember_me"]=='on'){
-                    $hour = time() + 3600 * 24 * 30;
-                    setcookie('username', $_POST['username'], $hour);
-                    setcookie('password', md5($_POST['passwd']), $hour);
+        try{
+            $username=$_POST['username'];
+            $stmt = $con->prepare("SELECT * FROM users WHERE username = '".$username."';");     
+            $stmt->execute();
+            $result = $stmt->get_result();
+            $user = $result->fetch_object();
+            if(isset($user)){
+            // Verify user password and set $_SESSION
+                if ( md5($_POST['passwd']) == $user->passwd ) {
+                    $_SESSION['user_id'] = $user->username;
+                    if(isset($_POST["remember_me"])){
+                        if($_POST["remember_me"]=='1' || $_POST["remember_me"]=='on'){
+                            $hour = time() + 3600 * 24 * 30;
+                            setcookie('username', $_POST['username'], $hour);
+                            setcookie('password', md5($_POST['passwd']), $hour);
+                        }
+                    }
+                    echo "<script>console.log('".$_SESSION['user_id']."');</script>";
+                
+                    echo "<script type='text/javascript'> document.location = 'index.php'; </script>";
+                    header("location:index.php"); 
+                }else{
+                    echo "<script>alert('Invalid Login Details!');</script>";
                 }
             }
-            echo "<script>console.log('".$_SESSION['user_id']."');</script>";
-        
-echo "<script type='text/javascript'> document.location = 'index.php'; </script>";
-            header("location:index.php"); 
-        }else{
-            echo "<script>alert('Invalid Login Details!');</script>";
+        }catch(Exception $e) {
+            // echo 'Message: ' .$e->getMessage();
         }
     }
     mysqli_close($con);

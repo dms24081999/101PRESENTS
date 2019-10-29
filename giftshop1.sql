@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 27, 2019 at 03:17 PM
+-- Generation Time: Oct 29, 2019 at 02:22 PM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.1.32
 
@@ -134,9 +134,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`fname`, `lname`, `username`, `email`, `passwd`, `age`, `gender`, `userid`) VALUES
-('Flora', 'Silveira', 'florasilveira', 'florasilveira02@gmail.com', '47ab6900d71218ec2870e27327faa795', 19, 'Female', 23),
 ('Vincent', 'Silveira', 'vincent09', 'vincentsilveira09@gmail.com', 'cc80d8f3cf908f4389c9a64a38538d2a', 15, 'male', 26),
-('Dominic', 'Silveira', 'dominicsilveira', 'dominicsilveira289@gmail.com', '47ab6900d71218ec2870e27327faa795', 20, 'male', 28);
+('Dominic', 'Michael', 'dms24081999', 'dms24081999@gmail.com', '47ab6900d71218ec2870e27327faa795', NULL, NULL, 30);
 
 --
 -- Indexes for dumped tables
@@ -182,7 +181,7 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `userid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `userid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

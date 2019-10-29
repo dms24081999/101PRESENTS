@@ -5,9 +5,21 @@ session_start();
 
 <head>
 <?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/include/head.php'); ?>
+
     <?php
-        include("db.php");
-        include($_SERVER['DOCUMENT_ROOT']."/101PRESENTS/include/cookielogin.php");
+    include("db.php");
+    include($_SERVER['DOCUMENT_ROOT']."/101PRESENTS/include/cookielogin.php");
+      if ( isset( $_SESSION['user_id'] ) ) {
+          // Grab user data from the database using the user_id
+          // Let them access the "logged in only" pages
+      } else {
+          // Redirect them to the login page
+          echo "<script type='text/javascript'> document.location = 'signin.php'; </script>";
+          header("Location: signin.php");
+      }   
+    // You'd put this code at the top of any "protected" page you create
+    // Always start this first
+      
     ?>
     <title>Update Profile | 101PRESENTS</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -117,7 +129,7 @@ $con->close();
                         <span class="highlight"></span>
                         <span class="bar"></span>
                         <label class="label">Username</label>
-                        <span class="error-message">Invalid Username field!</span>
+                        <span class="error-message" id="username-error">Invalid Username field!</span>
                     </div>
                     <div class="group">
                         <input class="input-text" type="email" value="<?php echo $valueuser["email"]; ?>" name="email" id="signup-email" required autocomplete>
@@ -125,7 +137,7 @@ $con->close();
                         <span class="highlight"></span>
                         <span class="bar"></span>
                         <label class="label">E-mail</label>
-                        <span class="error-message">Invalid E-mail field!</span>
+                        <span class="error-message" id="email-error">Invalid E-mail field!</span>
                     </div>
                     <!-- <div class="group">
                         <input class="input-text passwd" type="password" id="passwd-input" name="passwd" value="" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters!" required aria-required="true">
@@ -213,8 +225,12 @@ $con->close();
                     //console.log(response)
                         if(response>0){
                             console.log("Username Already in use.");
+                            $("#username-error").html("Username Already in use!")
+                            $("#username-error").css("display", "block")
                         }else{
                             console.log("Available.");
+                            $("#username-error").html("")
+                            $("#username-error").css("display", "none")
                         }
                     }
                 });
@@ -238,8 +254,12 @@ $con->close();
                     //console.log(response)
                         if(response>0){
                             console.log("Email Already in use.");
+                            $("#email-error").html("Email Already in use!")
+                            $("#email-error").css("display", "block")
                         }else{
                             console.log("Available.");
+                            $("#email-error").html("")
+                            $("#email-error").css("display", "none")
                         }
                     }
                 });

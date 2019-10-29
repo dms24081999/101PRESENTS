@@ -11,12 +11,11 @@ session_start();
           // Let them access the "logged in only" pages
       } else {
           // Redirect them to the login page
+          echo "<script type='text/javascript'> document.location = 'signin.php'; </script>";
           header("Location: signin.php");
       }   
     // You'd put this code at the top of any "protected" page you create
     // Always start this first
-      
-      include("db.php");
       
     ?>
     <title>Cart | 101PRESENTS</title>

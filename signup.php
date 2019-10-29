@@ -112,7 +112,7 @@ $con->close();
                         <span class="highlight"></span>
                         <span class="bar"></span>
                         <label class="label">Username</label>
-                        <span class="error-message">Invalid Username field!</span>
+                        <span class="error-message" id="username-error">Invalid Username field!</span>
                     </div>
                     <div class="group">
                         <input class="input-text" type="email" value="" name="email" id="signup-email" required autocomplete>
@@ -120,7 +120,7 @@ $con->close();
                         <span class="highlight"></span>
                         <span class="bar"></span>
                         <label class="label">E-mail</label>
-                        <span class="error-message">Invalid E-mail field!</span>
+                        <span class="error-message" id="email-error">Invalid E-mail field!</span>
                     </div>
                     <div class="group">
                         <input class="input-text passwd" type="password" id="passwd-input" name="passwd" value="" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters!" required aria-required="true">
@@ -201,8 +201,12 @@ $con->close();
                     //console.log(response)
                         if(response>0){
                             console.log("Username Already in use.");
+                            $("#username-error").html("Username Already in use!")
+                            $("#username-error").css("display", "block")
                         }else{
                             console.log("Available.");
+                            $("#username-error").html("")
+                            $("#username-error").css("display", "none")
                         }
                     }
                 });
@@ -226,8 +230,12 @@ $con->close();
                     //console.log(response)
                         if(response>0){
                             console.log("Email Already in use.");
+                            $("#email-error").html("Email Already in use!")
+                            $("#email-error").css("display", "block")
                         }else{
                             console.log("Available.");
+                            $("#email-error").html("")
+                            $("#email-error").css("display", "none")
                         }
                     }
                 });

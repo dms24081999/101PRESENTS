@@ -2,6 +2,16 @@
 session_start();
 include("db.php");
 include($_SERVER['DOCUMENT_ROOT']."/101PRESENTS/include/cookielogin.php");
+if ( isset( $_SESSION['user_id'] ) ) {
+          // Grab user data from the database using the user_id
+          // Let them access the "logged in only" pages
+} else {
+          // Redirect them to the login page
+          echo "<script type='text/javascript'> document.location = 'signin.php'; </script>";
+    header("Location: signin.php");
+}   
+ 
+
 // echo "Favorite color is " . $_SESSION["user_id"] . ".<br>";
 if ( isset( $_POST['changebtn'] ) ) {
     
@@ -26,10 +36,13 @@ if ( isset( $_POST['changebtn'] ) ) {
                     if (mysqli_query($con, $sql)) {
                         echo "Record updated successfully";
                     } else {
+                        echo "<script>alert('An Error Occured! Unable to Change Password!');</script>";
                         echo "Error updating record: " . mysqli_error($con);
                     }
                 }
                 echo "<script>console.log('".$_SESSION['user_id']."');</script>";
+            }else{
+                echo "<script>alert('An Error Occured! Unable to Change Password!');</script>";
             }
        
     
@@ -80,7 +93,13 @@ if ( isset( $_POST['changebtn'] ) ) {
     }
 
 
-
+    .empty~.error-message {
+        display:none;
+    }
+    .input-text.notempty.invalid~.error-message,
+    .select-text.notempty.invalid~.error-message {
+        display:block;
+    }
     </style>
 </head>
 
@@ -97,6 +116,7 @@ if ( isset( $_POST['changebtn'] ) ) {
                         <span class="bar"></span>
                         <span toggle1="#passwd-input" id="toggle-password" class="fa fa-fw fa-eye password-view-icon toggle-passwords" style=""></span>
                         <div class="label">Old Password</div>
+                        <!-- <span class="error-message">Invalid field!</span> -->
                     </div>
                     <div class="group">
                         <input class="input-text passwd" type="password" id="passwd1-input" value="" onblur="validatePasswd(this)" name="passwd1" required>
@@ -104,6 +124,7 @@ if ( isset( $_POST['changebtn'] ) ) {
                         <span class="bar"></span>
                         <span toggle1="#passwd1-input" id="toggle-password1" class="fa fa-fw fa-eye password-view-icon toggle-passwords" style=""></span>
                         <div class="label">Password</div>
+                        <span class="error-message">Invalid field!</span>
                     </div>
                     <div class="group">
                         <input class="input-text passwd" type="password" id="passwd2-input" name="passwd2" value="" onblur="validatePasswd(this)" required>
@@ -111,6 +132,7 @@ if ( isset( $_POST['changebtn'] ) ) {
                         <span class="bar"></span>
                         <span toggle1="#passwd2-input" id="toggle-password2" class="fa fa-fw fa-eye password-view-icon toggle-passwords" style=""></span>
                         <div class="label">Confirm-Password</div>
+                        <span class="error-message">Invalid field!</span>
                     </div>
                     <br>
                     <button class="ripplelink block primary" type="submit" name="changebtn" >Change Password</button>
@@ -142,29 +164,7 @@ if ( isset( $_POST['changebtn'] ) ) {
     window.onload = function() {
         document.getElementById("passwd-input").focus();
     };
-    // $(".toggle-passwords").click(function() {
-    //     $('#toggle-password').toggleClass("fa-eye fa-eye-slash");
-    //     $('#toggle-password1').toggleClass("fa-eye fa-eye-slash");
-    //     $('#toggle-password2').toggleClass("fa-eye fa-eye-slash");
-    //     var input3 = $($('#toggle-password').attr("toggle1"));
-    //     var input1 = $($('#toggle-password1').attr("toggle1"));
-    //     var input2 = $($('#toggle-password2').attr("toggle1"));
-    //     if (input3.attr("type") == "password") {
-    //         input3.attr("type", "text");
-    //     } else {
-    //         input3.attr("type", "password");
-    //     }
-    //     if (input1.attr("type") == "password") {
-    //         input1.attr("type", "text");
-    //     } else {
-    //         input1.attr("type", "password");
-    //     }
-    //     if (input2.attr("type") == "password") {
-    //         input2.attr("type", "text");
-    //     } else {
-    //         input2.attr("type", "password");
-    //     }
-    // });
+    
 
     $("#toggle-password").click(function() {
         $('#toggle-password').toggleClass("fa-eye fa-eye-slash");
@@ -223,6 +223,7 @@ if ( isset( $_POST['changebtn'] ) ) {
                     $("#passwd2-input").addClass("invalid");
                     $("#passwd1-input").removeClass("valid");
                     $("#passwd2-input").removeClass("valid");
+                    $(".error-message").html("Invalid Field!")
                     return false;
                 }
             } else {
@@ -230,6 +231,7 @@ if ( isset( $_POST['changebtn'] ) ) {
                 $("#passwd2-input").addClass("invalid");
                 $("#passwd1-input").removeClass("valid");
                 $("#passwd2-input").removeClass("valid");
+                $(".error-message").html("Passwords do not match!")
                 return false;
             }
         }

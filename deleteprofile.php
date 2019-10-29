@@ -91,20 +91,47 @@ session_start();
 <?php
 include("db.php");
 include($_SERVER['DOCUMENT_ROOT']."/101PRESENTS/include/cookielogin.php");
+
+      if ( isset( $_SESSION['user_id'] ) ) {
+          // Grab user data from the database using the user_id
+          // Let them access the "logged in only" pages
+      } else {
+          // Redirect them to the login page
+          echo "<script type='text/javascript'> document.location = 'signin.php'; </script>";
+          header("Location: signin.php");
+      } 
 // echo "Favorite color is " . $_SESSION["user_id"] . ".<br>";
 if ( isset( $_POST['delbtn'] ) ) {
     if ( isset( $_POST['username'] ) && isset( $_POST['passwd'] ) ) {
     // Getting submitted user data from database   
-        $qry = "DELETE FROM users WHERE username ='".$_POST['username']."' and passwd='".md5($_POST['passwd'])."';";
-        echo $qry;
-        $result=mysqli_query($con,$qry);
-        if(isset($result)) {
-        echo "YES";
-        } else {
-        echo "NO";
+        
+        $username=$_POST['username'];
+        $stmt = $con->prepare("SELECT * FROM users WHERE username = '".$username."';");     
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $user = $result->fetch_object();
+        // Verify user password and set $_SESSION
+        if(isset($user)){
+            if ( md5($_POST['passwd']) == $user->passwd ) {
+                $qry = "DELETE FROM users WHERE username ='".$_POST['username']."' and passwd='".md5($_POST['passwd'])."';";
+                // echo $qry;
+                if (mysqli_query($con, $qry)) {
+                    session_unset(); #removes all the variables in session
+                    session_destroy(); #destroys the session
+                    unset($_SESSION['user_id']);
+                    setcookie("username", "", time() - 3600); 
+                    setcookie("password", "", time() - 3600);
+                    echo "<script type='text/javascript'> document.location = 'index.php'; </script>";
+                    // header("location:index.php");
+                }else{
+                    echo "<script>alert('An Error Occured! Unable to delete account!');</script>";
+                }
+            }else{
+                echo "<script>alert('An Error Occured! Unable to delete account!');</script>";
+            }
+        }else{
+            echo "<script>alert('An Error Occured! Unable to delete account!');</script>";
         }
-        include('logout.php');
-        header("location:index.php"); 
     }
     mysqli_close($con);
 }
