@@ -1,5 +1,6 @@
 <?php
 session_start();
+require_once('api/SocialDjangoAPI/settings.php');
 require_once('api/GoogleAPI/settings.php');
 $login_url = 'https://accounts.google.com/o/oauth2/v2/auth?scope=' . urlencode('https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email') . '&redirect_uri=' . urlencode(CLIENT_REDIRECT_URL) . '&response_type=code&client_id=' . CLIENT_ID . '&access_type=online';
 include("db.php");
@@ -75,7 +76,7 @@ if ( isset( $_POST['signinbtn'] ) ) {
         display: block;
     }
 
-    .loginBtn {
+    .loginBtnDesign {
         box-sizing: border-box;
         text-align: center;
         position: relative;
@@ -90,7 +91,7 @@ if ( isset( $_POST['signinbtn'] ) ) {
         font-size: 16px;
         color: #FFF;
     }
-    .loginBtn:before {
+    .loginBtnDesign:before {
         content: "";
         box-sizing: border-box;
         position: absolute;
@@ -99,25 +100,26 @@ if ( isset( $_POST['signinbtn'] ) ) {
         width: 34px;
         height: 100%;
     }
-    .loginBtn:focus {
+    .loginBtnDesign:focus {
         outline: none;
     }
-    .loginBtn:active {
+    .loginBtnDesign:active {
         box-shadow: inset 0 0 0 32px rgba(0,0,0,0.1);
     }
 
 
         /* Google */
-    .loginBtn--google {
+    .loginBtn--Design {
         /*font-family: "Roboto", Roboto, arial, sans-serif;*/
         background: #DD4B39;
     }
-    .loginBtn--google:before {
+    .loginBtn--Design:before {
         border-right: #BB3F30 1px solid;
         background: url('/101PRESENTS/assets/images/icon/icon_google.png') 6px 6px no-repeat;
     }
-    .loginBtn--google:hover,
-    .loginBtn--google:focus {
+    
+    .loginBtn--Design:hover,
+    .loginBtn--Design:focus {
         background: #E74B37;
     }
     </style>
@@ -157,9 +159,12 @@ if ( isset( $_POST['signinbtn'] ) ) {
                     <button class="ripplelink block primary mb-5" type="submit" name="signinbtn">Sign-In</button>
                     <!-- onclick="return validateSingInForm()" -->
                     <a href="<?= $login_url ?>">
-                    <button class="loginBtn loginBtn--google" type="button" >Login with Google</button>
+                        <button class="loginBtnDesign loginBtn--Design loginBtn loginBtn--google " type="button" >Login with Google</button>
                     </a>
-                    <!-- <a href="<?= $login_url ?>" class="ripplelink block primary">Login with Google</a> -->
+                    <br>
+                    <a href="<?= SOCIAL_AUTHORIZE_URL ?>">
+                        <button class="loginBtnDesign loginBtn--Design" type="button"  style="background-color:grey">Login with Social Web App</button>
+                    </a>
                  
                 </form>
             </div>
