@@ -79,14 +79,36 @@ if(isset($_GET['code'])){
 		$sql_u = "SELECT * FROM users WHERE email='".$email."';";
 		$res_u = mysqli_query($con, $sql_u);
 		if (mysqli_num_rows($res_u) > 0) {
-			$_SESSION['user_id'] = $usernameex[0];
-			echo "Sorry... username already taken"; 	
+			$_SESSION['user_id'] = $username;
+            echo "Sorry... username already taken"; 	
+            $date = new DateTime();
+            $date->modify('+1 month');
+            print $date->format('Y-m-d H:i:s');
+            $sql = "INSERT INTO sessions (session_id, expired_timestamp, user_id) VALUES ('".session_id()."','".$date->format('Y-m-d H:i:s')."','".$username."')";
+            if ($con->query($sql) === TRUE) {
+                echo "New record created successfully";
+            } else {
+                echo "Record already exists";
+            }
 		}else{
 			$sql = "INSERT INTO users (fname,lname,username,email) VALUES ('".$fname."','".$lname."','".$username."','".$email."');";     
         	if ($con->query($sql) === TRUE) {	
-				$_SESSION['user_id'] = $username;
+                $_SESSION['user_id'] = $username;
+                $date = new DateTime();
+                $date->modify('+1 month');
+                print $date->format('Y-m-d H:i:s');
+                $sql = "INSERT INTO sessions (session_id, expired_timestamp, user_id) VALUES ('".session_id()."','".$date->format('Y-m-d H:i:s')."','".$username."')";
+                if ($con->query($sql) === TRUE) {
+                    echo "New record created successfully";
+                } else {
+                    echo "Record already exists";
+                }
+                // if(isset($_GET['redirect'])){
+                //         header("Location: ".$_GET['redirect']); 
+                // }
 				echo "New record created successfully";
 			} else {
+                
 				echo "Error: " . $sql . "<br>" . $con->error;
 			}
 		}

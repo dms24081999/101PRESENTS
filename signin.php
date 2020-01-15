@@ -28,9 +28,9 @@ if ( isset( $_POST['signinbtn'] ) ) {
                     } else {
                         echo "Record already exists";
                     }
-                    if(isset($_GET['redirect'])){
-                            header("Location: ".$_GET['redirect']); 
-                    }
+                    // if(isset($_GET['redirect'])){
+                    //         header("Location: ".$_GET['redirect']); 
+                    // }
                     $_SESSION['user_id'] = $user->username;
                     if(isset($_POST["remember_me"])){
                         if($_POST["remember_me"]=='1' || $_POST["remember_me"]=='on'){
