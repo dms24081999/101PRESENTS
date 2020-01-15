@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 29, 2019 at 02:22 PM
+-- Generation Time: Jan 15, 2020 at 04:49 PM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.1.32
 
@@ -40,13 +40,11 @@ CREATE TABLE `cart` (
 --
 
 INSERT INTO `cart` (`cartid`, `productid`, `userid`, `quantity`) VALUES
-(1, 1, 16, 1),
 (14, 2, 16, 2),
 (15, 3, 16, 2),
 (16, 2, 23, 3),
 (17, 5, 28, 2),
-(19, 3, 28, 1),
-(20, 2, 28, 1);
+(27, 10, 32, 3);
 
 -- --------------------------------------------------------
 
@@ -115,13 +113,35 @@ INSERT INTO `products` (`productid`, `name`, `producttype`, `price`, `tag`, `bdi
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `sessions`
+--
+
+CREATE TABLE `sessions` (
+  `session_id` varchar(50) NOT NULL,
+  `expired_timestamp` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `data` mediumtext DEFAULT NULL,
+  `user_id` varchar(80) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `sessions`
+--
+
+INSERT INTO `sessions` (`session_id`, `expired_timestamp`, `data`, `user_id`) VALUES
+('045bh4op3frc8cqqnbqqfe7m41', '2020-02-15 02:03:44', NULL, 'dominicsilveira289'),
+('4dgj1v358uo2fund5bnfbss89o', '2020-02-15 02:03:01', NULL, 'dms24081999'),
+('4mo3d17a34gmm53n0bmictcs4f', '2020-02-15 02:02:43', NULL, 'dms24081999');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
   `fname` varchar(15) DEFAULT NULL,
   `lname` varchar(15) DEFAULT NULL,
-  `username` varchar(15) NOT NULL,
+  `username` varchar(30) NOT NULL,
   `email` varchar(30) NOT NULL,
   `passwd` varchar(100) DEFAULT NULL,
   `age` int(11) DEFAULT NULL,
@@ -134,8 +154,10 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`fname`, `lname`, `username`, `email`, `passwd`, `age`, `gender`, `userid`) VALUES
+('Flora', 'Silveira', 'florasilveira', 'florasilveira02@gmail.com', '47ab6900d71218ec2870e27327faa795', 19, 'female', 23),
 ('Vincent', 'Silveira', 'vincent09', 'vincentsilveira09@gmail.com', 'cc80d8f3cf908f4389c9a64a38538d2a', 15, 'male', 26),
-('Dominic', 'Michael', 'dms24081999', 'dms24081999@gmail.com', '47ab6900d71218ec2870e27327faa795', NULL, NULL, 30);
+('Dominic', 'Sil', 'dominicsilveira289', 'florasilveira012@gmail.com', '47ab6900d71218ec2870e27327faa795', 18, 'male', 33),
+('Dominic', 'Silveira', 'dms24081999', 'dms24081999@gmail.com', NULL, NULL, NULL, 37);
 
 --
 -- Indexes for dumped tables
@@ -154,6 +176,13 @@ ALTER TABLE `products`
   ADD PRIMARY KEY (`productid`);
 
 --
+-- Indexes for table `sessions`
+--
+ALTER TABLE `sessions`
+  ADD PRIMARY KEY (`session_id`),
+  ADD KEY `user_id` (`user_id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -169,7 +198,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `cartid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `cartid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT for table `products`
@@ -181,7 +210,17 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `userid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `userid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `sessions`
+--
+ALTER TABLE `sessions`
+  ADD CONSTRAINT `sessions_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`username`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
