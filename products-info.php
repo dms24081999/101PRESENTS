@@ -1,11 +1,9 @@
-<?php
-session_start();
-?>
+<?php session_set_cookie_params(0, '/101PRESENTS');session_start();?>
+<?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/db.php');?>
+<?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/include/login_middleware.php'); ?>
 <head>
 <?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/include/head.php'); ?>
 <?php
-        include("db.php");
-        include($_SERVER['DOCUMENT_ROOT']."/101PRESENTS/include/cookielogin.php");
             // echo $_GET['id'];
         $sql = "SELECT * FROM products where productid=".$_GET['id'].";";
         $result = $con->query($sql);

@@ -1,11 +1,12 @@
+<?php session_set_cookie_params(0, '/101PRESENTS');session_start();?>
+<?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/db.php');?>
+<?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/include/login_middleware.php'); ?>
 <?php
-session_start();
 require_once('api/SocialDjangoAPI/settings.php');
 require_once('api/GoogleAPI/settings.php');
 $login_url = 'https://accounts.google.com/o/oauth2/v2/auth?scope=' . urlencode('https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email') . '&redirect_uri=' . urlencode(CLIENT_REDIRECT_URL) . '&response_type=code&client_id=' . CLIENT_ID . '&access_type=online';
-include("db.php");
-include($_SERVER['DOCUMENT_ROOT']."/101PRESENTS/include/cookielogin.php");
-// echo "Favorite color is " . $_SESSION["user_id"] . ".<br>";
+?>
+<?php 
 if ( isset( $_POST['signinbtn'] ) ) {
     if ( isset( $_POST['username'] ) && isset( $_POST['passwd'] ) ) {
     // Getting submitted user data from database   
@@ -18,10 +19,23 @@ if ( isset( $_POST['signinbtn'] ) ) {
             if(isset($user)){
             // Verify user password and set $_SESSION
                 if ( md5($_POST['passwd']) == $user->passwd ) {
+                    $date = new DateTime();
+                    $date->modify('+1 month');
+                    print $date->format('Y-m-d H:i:s');
+                    $sql = "INSERT INTO sessions (session_id, expired_timestamp, user_id) VALUES ('".session_id()."','".$date->format('Y-m-d H:i:s')."','".$user->username."')";
+                    if ($con->query($sql) === TRUE) {
+                        echo "New record created successfully";
+                    } else {
+                        echo "Record already exists";
+                    }
+                    if(isset($_GET['redirect'])){
+                            header("Location: ".$_GET['redirect']); 
+                    }
                     $_SESSION['user_id'] = $user->username;
                     if(isset($_POST["remember_me"])){
                         if($_POST["remember_me"]=='1' || $_POST["remember_me"]=='on'){
                             $hour = time() + 3600 * 24 * 30;
+                            setcookie('PHPSESSID', session_id(), $hour);
                             setcookie('username', $_POST['username'], $hour);
                             setcookie('password', md5($_POST['passwd']), $hour);
                         }

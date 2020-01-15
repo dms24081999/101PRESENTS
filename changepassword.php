@@ -1,7 +1,7 @@
-<?php
-session_start();
-include("db.php");
-include($_SERVER['DOCUMENT_ROOT']."/101PRESENTS/include/cookielogin.php");
+<?php session_set_cookie_params(0, '/101PRESENTS');session_start();?>
+<?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/db.php');?>
+<?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/include/login_middleware.php'); ?>
+<?php 
 if ( isset( $_SESSION['user_id'] ) ) {
           // Grab user data from the database using the user_id
           // Let them access the "logged in only" pages
@@ -10,9 +10,7 @@ if ( isset( $_SESSION['user_id'] ) ) {
           echo "<script type='text/javascript'> document.location = 'signin.php'; </script>";
     header("Location: signin.php");
 }   
- 
 
-// echo "Favorite color is " . $_SESSION["user_id"] . ".<br>";
 if ( isset( $_POST['changebtn'] ) ) {
     
     // Getting submitted user data from database   

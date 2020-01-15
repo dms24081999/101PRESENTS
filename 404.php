@@ -1,3 +1,6 @@
+<?php session_set_cookie_params(0, '/101PRESENTS');session_start();?>
+<?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/db.php');?>
+<?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/include/login_middleware.php'); ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>

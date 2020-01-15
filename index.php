@@ -1,15 +1,16 @@
-<?php
-session_start();
-?>
+<?php session_set_cookie_params(0, '/101PRESENTS');session_start();?>
+<?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/db.php');?>
+<?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/include/login_middleware.php'); ?>
 <!DOCTYPE html>
 
 <html>
 
 <head>
-    <?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/include/head.php'); ?>
+
+<?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/include/head.php'); ?>
     <?php
-        include("db.php");
-        include($_SERVER['DOCUMENT_ROOT']."/101PRESENTS/include/cookielogin.php");
+        
+
         if(isset( $_SESSION['user_id'])){
             $sqluser = "SELECT * FROM users where username='".$_SESSION['user_id']."'  limit 1;";
             $resultuser = mysqli_query($con,$sqluser);
@@ -188,25 +189,25 @@ session_start();
         <div style="color: #777;text-align:center;text-align: justify;height: auto;display: block;">
             <!-- <h2 style="text-align: center;font-size: 35px">Products</h2> -->
                 <div class="gallery">
-                    <a href="products.html#goggles">
+                    <a href="/101PRESENTS/products.php#goggles">
                         <div class="gallery-item">
                             <img class="gallery-image" src="assets/images/products/goggles/cat-eye-women-sunglasses-green/1.webp" alt="">
                             <div class="bottom-text">Sun-glasses</div>
                         </div>
                     </a>
-                    <a href="products.html#flowers">
+                    <a href="/101PRESENTS/products.php#flowers">
                         <div class="gallery-item">
                             <img class="gallery-image" src="assets/images/products/flowers/special-birthday-vase-arrangement/1.webp" alt="">
                             <div class="bottom-text">Flowers</div>
                         </div>
                     </a>
-                    <a href="products.html#chocolates">
+                    <a href="/101PRESENTS/products.php#chocolates">
                         <div class="gallery-item">
                             <img class="gallery-image" src="assets/images/products/chocolates/personalised-mug-ferrero-rocher-combo/1.webp" alt="">
                             <div class="bottom-text">Chocolates</div>
                         </div>
                     </a>
-                    <a href="products.html#cakes">
+                    <a href="/101PRESENTS/products.php#cakes">
                         <div class="gallery-item">
                             <img class="gallery-image" src="assets/images/products/cakes/black-forest-cake/2.webp" alt="">
                             <div class="bottom-text">Cakes</div>

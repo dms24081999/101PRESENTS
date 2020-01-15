@@ -1,16 +1,11 @@
-<?php
-session_start();
-?>
+<?php session_set_cookie_params(0, '/101PRESENTS');session_start();?>
+<?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/db.php');?>
+<?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/include/login_middleware.php'); ?>
 
 <html>
 
 <head>
 <?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/include/head.php'); ?>
-    <?php
-        
-        include("db.php");
-        include($_SERVER['DOCUMENT_ROOT']."/101PRESENTS/include/cookielogin.php");
-    ?>
     <title>About | 101PRESENTS</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
