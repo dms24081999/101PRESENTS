@@ -57,11 +57,24 @@
                                     </li>
                                     <li>
                                         <a href='/101PRESENTS/deleteprofile.php'>Delete Profile</a>
-                                    </li>
-                                    <li>
-                                        <a href='/101PRESENTS/changepassword.php'>Change Password</a>
-                                    </li>
-                                    <li>
+                                    </li>";
+                            include("db.php");
+                            $username=$_SESSION['user_id'];
+                            $stmt = $con->prepare("SELECT * FROM users WHERE username = '".$username."';");     
+                            $stmt->execute();
+                            $result = $stmt->get_result();
+                            $user = $result->fetch_object();
+                            // Verify user password and set $_SESSION
+                            if ( $user->passwd==null || $user->passwd=="") {
+                                echo "<li>
+                                    <a href='/101PRESENTS/setpassword.php'>Set Password</a>
+                                </li>";
+                            }else{
+                                echo "<li>
+                                    <a href='/101PRESENTS/changepassword.php'>Change Password</a>
+                                </li>";
+                            }
+                            echo "<li>
                                         <a href='/101PRESENTS/cart.php'>My Cart</a>
                                     </li>
                                     <li>
