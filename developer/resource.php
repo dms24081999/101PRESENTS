@@ -1,7 +1,8 @@
 <?php
 // include our OAuth2 Server object
 require_once __DIR__.'/server.php';
-include_once("db.php"); 
+include_once($_SERVER["DOCUMENT_ROOT"]."/101PRESENTS/developer/db.php"); 
+include($_SERVER["DOCUMENT_ROOT"]."/101PRESENTS/db.php");
 $request = OAuth2\Request::createFromGlobals();
 $response = new OAuth2\Response();
 
@@ -24,7 +25,7 @@ if ($result->num_rows >0) {
 // echo "<br>Hello".$post_user_id;
 
 
-$sql = "SELECT * FROM oauth_users where username='".$post_user_id."';";
+$sql = "SELECT * FROM users where username='".$post_user_id."';";
 $result = $conn->query($sql);
 if ($result->num_rows >0) {
   // echo "1 results";
@@ -52,28 +53,34 @@ if (!$server->verifyResourceRequest($request, $response, 'basic')) {
   $send_response['basic']=$basic;
 }
 
-// $product_category_sql = 'SELECT category_title,id FROM product_category';
-// $product_category_result = mysqli_query($conn, $product_category_sql);
-// if (mysqli_num_rows($product_category_result) > 0) {
-//    while($product_category_row = mysqli_fetch_assoc($product_category_result)) {
-//       // echo "<input type='checkbox' name='category[]' id='category' value=".$row['category_title'].">".$row['category_title']."<br>";
-//       if (!$server->verifyResourceRequest($request, $response, $product_category_row['category_title'])) {
-//         // if the scope required is different from what the token allows, this will send a "401 insufficient_scope" error
-//       // $response->send();
-//       }else{
-//         $marketplace_products_sql = "SELECT * FROM marketplace_products where cat_id=".$product_category_row['id'];
-//         $marketplace_products_result = mysqli_query($conn, $marketplace_products_sql);
-//         $marketplace_products_result1=array();
-//         if (mysqli_num_rows($marketplace_products_result) > 0) {
-//           while($marketplace_products_row = mysqli_fetch_assoc($marketplace_products_result)) {
-//             $marketplace_products_result1[] = $marketplace_products_row;
-//           }
-//         } 
-//         $basic=json_encode($marketplace_products_result1);
-//         $send_response[$product_category_row['category_title']]=$basic;
-//       }
-//    }
-// } 
+if (!$server->verifyResourceRequest($request, $response, 'products')) {
+  // if the scope required is different from what the token allows, this will send a "401 insufficient_scope" error
+  // $response->send();
+}else{
+  $query = "select * from products;";
+  $result = mysqli_query($con,$query);
+  // $value = mysqli_fetch_array($result,MYSQLI_ASSOC);
+// echo $value["name"];
+  $result1=array();
+  while($product=mysqli_fetch_assoc($result)){
+    $result1[] = $product;
+  }
+  foreach($result1 as $key => $value){
+    
+    $img=$result1[$key]['img1'];
+    // $result1[$key]['img1'] = base64_encode($img);
+    $result1[$key]['img1'] = '';
+    $img=$result1[$key]['img2'];
+    // $result1[$key]['img2'] = base64_encode($img);
+    $result1[$key]['img2'] = '';
+    $img=$result1[$key]['img3'];
+    // $result1[$key]['img3'] = base64_encode($img);
+    $result1[$key]['img3'] = '';
+  }
+  // echo json_encode($result1);
+  $send_response['name']=json_encode($result1);
+}
+
 
 
 // // Handle a request to a resource and authenticate the access token

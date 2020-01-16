@@ -15,12 +15,12 @@ while($product=mysqli_fetch_assoc($result)){
 }
 foreach($result1 as $key => $value)
 {
-    $img=$result1[$key]['img1'];
-    $result1[$key]['img1'] = base64_encode($img);
-    $img=$result1[$key]['img2'];
-    $result1[$key]['img2'] = base64_encode($img);
-    $img=$result1[$key]['img3'];
-    $result1[$key]['img3'] = base64_encode($img);
+    $img1=$result1[$key]['img1'];
+    $result1[$key]['img1'] = base64_encode($img1);
+    $img2=$result1[$key]['img2'];
+    $result1[$key]['img2'] = base64_encode($img2);
+    $img3=$result1[$key]['img3'];
+    $result1[$key]['img3'] = base64_encode($img3);
 }
 
 

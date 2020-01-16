@@ -426,8 +426,10 @@
             userid=$(this).attr('data-userid');
             prodid=$(this).attr('data-prodid');
             console.log(userid,prodid)
-            if(userid==null){
+            if(userid==null || userid==0){
                 alert("You're not logged in!")
+                document.location = 'signin.php';
+                
             }else if(userid!==null){
                 var r = confirm("Add to Cart?");
                 if (r == true) {
@@ -443,8 +445,9 @@
                         console.log(data)
                             if(data=="YES"){
                                 console.log("added")
+                                alert("Added to Cart")
                             }else{
-                                alert("can't add the row")
+                                alert("Can't add to Cart")
                             }
                         }
                     })
