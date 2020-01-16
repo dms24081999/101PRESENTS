@@ -58,7 +58,7 @@
                                     <li>
                                         <a href='/101PRESENTS/deleteprofile.php'>Delete Profile</a>
                                     </li>";
-                            include("db.php");
+                            include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/db.php');
                             $username=$_SESSION['user_id'];
                             $stmt = $con->prepare("SELECT * FROM users WHERE username = '".$username."';");     
                             $stmt->execute();

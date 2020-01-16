@@ -1,9 +1,9 @@
 <?php session_set_cookie_params(0, '/101PRESENTS');session_start();?>
 <?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/db.php');?>
-<?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/include/login_middleware.php'); ?>
+<?php //include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/include/login_middleware.php'); ?>
 <?php
-require_once('api/SocialDjangoAPI/settings.php');
-require_once('api/GoogleAPI/settings.php');
+require_once($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/api/SocialDjangoAPI/settings.php');
+require_once($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/api/GoogleAPI/settings.php');
 $login_url = 'https://accounts.google.com/o/oauth2/v2/auth?scope=' . urlencode('https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email') . '&redirect_uri=' . urlencode(CLIENT_REDIRECT_URL) . '&response_type=code&client_id=' . CLIENT_ID . '&access_type=online';
 ?>
 <?php 

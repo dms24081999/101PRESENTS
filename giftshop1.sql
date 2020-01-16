@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 15, 2020 at 04:49 PM
+-- Generation Time: Jan 16, 2020 at 04:17 PM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.1.32
 
@@ -45,6 +45,181 @@ INSERT INTO `cart` (`cartid`, `productid`, `userid`, `quantity`) VALUES
 (16, 2, 23, 3),
 (17, 5, 28, 2),
 (27, 10, 32, 3);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `oauth_access_tokens`
+--
+
+CREATE TABLE `oauth_access_tokens` (
+  `access_token` varchar(40) NOT NULL,
+  `client_id` varchar(80) NOT NULL,
+  `user_id` varchar(80) DEFAULT NULL,
+  `expires` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `scope` varchar(4000) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `oauth_access_tokens`
+--
+
+INSERT INTO `oauth_access_tokens` (`access_token`, `client_id`, `user_id`, `expires`, `scope`) VALUES
+('231e2e6ab0c5e1808203ff5983b791b9162723de', 'fdff78508f0cc44a2de96a43924bd505', 'dominicsilveira289', '2020-01-17 10:42:12', 'basic name'),
+('920cd58de5593c5d09694fcff3e80bd995413856', 'fdff78508f0cc44a2de96a43924bd505', 'dominicsilveira289', '2020-01-17 10:40:54', 'basic'),
+('c03f06ad405e4a98c44a4f2f9948620ddcce192e', '5282707af9cc7751aac5e7a8cc2bb06c', 'dominicsilveira289', '2020-01-17 09:31:23', 'basic');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `oauth_authorization_codes`
+--
+
+CREATE TABLE `oauth_authorization_codes` (
+  `authorization_code` varchar(40) NOT NULL,
+  `client_id` varchar(80) NOT NULL,
+  `user_id` varchar(80) DEFAULT NULL,
+  `redirect_uri` varchar(2000) DEFAULT NULL,
+  `expires` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `scope` varchar(4000) DEFAULT NULL,
+  `id_token` varchar(1000) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `oauth_authorization_codes`
+--
+
+INSERT INTO `oauth_authorization_codes` (`authorization_code`, `client_id`, `user_id`, `redirect_uri`, `expires`, `scope`, `id_token`) VALUES
+('2bde3d32554ed94103dd4f52fb272f0c04824977', '5282707af9cc7751aac5e7a8cc2bb06c', 'dominicsilveira289', 'http://localhost/login2/o.php', '2020-01-16 09:26:09', 'basic', NULL),
+('43d26b56c9c7b9f429d2ff6e7f53e6a5a4cd39cb', '5282707af9cc7751aac5e7a8cc2bb06c', 'dominicsilveira289', 'http://localhost/login2/o.php', '2020-01-16 09:27:06', 'basic', NULL),
+('b0ff657e31bdd797eb1f3091f3235df05793691d', '5282707af9cc7751aac5e7a8cc2bb06c', 'dominicsilveira289', 'http://localhost/login2/o.php', '2020-01-16 09:27:16', 'basic', NULL),
+('c13aa3be1a363027d99e2585ebac3ba3e8a87b7c', 'fdff78508f0cc44a2de96a43924bd505', 'dominicsilveira289', 'http://localhost/login2/o.php', '2020-01-16 10:38:41', 'basic', NULL),
+('c7e7db9f4c54678d7bc9a72f0f524dc25c9e54c0', '5282707af9cc7751aac5e7a8cc2bb06c', 'dominicsilveira289', 'http://localhost/login2/o.php', '2020-01-16 09:30:06', 'basic', NULL),
+('d7f757fef6c6aadcfdad0c19fd5aa4a2e0f71ec2', 'fdff78508f0cc44a2de96a43924bd505', 'dominicsilveira289', 'http://localhost/login2/o.php', '2020-01-16 10:39:42', 'basic', NULL),
+('e2aa4114d51370549ba89da14c80e487bd714880', 'fdff78508f0cc44a2de96a43924bd505', 'dominicsilveira289', 'http://localhost/login2/o.php', '2020-01-16 10:40:07', 'basic', NULL),
+('f4b602cc1313c2027bf96b2ac0dddc8d36fb3a78', '5282707af9cc7751aac5e7a8cc2bb06c', 'dominicsilveira289', 'http://localhost/login2/o.php', '2020-01-16 09:28:57', 'basic', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `oauth_clients`
+--
+
+CREATE TABLE `oauth_clients` (
+  `client_id` varchar(80) NOT NULL,
+  `client_secret` varchar(80) NOT NULL,
+  `redirect_uri` varchar(2000) DEFAULT NULL,
+  `grant_types` varchar(80) DEFAULT NULL,
+  `scope` varchar(4000) DEFAULT NULL,
+  `user_id` varchar(80) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `oauth_clients`
+--
+
+INSERT INTO `oauth_clients` (`client_id`, `client_secret`, `redirect_uri`, `grant_types`, `scope`, `user_id`) VALUES
+('5282707af9cc7751aac5e7a8cc2bb06c', '505824a22892846cfc32d5edaa5386f067b374c99937e8bb036478db5cf54b74', 'http://localhost/login2/o.php', NULL, NULL, 'dominicsilveira289'),
+('fdff78508f0cc44a2de96a43924bd505', '4adbacbea1ecd59b3ad20410af6ff242d78c7929ad5d7247c7a24079c6c6fe42', 'http://localhost/login2/o.php', NULL, 'basic name', 'dominicsilveira289');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `oauth_jwt`
+--
+
+CREATE TABLE `oauth_jwt` (
+  `client_id` varchar(80) NOT NULL,
+  `subject` varchar(80) DEFAULT NULL,
+  `public_key` varchar(2000) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `oauth_refresh_tokens`
+--
+
+CREATE TABLE `oauth_refresh_tokens` (
+  `refresh_token` varchar(40) NOT NULL,
+  `client_id` varchar(80) NOT NULL,
+  `user_id` varchar(80) DEFAULT NULL,
+  `expires` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `scope` varchar(4000) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `oauth_refresh_tokens`
+--
+
+INSERT INTO `oauth_refresh_tokens` (`refresh_token`, `client_id`, `user_id`, `expires`, `scope`) VALUES
+('174ec8efb57c437f1319076734d6a529e3774867', 'fdff78508f0cc44a2de96a43924bd505', 'dominicsilveira289', '2020-01-30 10:40:55', 'basic'),
+('88b62a94d43f06a530ebddf41f67370660f5fe7d', 'fdff78508f0cc44a2de96a43924bd505', 'dominicsilveira289', '2020-01-30 10:42:12', 'basic name'),
+('8ee326b77979e99d63a1a9a7c5c96b67e5cd8b1d', '5282707af9cc7751aac5e7a8cc2bb06c', 'dominicsilveira289', '2020-01-30 09:31:23', 'basic');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `oauth_scopes`
+--
+
+CREATE TABLE `oauth_scopes` (
+  `scope` varchar(80) NOT NULL,
+  `is_default` tinyint(1) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `oauth_scopes`
+--
+
+INSERT INTO `oauth_scopes` (`scope`, `is_default`) VALUES
+('basic', 1),
+('name', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `oauth_users`
+--
+
+CREATE TABLE `oauth_users` (
+  `username` varchar(80) NOT NULL,
+  `password` varchar(80) DEFAULT NULL,
+  `first_name` varchar(80) DEFAULT NULL,
+  `last_name` varchar(80) DEFAULT NULL,
+  `email` varchar(80) DEFAULT NULL,
+  `email_verified` tinyint(1) DEFAULT NULL,
+  `scope` varchar(4000) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `oauth_users`
+--
+
+INSERT INTO `oauth_users` (`username`, `password`, `first_name`, `last_name`, `email`, `email_verified`, `scope`) VALUES
+('dominicsilveira289', '47ab6900d71218ec2870e27327faa795', 'Dominic', 'Sil', 'florasilveira012@gmail.com', NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `oauth_user_permissions`
+--
+
+CREATE TABLE `oauth_user_permissions` (
+  `user_id` varchar(80) DEFAULT NULL,
+  `client_id` varchar(80) NOT NULL,
+  `scope` varchar(4000) DEFAULT NULL,
+  `id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `oauth_user_permissions`
+--
+
+INSERT INTO `oauth_user_permissions` (`user_id`, `client_id`, `scope`, `id`) VALUES
+('dominicsilveira289', '5282707af9cc7751aac5e7a8cc2bb06c', '', 3),
+('dominicsilveira289', 'fdff78508f0cc44a2de96a43924bd505', 'basic', 4),
+('dominicsilveira289', 'fdff78508f0cc44a2de96a43924bd505', 'basic name', 5);
 
 -- --------------------------------------------------------
 
@@ -128,9 +303,14 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`session_id`, `expired_timestamp`, `data`, `user_id`) VALUES
+('', '2020-02-16 07:54:49', NULL, 'dominicsilveira289'),
 ('045bh4op3frc8cqqnbqqfe7m41', '2020-02-15 02:03:44', NULL, 'dominicsilveira289'),
 ('4dgj1v358uo2fund5bnfbss89o', '2020-02-15 02:03:01', NULL, 'dms24081999'),
-('4mo3d17a34gmm53n0bmictcs4f', '2020-02-15 02:02:43', NULL, 'dms24081999');
+('4mo3d17a34gmm53n0bmictcs4f', '2020-02-15 02:02:43', NULL, 'dms24081999'),
+('53cubekeu7kj8vlna0ooqjc673', '2020-02-16 08:32:13', NULL, 'dominicsilveira289'),
+('oto9tgn8i1vd8ls8sijqgh02ba', '2020-02-16 07:33:12', NULL, 'dominicsilveira289'),
+('s5rcoegdcajabiqrb4n1i28hl6', '2020-02-16 07:56:06', NULL, 'dominicsilveira289'),
+('tkeofc6ffs0iqvrol587jou29f', '2020-01-09 07:35:43', NULL, 'dominicsilveira289');
 
 -- --------------------------------------------------------
 
@@ -170,6 +350,63 @@ ALTER TABLE `cart`
   ADD PRIMARY KEY (`cartid`);
 
 --
+-- Indexes for table `oauth_access_tokens`
+--
+ALTER TABLE `oauth_access_tokens`
+  ADD PRIMARY KEY (`access_token`),
+  ADD KEY `user_id` (`user_id`),
+  ADD KEY `client_id` (`client_id`);
+
+--
+-- Indexes for table `oauth_authorization_codes`
+--
+ALTER TABLE `oauth_authorization_codes`
+  ADD PRIMARY KEY (`authorization_code`),
+  ADD KEY `user_id` (`user_id`),
+  ADD KEY `client_id` (`client_id`);
+
+--
+-- Indexes for table `oauth_clients`
+--
+ALTER TABLE `oauth_clients`
+  ADD PRIMARY KEY (`client_id`),
+  ADD KEY `user_id` (`user_id`);
+
+--
+-- Indexes for table `oauth_jwt`
+--
+ALTER TABLE `oauth_jwt`
+  ADD KEY `client_id` (`client_id`);
+
+--
+-- Indexes for table `oauth_refresh_tokens`
+--
+ALTER TABLE `oauth_refresh_tokens`
+  ADD PRIMARY KEY (`refresh_token`),
+  ADD KEY `user_id` (`user_id`),
+  ADD KEY `client_id` (`client_id`);
+
+--
+-- Indexes for table `oauth_scopes`
+--
+ALTER TABLE `oauth_scopes`
+  ADD PRIMARY KEY (`scope`);
+
+--
+-- Indexes for table `oauth_users`
+--
+ALTER TABLE `oauth_users`
+  ADD PRIMARY KEY (`username`);
+
+--
+-- Indexes for table `oauth_user_permissions`
+--
+ALTER TABLE `oauth_user_permissions`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user_id` (`user_id`),
+  ADD KEY `client_id` (`client_id`);
+
+--
 -- Indexes for table `products`
 --
 ALTER TABLE `products`
@@ -201,6 +438,12 @@ ALTER TABLE `cart`
   MODIFY `cartid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
+-- AUTO_INCREMENT for table `oauth_user_permissions`
+--
+ALTER TABLE `oauth_user_permissions`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
@@ -215,6 +458,46 @@ ALTER TABLE `users`
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `oauth_access_tokens`
+--
+ALTER TABLE `oauth_access_tokens`
+  ADD CONSTRAINT `oauth_access_tokens_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `oauth_users` (`username`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `oauth_access_tokens_ibfk_2` FOREIGN KEY (`client_id`) REFERENCES `oauth_clients` (`client_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `oauth_authorization_codes`
+--
+ALTER TABLE `oauth_authorization_codes`
+  ADD CONSTRAINT `oauth_authorization_codes_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `oauth_users` (`username`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `oauth_authorization_codes_ibfk_2` FOREIGN KEY (`client_id`) REFERENCES `oauth_clients` (`client_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `oauth_clients`
+--
+ALTER TABLE `oauth_clients`
+  ADD CONSTRAINT `oauth_clients_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `oauth_users` (`username`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `oauth_jwt`
+--
+ALTER TABLE `oauth_jwt`
+  ADD CONSTRAINT `oauth_jwt_ibfk_1` FOREIGN KEY (`client_id`) REFERENCES `oauth_clients` (`client_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `oauth_refresh_tokens`
+--
+ALTER TABLE `oauth_refresh_tokens`
+  ADD CONSTRAINT `oauth_refresh_tokens_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `oauth_users` (`username`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `oauth_refresh_tokens_ibfk_2` FOREIGN KEY (`client_id`) REFERENCES `oauth_clients` (`client_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `oauth_user_permissions`
+--
+ALTER TABLE `oauth_user_permissions`
+  ADD CONSTRAINT `oauth_user_permissions_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `oauth_users` (`username`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `oauth_user_permissions_ibfk_2` FOREIGN KEY (`client_id`) REFERENCES `oauth_clients` (`client_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `sessions`
