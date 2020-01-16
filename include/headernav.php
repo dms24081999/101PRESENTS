@@ -78,6 +78,9 @@
                                         <a href='/101PRESENTS/cart.php'>My Cart</a>
                                     </li>
                                     <li>
+                                        <a href='/101PRESENTS/developer/signup.php'>Developers</a>
+                                    </li>
+                                    <li>
                                     <a href='/101PRESENTS/logout.php'>Logout</a>
                                     </li>
                                 </ul></li>";

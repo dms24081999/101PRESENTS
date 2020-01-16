@@ -2,6 +2,17 @@
 <?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/db.php');?>
 <?php include($_SERVER['DOCUMENT_ROOT'].'/101PRESENTS/include/login_middleware.php'); ?>
 <?php 
+if(isset($_SESSION['user_id'])){
+    $username=$_SESSION['user_id'];
+    $stmt = $con->prepare("SELECT * FROM oauth_users WHERE username = '".$username."';");     
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $user = $result->fetch_object();
+    if(isset($user)){
+        echo "<script type='text/javascript'> document.location = '/101PRESENTS/developer/generateoauthkeys.php'; </script>";
+        header("location:/101PRESENTS/developer/generateoauthkeys.php"); 
+    }
+}
 if ( isset( $_POST['signinbtn'] ) ) {
     // Getting submitted user data from database   
 

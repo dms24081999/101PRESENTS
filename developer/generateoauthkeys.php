@@ -115,9 +115,6 @@ if ($result->num_rows >0) {
             <div style="vertical-align: middle;text-align: center;color: white;">
                 <form name="signup" method="post" class="box">
                     <h1 class="signup-signin-text">Application Token Generator</h1>
-                    <div>
-                        <a href=''><img src="/101PRESENTS/assets/images/icon/circle-image.png" id="signup-avatar" style="width: 125px;height: 125px;border-radius: 50%;margin-bottom: 25px;"><input accept='image/*' type='file' style='display:none;' name='avatar' id='profile-image-change-button' onchange="readImageURL(this);"></a>
-                    </div>
                   
                         <div class="group" style="display: inline-block;">
                             <input class="input-text" type="text" name="redirect_uri" autofocus required autocomplete>
