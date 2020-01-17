@@ -31,8 +31,8 @@ if ( isset( $_POST['signinbtn'] ) ) {
                         echo "Record already exists";
                     }
 
-                    echo "<script type='text/javascript'> document.location = '/101PRESENTS/index.php'; </script>";
-                    header("location:/101PRESENTS/index.php"); 
+                    echo "<script type='text/javascript'> document.location = '/101PRESENTS/developer/generateoauthkeys.php'; </script>";
+                    header("location:/101PRESENTS/developer/generateoauthkeys.php"); 
     
             }
         }catch(Exception $e) {

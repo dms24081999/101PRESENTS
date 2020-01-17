@@ -3,3 +3,6 @@ http://localhost/101PRESENTS/developer/authorize.php?response_type=code&client_i
 curl -u fdff78508f0cc44a2de96a43924bd505:4adbacbea1ecd59b3ad20410af6ff242d78c7929ad5d7247c7a24079c6c6fe42 http://localhost/101PRESENTS/developer/token.php -d "grant_type=authorization_code&code=abc8385920c46a7ee07d91bcddae683bbc258d81&redirect_uri=http://localhost/login2/o.php"
 
 curl http://localhost/101PRESENTS/developer/resource.php -d "access_token=c03f06ad405e4a98c44a4f2f9948620ddcce192e"
+
+
+http://localhost/101PRESENTS/developer/authorize.php?response_type=code&client_id=a3fcb8b358f975927af1ea0c454ca98e&redirect_uri=http://localhost/login/o.php&scope=products

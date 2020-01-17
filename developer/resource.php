@@ -78,7 +78,7 @@ if (!$server->verifyResourceRequest($request, $response, 'products')) {
     $result1[$key]['img3'] = '';
   }
   // echo json_encode($result1);
-  $send_response['name']=json_encode($result1);
+  $send_response['products']=json_encode($result1);
 }
 
 
